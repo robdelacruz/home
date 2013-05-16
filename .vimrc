@@ -20,3 +20,6 @@ nnoremap <F7>  :tabprevious<CR>
 nnoremap <F8>  :tabnext<CR>
 nnoremap <C-t> :tabnew<CR>
 
+nnoremap <C-h> :tabprevious<CR>
+nnoremap <C-l> :tabnext<CR>
+

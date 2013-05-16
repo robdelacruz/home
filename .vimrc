@@ -5,8 +5,8 @@ set hlsearch
 set incsearch
 
 syntax on
-colorscheme zenburn
 set background=dark
+colorscheme zenburn
 
 set smarttab
 set shiftwidth=4

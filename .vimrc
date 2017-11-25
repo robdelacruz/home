@@ -1,6 +1,8 @@
 execute pathogen#infect()
-call pathogen#helptags()
-syntax on
+
+"set nocompatible
+
+syntax enable
 filetype on
 filetype plugin on
 filetype indent on
@@ -11,9 +13,16 @@ set smartcase
 set hlsearch
 set incsearch
 
-set background=dark
-"colorscheme zenburn
+set t_Co=256
+set background=light
+"set background=dark
+"colorscheme newspaper
+"colorscheme PaperColor
+colorscheme solarized
+"colorscheme material-theme
+"colorscheme material
 "colorscheme desert256
+"colorscheme nord
 
 set expandtab
 set shiftwidth=4
@@ -21,6 +30,16 @@ set tabstop=4
 
 set ai
 set si
+
+set showcmd
+set showmode
+set backspace=indent,eol,start
+
+set number
+set ruler
+set title
+set visualbell
+set laststatus=2
 
 " Tab Navigation
 nnoremap <C-h>  :tabprevious<CR>

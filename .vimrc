@@ -10,23 +10,29 @@ filetype indent on
 set ignorecase
 set smartcase
 
-set hlsearch
+"set hlsearch
 set incsearch
 
 set t_Co=256
-set background=light
+"set background=light
 "set background=dark
 "colorscheme newspaper
 "colorscheme PaperColor
-colorscheme solarized
+"colorscheme solarized
 "colorscheme material-theme
 "colorscheme material
 "colorscheme desert256
 "colorscheme nord
+colorscheme new-moon
+
+set guioptions-=m
+set guioptions-=T
+set guioptions-=r
+set guioptions-=L
 
 set expandtab
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 
 set ai
 set si
@@ -49,11 +55,20 @@ nnoremap <F6>   :e#<CR>
 nnoremap <C-j>  :e#<CR>
 vnoremap <C-p>  "_dP
 vnoremap <C-c>  "+y
-nnoremap <C-p>  "+P"
+nnoremap <C-v>  "+P"
 imap     jj     <ESC>
+nnoremap <C-g>  :GoDef<CR>
 
 "let &colorcolumn=join(range(81,999), ",")
 "highlight ColorColumn ctermbg=235 guibg=£2c2d27
 "set columns=161
 "set lines=47
+
+"autocmd FileType javascript set formatprg=prettier\ --stdin
+"autocmd BufWritePre *.js :normal gggqG
+
+"autocmd FileType typescript set formatprg=prettier\ --stdin
+"autocmd BufWritePre *.ts :normal gggqG
+
+autocmd BufNewFile,BufRead *.psgi set filetype=perl
 

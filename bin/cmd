@@ -1,0 +1,6 @@
+#!/bin/bash
+caps.sh
+cd ~/go/src/nb
+#cd ~/go/src/parser
+tmux new-session \; split-window -h
+

@@ -44,7 +44,7 @@ set backspace=indent,eol,start
 set number
 set ruler
 set title
-set visualbell
+"set visualbell
 set laststatus=2
 
 " Tab Navigation
@@ -71,4 +71,7 @@ nnoremap <C-g>  :GoDef<CR>
 "autocmd BufWritePre *.ts :normal gggqG
 
 autocmd BufNewFile,BufRead *.psgi set filetype=perl
+
+let g:go_highlight_trailing_whitespace_error=0
+
 

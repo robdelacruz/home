@@ -8,7 +8,6 @@ export PATH=$PATH:$GOPATH/bin
 alias psaux='ps aux'
 alias pico8='/usr/local/bin/pico-8/pico8'
 alias lua='lua5.3'
-alias go='/usr/local/go/bin/go'
 
 alias src='cd ~/src'
 alias gosrc='cd ~/go/src'

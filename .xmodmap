@@ -10,3 +10,8 @@ keysym l = l L Right
 keysym j = j J Down
 keysym k = k K Up
 
+keysym a = a A Home
+keysym e = e E End
+keysym u = u U Prior
+keysym d = d D Next
+

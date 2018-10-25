@@ -1,4 +1,12 @@
-remove Lock = Caps_Lock
-keysym Caps_Lock = Control_L
+clear Lock
+clear Control
+keycode 66 = Control_L
 add Control = Control_L
+add Control = Control_R
+
+keycode 37 = Mode_switch
+keysym h = h H Left
+keysym l = l L Right
+keysym j = j J Down
+keysym k = k K Up
 

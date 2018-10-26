@@ -1,1 +1,0 @@
-xmodmap /home/rob/.xmodmap

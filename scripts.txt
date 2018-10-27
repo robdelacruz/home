@@ -1,0 +1,9 @@
+Touchpad scripts
+----------------
+synclient TouchpadOff=1
+synclient TouchpadOff=0
+
+Test DNS
+--------
+dig www.google.com  # dig <domain>
+

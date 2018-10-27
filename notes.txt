@@ -1,4 +1,5 @@
-Compile sqlite3 with FTS5 and readline:
+Compile sqlite3 with FTS5 and readline
+--------------------------------------
 https://superuser.com/questions/82408/sqlite-with-readline-support-on-ubuntu/1364261#1364261
 
 1. Download the zip file containing C source code from https://www.sqlite.org/download.html (sqlite-amalgamation-nnnnnnn.zip)
@@ -14,3 +15,9 @@ gcc -DSQLITE_ENABLE_FTS5 -DHAVE_READLINE shell.c sqlite3.c -lpthread -ldl -lm -l
 Note: You need -DHAVE_READLINE and -lreadline and -lncurses to get readline functionality.
 
 Copy the sqlite3 binary to /usr/bin or add to your path.
+
+Touchpad scripts
+----------------
+synclient TouchpadOff=1
+synclient TouchpadOff=0
+

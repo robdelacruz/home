@@ -1,4 +1,4 @@
-export TERM=xterm-256color
+#export TERM=xterm-256color
 #export TERM=xterm-truecolor
 
 export GOPATH=~/go
@@ -17,6 +17,8 @@ alias grepgo='grep --include=*.go -ir'
 alias b='./b'
 #alias b='npm run build'
 #alias s='npm start'
+
+alias gtkbook='thunar ~/books/"Krause - Foundations of GTK Development (Apress, 2007).pdf"'
 
 alias gentext='gentext -chain ~/bin/trigram.mkv -seed 1'
 

@@ -71,6 +71,7 @@ nnoremap <C-g>  :GoDef<CR>
 "autocmd BufWritePre *.ts :normal gggqG
 
 autocmd BufNewFile,BufRead *.psgi set filetype=perl
+autocmd BufNewFile,BufRead *.vala set filetype=cs
 
 let g:go_highlight_trailing_whitespace_error=0
 

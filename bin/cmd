@@ -1,5 +1,6 @@
 #!/bin/bash
 caps.sh
-cd ~/src/ncurstest
-tmux -2 new-session \; split-window -h
+#cd ~/src/ncurstest;
+#tmux -2 new-session \; split-window -h
+tmux -2 new-session -c ~/src/ncurstest \; split-window -h
 

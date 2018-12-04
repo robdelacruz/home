@@ -1,6 +1,10 @@
 #export TERM=xterm-256color
 #export TERM=xterm-truecolor
 
+#if [ "$COLORTERM" == "xfce4-terminal" ] ; then
+#  export TERM=xterm-256color
+#fi
+
 export GOPATH=~/go
 export GOSRC=~/go/src
 export PATH=$PATH:$GOPATH/bin

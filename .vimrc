@@ -14,6 +14,7 @@ set smartcase
 set incsearch
 
 set t_Co=256
+let g:solarized_termcolors=256
 "set background=light
 "set background=dark
 "colorscheme newspaper
@@ -71,8 +72,12 @@ nnoremap <C-g>  :GoDef<CR>
 "autocmd BufWritePre *.ts :normal gggqG
 
 autocmd BufNewFile,BufRead *.psgi set filetype=perl
+<<<<<<< HEAD
 autocmd BufNewFile,BufRead *.vala set filetype=cs
 autocmd BufNewFile,BufRead *.nim set filetype=nim
+=======
+au FileType python set et ts=2 sts=2 sw=2
+>>>>>>> updates
 
 let g:go_highlight_trailing_whitespace_error=0
 

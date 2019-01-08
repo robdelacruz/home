@@ -5,7 +5,7 @@
 #  export TERM=xterm-256color
 #fi
 
-export PATH=$PATH:~/.nimble/bin
+export PATH=$PATH:/usr/local/go/bin:~/.nimble/bin
 
 export GOPATH=~/go
 export GOSRC=~/go/src

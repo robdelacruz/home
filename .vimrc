@@ -1,5 +1,17 @@
 execute pathogen#infect()
 
+":PlugInstall to install plugins, :PlugUpdate to update plugins.
+call plug#begin('~/.vim/plugged')
+
+Plug 'junegunn/seoul256.vim'
+Plug 'kaicataldo/material.vim'
+Plug 'drewtempelmeyer/palenight.vim'
+
+call plug#end()
+
+"Reload .vimrc with the line below:
+"  source ~/.vimrc
+
 "set nocompatible
 
 syntax enable
@@ -13,27 +25,39 @@ set smartcase
 "set hlsearch
 set incsearch
 
+if (has("termguicolors"))
+    set termguicolors
+endif
 set t_Co=256
 let g:solarized_termcolors=256
-"set background=light
-"set background=dark
-"colorscheme newspaper
-"colorscheme PaperColor
-"colorscheme solarized
-"colorscheme material-theme
-"colorscheme material
-"colorscheme desert256
-"colorscheme nord
-colorscheme new-moon
+let g:palenight_terminal_italics=1
 
-set guioptions-=m
-set guioptions-=T
-set guioptions-=r
-set guioptions-=L
+if has("gui_running")
+    set guioptions-=m
+    set guioptions-=T
+    set guioptions-=r
+    set guioptions-=L
+
+    "set background=light
+    "set background=dark
+    "colorscheme newspaper
+    "colorscheme PaperColor
+    "colorscheme solarized
+    "colorscheme material-theme
+    "colorscheme material
+    "colorscheme desert256
+    "colorscheme nord
+    "colorscheme new-moon
+    colorscheme manuscript
+    "colorscheme night-owl
+else
+    colorscheme night-owl
+endif
 
 set expandtab
-set shiftwidth=2
-set tabstop=2
+set smarttab
+set shiftwidth=4
+set tabstop=4
 
 set ai
 set si
@@ -74,7 +98,6 @@ nnoremap <C-g>  :GoDef<CR>
 autocmd BufNewFile,BufRead *.psgi set filetype=perl
 autocmd BufNewFile,BufRead *.vala set filetype=cs
 autocmd BufNewFile,BufRead *.nim set filetype=nim
-au FileType python set et ts=2 sts=2 sw=2
 
 let g:go_highlight_trailing_whitespace_error=0
 

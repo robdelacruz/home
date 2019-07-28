@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =4
 let g:netrw_dirhist_1='/home/rob/go/src/tix3'
 let g:netrw_dirhist_2='/'
 let g:netrw_dirhist_3='/etc/nginx/sites-available'
+let g:netrw_dirhist_4='/home/rob/.vim'

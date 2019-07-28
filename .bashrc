@@ -5,12 +5,14 @@
 #  export TERM=xterm-256color
 #fi
 
-export PATH=$PATH:/usr/local/go/bin:~/.nimble/bin
+export PATH=$PATH:/usr/local/go/bin:./
 
 export GOPATH=~/go
 export GOSRC=~/go/src
 export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:~/.nimble/bin
+
+# Set vi editing mode
+#set -o vi
 
 alias psaux='ps aux'
 alias pico8='/usr/local/bin/pico-8/pico8'
@@ -35,11 +37,9 @@ alias gtkbook='thunar ~/books/"Krause - Foundations of GTK Development (Apress, 
 alias gentext='gentext -chain ~/bin/trigram.mkv -seed 1'
 alias gtkbook='thunar ~/books/Apress.Foundations.Of.GTK.Plus.Development.Build.Sophisticated.Graphical.Applications.Using.One.Of.The.Worlds.Most.Powerful.Cross.Platform.Toolkits.Apr.2007.ISBN.1590597931.pdf'
 
-#PATH="/home/rob/perl5/bin${PATH:+:${PATH}}"; export PATH;
-#PERL5LIB="/home/rob/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-#PERL_LOCAL_LIB_ROOT="/home/rob/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-#PERL_MB_OPT="--install_base \"/home/rob/perl5\""; export PERL_MB_OPT;
-#PERL_MM_OPT="INSTALL_BASE=/home/rob/perl5"; export PERL_MM_OPT;
+alias grabdate='echo -n Grab_`date --iso-8601`.pdf | sed "s/-/_/g" | xclip -selection clipboard'
+
+alias jen='/home/rob/src/jenny/bin/jenny'
 
 export PERL5LIB=~/bin:$PERL5LIB
 

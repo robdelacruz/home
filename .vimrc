@@ -39,7 +39,7 @@ if has("gui_running")
     set guioptions-=L
 
     "set background=light
-    "set background=dark
+    set background=dark
     "colorscheme newspaper
     "colorscheme PaperColor
     "colorscheme solarized
@@ -47,11 +47,19 @@ if has("gui_running")
     "colorscheme material
     "colorscheme desert256
     "colorscheme nord
-    "colorscheme new-moon
     colorscheme manuscript
     "colorscheme night-owl
+    "colorscheme paramount
+    "colorscheme pencil
+    "colorscheme desert
+    "colorscheme new-moon
 else
+    set background=dark
     colorscheme night-owl
+    "colorscheme paramount
+    "colorscheme pencil
+    "colorscheme desert
+    "colorscheme new-moon
 endif
 
 set expandtab

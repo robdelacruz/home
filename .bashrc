@@ -44,3 +44,6 @@ alias jen='/home/rob/src/jenny/bin/jenny'
 export PERL5LIB=~/bin:$PERL5LIB
 
 export PS1='\[\e[0;33m\]\u:\[\e[m\e[0;32m\]\W \$ \[\e[m\]'
+
+fortune
+

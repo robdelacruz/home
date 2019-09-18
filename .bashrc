@@ -12,6 +12,7 @@ export GOSRC=~/go/src
 export PATH=$PATH:$GOPATH/bin
 
 export FORTUNE2FILE=~/src/fortune2/fortune2.db
+export EXPFILE=~/files/expenses
 
 # Set vi editing mode
 #set -o vi

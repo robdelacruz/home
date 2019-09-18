@@ -1,6 +1,5 @@
-#!/bin/bash
+#!/bin/sh
 caps.sh
-#cd ~/src/ncurstest;
-#tmux -2 new-session \; split-window -h
-tmux -2 new-session -c ~/src/ncurstest \; split-window -h
+STARTDIR=${STARTDIR:-~/src}
+tmux -2 new-session -c $STARTDIR \; split-window -h
 

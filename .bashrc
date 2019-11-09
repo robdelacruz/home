@@ -13,6 +13,8 @@ export PATH=$PATH:$GOPATH/bin
 
 export FORTUNE2FILE=~/src/fortune2/fortune2.db
 export EXPFILE=~/files/expenses
+export SPOTDB=~/src/spot/spot.db
+export STARTDIR=~/src/spot
 
 # Set vi editing mode
 #set -o vi
@@ -30,6 +32,7 @@ alias py='python3'
 alias tblrob='py ~/src/tbl-maker/main.py ~/robnotes.db'
 alias o='xdg-open'
 alias db='sqlite3 db'
+alias tsc='tsc --strict'
 
 alias grepgo='grep --include=*.go -ir'
 alias greppy='grep --include=*.py -ir'

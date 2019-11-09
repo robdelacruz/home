@@ -1,14 +1,5 @@
 execute pathogen#infect()
 
-":PlugInstall to install plugins, :PlugUpdate to update plugins.
-call plug#begin('~/.vim/plugged')
-
-Plug 'junegunn/seoul256.vim'
-Plug 'kaicataldo/material.vim'
-Plug 'drewtempelmeyer/palenight.vim'
-
-call plug#end()
-
 "Reload .vimrc with the line below:
 "  source ~/.vimrc
 
@@ -47,8 +38,8 @@ if has("gui_running")
     "colorscheme material
     "colorscheme desert256
     "colorscheme nord
-    colorscheme manuscript
-    "colorscheme night-owl
+    "colorscheme manuscript
+    colorscheme night-owl
     "colorscheme paramount
     "colorscheme pencil
     "colorscheme desert

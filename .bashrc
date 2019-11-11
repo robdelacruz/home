@@ -32,7 +32,6 @@ alias py='python3'
 alias tblrob='py ~/src/tbl-maker/main.py ~/robnotes.db'
 alias o='xdg-open'
 alias db='sqlite3 db'
-alias tsc='tsc --strict'
 
 alias grepgo='grep --include=*.go -ir'
 alias greppy='grep --include=*.py -ir'

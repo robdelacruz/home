@@ -10,11 +10,12 @@ export PATH=.:$PATH:/usr/local/go/bin
 export GOPATH=~/go
 export GOSRC=~/go/src
 export PATH=$PATH:$GOPATH/bin
+export VISUAL=vim
+export EDITOR=vim
 
 export FORTUNE2FILE=~/src/fortune2/fortune2.db
 export EXPFILE=~/files/expenses
-export SPOTDB=~/src/spot/spot.db
-export STARTDIR=~/src/spot
+export STARTDIR=~/src/freeblog
 
 # Set vi editing mode
 #set -o vi
@@ -28,29 +29,24 @@ alias src='cd ~/src'
 alias gosrc='cd ~/go/src'
 alias pyweb='python -m SimpleHTTPServer'
 alias dl='instagram-dl.pl'
+alias ydl='youtube-dl -f 18'
 alias py='python3'
 alias tblrob='py ~/src/tbl-maker/main.py ~/robnotes.db'
 alias o='xdg-open'
 alias db='sqlite3 db'
-alias tsc='tsc --strict'
 
 alias grepgo='grep --include=*.go -ir'
 alias greppy='grep --include=*.py -ir'
 alias b='make'
-
-alias gtkbook='thunar ~/books/"Krause - Foundations of GTK Development (Apress, 2007).pdf"'
-
 alias gentext='gentext -chain ~/bin/trigram.mkv -seed 1'
-alias gtkbook='thunar ~/books/Apress.Foundations.Of.GTK.Plus.Development.Build.Sophisticated.Graphical.Applications.Using.One.Of.The.Worlds.Most.Powerful.Cross.Platform.Toolkits.Apr.2007.ISBN.1590597931.pdf'
-
 alias grabdate='echo -n Grab_`date --iso-8601`.pdf | sed "s/-/_/g" | xclip -selection clipboard'
-
-alias jen='/home/rob/src/jenny/bin/jenny'
 alias cdconv='cd ~/go/src/conv'
+alias sshroblinode='ssh rob@172.105.121.218'
 
 export PERL5LIB=~/bin:$PERL5LIB
 
 export PS1='\[\e[0;33m\]\u:\[\e[m\e[0;32m\]\W \$ \[\e[m\]'
 
+#fortune2 -c linux linuxcookie perl
 fortune2 -c
 

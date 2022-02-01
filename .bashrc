@@ -41,12 +41,8 @@ alias b='make'
 alias gentext='gentext -chain ~/bin/trigram.mkv -seed 1'
 alias grabdate='echo -n Grab_`date --iso-8601`.pdf | sed "s/-/_/g" | xclip -selection clipboard'
 alias cdconv='cd ~/go/src/conv'
-alias sshroblinode='ssh rob@172.105.121.218'
 
 export PERL5LIB=~/bin:$PERL5LIB
 
 export PS1='\[\e[0;33m\]\u:\[\e[m\e[0;32m\]\W \$ \[\e[m\]'
-
-#fortune2 -c linux linuxcookie perl
-fortune2 -c
 

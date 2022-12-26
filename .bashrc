@@ -15,7 +15,10 @@ export EDITOR=vim
 
 export FORTUNE2FILE=~/src/fortune2/fortune2.db
 export EXPFILE=~/files/expenses
-export STARTDIR=~/src/freeblog
+export STARTDIR=~/src/qttest
+
+alias openbook='o ~/books/qt/C*'
+alias openqtbook='o ~/books/qt/"The Book of Qt 4 The Art of Building Qt Applications by Daniel Molkentin (z-lib.org).pdf"'
 
 # Set vi editing mode
 #set -o vi
@@ -41,8 +44,18 @@ alias b='make'
 alias gentext='gentext -chain ~/bin/trigram.mkv -seed 1'
 alias grabdate='echo -n Grab_`date --iso-8601`.pdf | sed "s/-/_/g" | xclip -selection clipboard'
 alias cdconv='cd ~/go/src/conv'
+alias sshroblinode='ssh rob@172.105.121.218'
+alias gvimsrc='gvim *.svelte *.js *.css *.go Makefile'
 
 export PERL5LIB=~/bin:$PERL5LIB
 
 export PS1='\[\e[0;33m\]\u:\[\e[m\e[0;32m\]\W \$ \[\e[m\]'
 
+#fortune2 -c linux linuxcookie perl
+#fortune2 -c
+
+
+
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

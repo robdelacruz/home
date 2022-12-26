@@ -1,9 +1,20 @@
-execute pathogen#infect()
+"execute pathogen#infect()
+"call plug#begin('~/.vim/plugged')
+"Plug 'https://github.com/drewtempelmeyer/palenight.vim.git'
+"call plug#end()
+
+"Install plug with:
+" :PlugInstall
 
 "Reload .vimrc with the line below:
 "  source ~/.vimrc
 
 "set nocompatible
+
+"vim-go cheatsheet:
+" gd (:GoDef) go to definition
+" K (:GoDoc) open window for quick documentation
+" :GoRun :GoBuild :GoInstall
 
 syntax enable
 filetype on
@@ -16,42 +27,41 @@ set smartcase
 "set hlsearch
 set incsearch
 
-if (has("termguicolors"))
-    set termguicolors
-endif
+"if (has("termguicolors"))
+"    set termguicolors
+"endif
 set t_Co=256
-let g:solarized_termcolors=256
-let g:palenight_terminal_italics=1
+"let g:solarized_termcolors=256
+"let g:palenight_terminal_italics=1
 
+" Turn off menu, toolbar, left/right scrollbar, 
 if has("gui_running")
     set guioptions-=m
     set guioptions-=T
-    set guioptions-=r
+    set guioptions-=l
     set guioptions-=L
-
-    "set background=light
-    set background=dark
-    "colorscheme newspaper
-    "colorscheme PaperColor
-    "colorscheme solarized
-    "colorscheme material-theme
-    "colorscheme material
-    "colorscheme desert256
-    "colorscheme nord
-    "colorscheme manuscript
-    colorscheme night-owl
-    "colorscheme paramount
-    "colorscheme pencil
-    "colorscheme desert
-    "colorscheme new-moon
-else
-    set background=dark
-    colorscheme night-owl
-    "colorscheme paramount
-    "colorscheme pencil
-    "colorscheme desert
-    "colorscheme new-moon
+    set guioptions-=r
+    set guioptions-=R
 endif
+
+"set background=light
+"set background=dark
+"colorscheme newspaper
+"colorscheme PaperColor
+"colorscheme solarized
+"colorscheme material-theme
+"colorscheme material
+"colorscheme desert256
+"colorscheme nord
+"colorscheme manuscript
+colorscheme night-owl
+"colorscheme paramount
+"colorscheme pencil
+"colorscheme desert
+"colorscheme new-moon
+"colorscheme palenight
+"colorscheme darkZ
+"colorscheme darkblue
 
 set expandtab
 set smarttab
@@ -97,6 +107,7 @@ nnoremap <C-g>  :GoDef<CR>
 autocmd BufNewFile,BufRead *.psgi set filetype=perl
 autocmd BufNewFile,BufRead *.vala set filetype=cs
 autocmd BufNewFile,BufRead *.nim set filetype=nim
+"autocmd BufNewFile,BufRead *.svelte set filetype=html
 
 let g:go_highlight_trailing_whitespace_error=0
 

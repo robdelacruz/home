@@ -35,8 +35,8 @@ set termguicolors
 "    set termguicolors
 "endif
 set t_Co=256
-"let g:solarized_termcolors=256
-"let g:palenight_terminal_italics=1
+let g:solarized_termcolors=256
+let g:palenight_terminal_italics=1
 
 " Turn off menu, toolbar, left/right scrollbar, 
 if has("gui_running")

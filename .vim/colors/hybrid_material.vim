@@ -7,7 +7,6 @@
 
 " Description:"{{{
 " ----------------------------------------------------------------------------
-"
 " The default RGB colour palette is taken from Tomorrow-Night.vim:
 " https://github.com/chriskempson/vim-tomorrow-theme
 "
@@ -103,7 +102,7 @@ let s:palette.gui.green      = { 'dark' : "#b5bd68"        , 'light' : "#005f00"
 let s:palette.gui.aqua       = { 'dark' : "#8abeb7"        , 'light' : "#005f5f" }
 let s:palette.gui.blue       = { 'dark' : "#81a2be"        , 'light' : "#00005f" }
 let s:palette.gui.purple     = { 'dark' : "#b294bb"        , 'light' : "#5f005f" }
-let s:palette.gui.window     = { 'dark' : s:gui_selection  , 'light' : "#9e9e9e" }
+let s:palette.gui.window     = { 'dark' : "#303030"        , 'light' : "#9e9e9e" }
 let s:palette.gui.darkcolumn = { 'dark' : "#1c1c1c"        , 'light' : "#808080" }
 let s:palette.gui.addbg      = { 'dark' : "#5F875F"        , 'light' : "#d7ffd7" }
 let s:palette.gui.addfg      = { 'dark' : "#d7ffaf"        , 'light' : "#005f00" }
@@ -323,12 +322,12 @@ exe "hi! PmenuSel"      .s:fg_foreground  .s:bg_selection   .s:fmt_revr
 exe "hi! Question"      .s:fg_green       .s:bg_none        .s:fmt_none
 exe "hi! Search"        .s:fg_background  .s:bg_yellow      .s:fmt_none
 exe "hi! SpecialKey"    .s:fg_selection   .s:bg_none        .s:fmt_none
-exe "hi! SpellCap"      .s:fg_blue        .s:bg_none        .s:fmt_undr
-exe "hi! SpellLocal"    .s:fg_aqua        .s:bg_none        .s:fmt_undr
-exe "hi! SpellBad"      .s:fg_red         .s:bg_none        .s:fmt_undr
-exe "hi! SpellRare"     .s:fg_purple      .s:bg_none        .s:fmt_undr
-exe "hi! StatusLine"    .s:fg_foreground  .s:bg_selection   .s:fg_bold
-exe "hi! StatusLineNC"  .s:fg_window      .s:bg_comment     .s:fmt_none
+exe "hi! SpellCap"      .s:fg_blue        .s:bg_darkblue    .s:fmt_undr
+exe "hi! SpellLocal"    .s:fg_aqua        .s:bg_darkcyan    .s:fmt_undr
+exe "hi! SpellBad"      .s:fg_red         .s:bg_darkred     .s:fmt_undr
+exe "hi! SpellRare"     .s:fg_purple      .s:bg_darkpurple  .s:fmt_undr
+exe "hi! StatusLine"    .s:fg_comment     .s:bg_background  .s:fmt_revr
+exe "hi! StatusLineNC"  .s:fg_window      .s:bg_comment     .s:fmt_revr
 exe "hi! TabLine"       .s:fg_foreground  .s:bg_darkcolumn  .s:fmt_revr
 "   TabLineFill"
 "   TabLineSel"
@@ -393,7 +392,7 @@ exe "hi! Underlined"      .s:fg_blue        .s:bg_none        .s:fmt_none
 
 exe "hi! Ignore"          .s:fg_none        .s:bg_none        .s:fmt_none
 
-exe "hi! Error"           .s:fg_red         .s:bg_none        .s:fmt_none
+exe "hi! Error"           .s:fg_purple      .s:bg_darkred     .s:fmt_undr
 
 exe "hi! Todo"            .s:fg_addfg       .s:bg_none        .s:fg_bold
 
@@ -417,9 +416,9 @@ exe "hi! qfLineNr"        .s:fg_yellow      .s:bg_none        .s:fmt_none
 "   diffIsA
 "   diffNoEOL
 "   diffCommon
-hi! link diffRemoved Special
+hi! link diffRemoved Constant
 "   diffChanged
-hi! link diffAdded String
+hi! link diffAdded Special
 "   diffLine
 "   diffSubname
 "   diffComment

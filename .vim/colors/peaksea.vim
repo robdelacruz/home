@@ -38,6 +38,8 @@ endif
 
 let g:colors_name = expand("<sfile>:t:r")
 
+set fillchars+=vert:│
+
 " I don't want to abuse folding, but here folding is used to avoid confusion. 
 if &background=='light' 
   " for background=light {{{2
@@ -82,7 +84,7 @@ if &background=='light'
 
   hi IncSearch		guifg=#f0f0f0	guibg=#806060	gui=NONE
   hi StatusLineNC	guifg=fg	guibg=#c0c0c0	gui=NONE
-  hi VertSplit		guifg=fg	guibg=#c0c0c0	gui=NONE
+  hi VertSplit		guifg=NONE	guibg=NONE	gui=NONE
   hi Underlined		guifg=#6a5acd	guibg=NONE	gui=underline
   hi Ignore		guifg=bg	guibg=NONE
   " NOTE THIS IS IN THE WARM SECTION
@@ -120,7 +122,7 @@ if &background=='light'
     endif
     hi TabLine		gui=underline
     hi TabLineFill	gui=underline
-    hi CursorLine	gui=underline
+    hi CursorLine	gui=NONE
   endif
 
   " For reversed stuffs, clear the reversed prop and set the bold prop again
@@ -195,7 +197,7 @@ if &background=='light'
 
     hi IncSearch	ctermfg=255	ctermbg=95	cterm=NONE
     hi StatusLineNC	ctermfg=fg	ctermbg=250	cterm=NONE
-    hi VertSplit	ctermfg=fg	ctermbg=250	cterm=NONE
+    hi VertSplit	ctermfg=NONE	ctermbg=NONE	cterm=NONE
     hi Underlined	ctermfg=62	ctermbg=NONE	cterm=underline
     hi Ignore		ctermfg=bg	ctermbg=NONE
     " NOTE THIS IS IN THE WARM SECTION
@@ -266,13 +268,14 @@ elseif &background=='dark'
   hi Special		guifg=#e0c060	guibg=NONE	gui=NONE
   hi Error		guifg=#f08060	guibg=NONE	gui=NONE
   hi Todo		guifg=#800000	guibg=#d0d090	gui=NONE
-  hi Search		guifg=NONE	guibg=#800000	gui=NONE
-  hi Visual		guifg=#000000	guibg=#a6caf0	gui=NONE
-  hi Cursor		guifg=#000000	guibg=#00f000	gui=NONE
+  hi Search	        guifg=#ffff00	guibg=#000000	gui=STANDOUT
+  hi Visual		guifg=NONE	guibg=#606060	gui=NONE
+  hi Cursor		guifg=#202020	guibg=#e7e7e7	gui=NONE
   " NOTE THIS IS IN THE COOL SECTION
   hi CursorIM		guifg=#000000	guibg=#f0c0f0	gui=NONE
-  hi StatusLine		guifg=#000000	guibg=#a6caf0	gui=NONE
-  hi LineNr		guifg=#b0b0b0	guibg=NONE	gui=NONE
+  hi StatusLine		guifg=#ffffff	guibg=#272822	gui=bold
+  hi LineNr		guifg=#b0b0b0	guibg=#333333	gui=NONE
+  hi CursorLineNr	guifg=#b0b0b0	guibg=#666666	gui=NONE
   hi Question		guifg=#000000	guibg=#d0d090	gui=NONE
   hi ModeMsg		guifg=fg	guibg=#000080	gui=NONE
   hi VisualNOS		guifg=fg	guibg=#000080	gui=NONE
@@ -284,18 +287,40 @@ elseif &background=='dark'
   hi Title		guifg=#f0c0f0	guibg=NONE	gui=NONE
   hi WarningMsg		guifg=#f08060	guibg=NONE	gui=NONE
   hi WildMenu		guifg=#000000	guibg=#d0d090	gui=NONE
-  hi Folded		guifg=NONE	guibg=#004000	gui=NONE
-  hi FoldColumn		guifg=#e0e0e0	guibg=#008000	gui=NONE
-  hi DiffAdd		guifg=NONE	guibg=#000080	gui=NONE
-  hi DiffChange		guifg=NONE	guibg=#800080	gui=NONE
-  hi DiffDelete		guifg=#6080f0	guibg=#202020	gui=NONE
-  hi DiffText		guifg=#000000	guibg=#c0e080	gui=NONE
-  hi SignColumn		guifg=#e0e0e0	guibg=#008000	gui=NONE
+  hi Folded		guifg=NONE	guibg=#666666	gui=NONE
+  hi FoldColumn		guifg=#a6e22e	guibg=NONE	gui=NONE
+  hi DiffAdd		guifg=NONE	guibg=#193300	gui=NONE
+  hi DiffChange		guifg=NONE	guibg=#333300	gui=NONE
+  hi DiffDelete		guifg=#d70000   guibg=NONE	gui=NONE
+  hi DiffText		guifg=NONE	guibg=#666600	gui=NONE
+  hi SignColumn		guifg=#e0e0e0	guibg=NONE	gui=NONE
   hi IncSearch		guifg=#000000	guibg=#d0d0d0	gui=NONE
   hi StatusLineNC	guifg=#000000	guibg=#c0c0c0	gui=NONE
-  hi VertSplit		guifg=#000000	guibg=#c0c0c0	gui=NONE
-  hi Underlined		guifg=#80a0ff	guibg=NONE	gui=underline 
+  hi VertSplit		guifg=NONE	guibg=NONE	gui=NONE
+  hi Underlined		guifg=#80a0ff	guibg=NONE	gui=NONE
   hi Ignore		guifg=#000000	guibg=NONE
+
+
+  hi gitcommitComment   guifg=#75715e   guibg=NONE      gui=NONE
+
+  hi link gitcommitUntracked gitcommitComment
+  hi link gitcommitDiscarded gitcommitComment
+  hi link gitcommitSelected  gitcommitComment
+
+  hi gitcommitHeader    guifg=#cc99ff   guibg=NONE       gui=NONE
+
+  hi gitcommitSelectedType guifg=#80c0e0  guibg=NONE    gui=BOLD
+  hi link gitcommitUnmergedType  gitcommitSelectedType
+  hi link gitcommitDiscardedType gitcommitSelectedType
+
+  hi gitcommitBranch guifg=#f88b0c     guibg=NONE     gui=BOLD
+
+  hi gitcommitUntrackedFile  guifg=#fffd01   guibg=NONE	 gui=NONE
+  hi gitcommitUnmergedFile   guifg=#d70000   guibg=NONE	 gui=NONE
+  hi gitcommitDiscardedFile  guifg=#d70000   guibg=NONE	 gui=NONE
+  hi gitcommitSelectedFile   guifg=#0cff0c   guibg=NONE	 gui=NONE
+
+
   " NOTE THIS IS IN THE COOL SECTION
   if v:version >= 700
     if has('spell')
@@ -309,11 +334,11 @@ elseif &background=='dark'
     hi PmenuSel		guifg=#000000	guibg=#d0d0d0	gui=NONE
     hi PmenuSbar	guifg=fg	guibg=#000080	gui=NONE
     hi PmenuThumb	guifg=fg	guibg=#008000	gui=NONE
-    hi TabLine		guifg=fg	guibg=#008000	gui=NONE
-    hi TabLineFill	guifg=fg	guibg=#008000	gui=NONE
-    hi TabLineSel	guifg=fg	guibg=NONE	gui=NONE
+    hi TabLine		guifg=fg	guibg=#707070	gui=NONE
+    hi TabLineFill      guifg=fg	guibg=#707070	gui=NONE
+    hi TabLineSel	guifg=#ffffff	guibg=#000000	gui=BOLD
     hi CursorColumn	guifg=NONE	guibg=#800000	gui=NONE
-    hi CursorLine	guifg=NONE	guibg=NONE	gui=underline
+    hi CursorLine	guifg=NONE	guibg=#666666	gui=NONE
     hi MatchParen	guifg=NONE	guibg=#800080
   endif
 
@@ -330,10 +355,10 @@ elseif &background=='dark'
       hi SpellRare	gui=undercurl  
       hi SpellLocal	gui=undercurl 
     endif
-    hi TabLine		gui=underline  
-    hi TabLineFill	gui=underline  
-    hi Underlined	gui=underline  
-    hi CursorLine	gui=underline 
+    hi TabLine		gui=NONE  
+    hi TabLineFill	gui=NONE  
+    hi Underlined	gui=NONE  
+    hi CursorLine	gui=NONE 
   endif
 
   " gui define for background=dark end here
@@ -364,7 +389,7 @@ elseif &background=='dark'
     hi Search		ctermfg=NONE	    ctermbg=DarkRed
     hi Visual		ctermfg=Black	    ctermbg=DarkCyan
     hi Cursor		ctermfg=Black	    ctermbg=Green
-    hi StatusLine	ctermfg=Black	    ctermbg=DarkCyan
+    hi StatusLine	ctermfg=White	    ctermbg=DarkCyan
     hi Question		ctermfg=Black	    ctermbg=DarkYellow
     hi Todo		ctermfg=DarkRed     ctermbg=DarkYellow
     hi Folded		ctermfg=White	    ctermbg=DarkGreen
@@ -508,7 +533,7 @@ elseif &background=='dark'
     " NOTE THIS IS IN THE COOL SECTION
     hi CursorIM		ctermfg=16	ctermbg=219	cterm=NONE
     hi StatusLine	ctermfg=16	ctermbg=153	cterm=NONE
-    hi LineNr		ctermfg=249	ctermbg=NONE	cterm=NONE
+    hi LineNr		ctermfg=249	ctermbg=237	cterm=NONE
     hi Question		ctermfg=16	ctermbg=186	cterm=NONE
     hi ModeMsg		ctermfg=fg	ctermbg=18	cterm=NONE
     hi VisualNOS	ctermfg=fg	ctermbg=18	cterm=NONE
@@ -531,7 +556,7 @@ elseif &background=='dark'
     hi SignColumn	ctermfg=254	ctermbg=28	cterm=NONE
     hi IncSearch	ctermfg=16	ctermbg=252	cterm=NONE
     hi StatusLineNC	ctermfg=16	ctermbg=250	cterm=NONE
-    hi VertSplit	ctermfg=16	ctermbg=250	cterm=NONE
+    hi VertSplit	ctermfg=NONE	ctermbg=NONE	cterm=NONE
     hi Underlined	ctermfg=111	ctermbg=NONE	cterm=underline 
     hi Ignore		ctermfg=16	ctermbg=NONE
     " NOTE THIS IS IN THE COOL SECTION

@@ -19,13 +19,13 @@ endif
 
 let g:colors_name='paramount'
 
-let s:black           = { "gui": "#000000", "cterm": "232" }
+let s:black           = { "gui": "#262626", "cterm": "235" }
 let s:medium_gray     = { "gui": "#767676", "cterm": "243" }
 let s:white           = { "gui": "#F1F1F1", "cterm": "15"  }
 let s:actual_white    = { "gui": "#FFFFFF", "cterm": "231" }
 let s:subtle_black    = { "gui": "#303030", "cterm": "236" }
-let s:light_black     = { "gui": "#262626", "cterm": "235" }
-let s:lighter_black   = { "gui": "#4E4E4E", "cterm": "239" }
+let s:light_black     = { "gui": "#4E4E4E", "cterm": "239" }
+let s:lighter_black   = { "gui": "#606060", "cterm": "241" }
 let s:light_gray      = { "gui": "#A8A8A8", "cterm": "248" }
 let s:lighter_gray    = { "gui": "#C6C6C6", "cterm": "251" }
 let s:lightest_gray   = { "gui": "#EEEEEE", "cterm": "255" }
@@ -44,7 +44,6 @@ let s:light_green     = { "gui": "#5FD7A7", "cterm": "10"  }
 let s:dark_purple     = { "gui": "#af5fd7", "cterm": "134" }
 let s:light_purple    = { "gui": "#a790d5", "cterm": "140" }
 let s:yellow          = { "gui": "#F3E430", "cterm": "11"  }
-let s:light_yellow    = { "gui": "#ffff87", "cterm": "228"   }
 let s:dark_yellow     = { "gui": "#A89C14", "cterm": "3"   }
 
 let s:background = &background
@@ -60,7 +59,6 @@ if &background == "dark"
   let s:green           = s:light_green
   let s:red             = s:light_red
   let s:visual          = s:light_purple
-  let s:yellow          = s:light_yellow
 else
   let s:bg              = s:actual_white
   let s:bg_subtle       = s:light_gray
@@ -72,7 +70,6 @@ else
   let s:green           = s:dark_green
   let s:red             = s:dark_red
   let s:visual          = s:dark_purple
-  let s:yellow          = s:dark_yellow
 endif
 
 " https://github.com/noahfrederick/vim-hemisu/
@@ -142,9 +139,9 @@ call s:h("Todo",          {"fg": s:purple, "gui": "underline", "cterm": "underli
 call s:h("SpecialKey",    {"fg": s:light_green})
 call s:h("NonText",       {"fg": s:medium_gray})
 call s:h("Directory",     {"fg": s:dark_blue})
-call s:h("ErrorMsg",      {"fg": s:red})
+call s:h("ErrorMsg",      {"fg": s:pink})
 call s:h("IncSearch",     {"bg": s:yellow, "fg": s:light_black})
-call s:h("Search",        {"bg": s:light_green, "fg": s:light_black})
+call s:h("Search",        {"bg": s:bg_subtle})
 call s:h("MoreMsg",       {"fg": s:medium_gray, "cterm": "bold", "gui": "bold"})
 hi! link ModeMsg MoreMsg
 call s:h("LineNr",        {"fg": s:bg_subtle})
@@ -156,7 +153,7 @@ call s:h("VertSplit",     {"bg": s:bg_very_subtle, "fg": s:bg_very_subtle})
 call s:h("Title",         {"fg": s:dark_blue})
 call s:h("Visual",        {"fg": s:norm, "bg": s:visual})
 call s:h("VisualNOS",     {"bg": s:bg_subtle})
-call s:h("WarningMsg",    {"fg": s:yellow})
+call s:h("WarningMsg",    {"fg": s:red})
 call s:h("WildMenu",      {"fg": s:bg, "bg": s:norm})
 call s:h("Folded",        {"fg": s:medium_gray})
 call s:h("FoldColumn",    {"fg": s:bg_subtle})
@@ -165,7 +162,6 @@ call s:h("DiffDelete",    {"fg": s:red})
 call s:h("DiffChange",    {"fg": s:dark_yellow})
 call s:h("DiffText",      {"fg": s:dark_blue})
 call s:h("SignColumn",    {"fg": s:light_green})
-
 
 if has("gui_running")
   call s:h("SpellBad",    {"gui": "underline", "sp": s:red})
@@ -199,20 +195,6 @@ call s:h("htmlH3",        {"bg": s:bg, "fg": s:norm})
 call s:h("htmlH4",        {"bg": s:bg, "fg": s:norm})
 call s:h("htmlH5",        {"bg": s:bg, "fg": s:norm})
 call s:h("htmlH6",        {"bg": s:bg, "fg": s:norm})
-
-" Synatastic
-call s:h("SyntasticWarningSign",    {"fg": s:yellow})
-call s:h("SyntasticWarning",        {"bg": s:yellow, "fg": s:black, "gui": "bold", "cterm": "bold"})
-call s:h("SyntasticErrorSign",      {"fg": s:red})
-call s:h("SyntasticError",          {"bg": s:red, "fg": s:white, "gui": "bold", "cterm": "bold"})
-
-" Neomake
-hi link NeomakeWarningSign	SyntasticWarningSign
-hi link NeomakeErrorSign	SyntasticErrorSign
-
-" ALE
-hi link ALEWarningSign	SyntasticWarningSign
-hi link ALEErrorSign	SyntasticErrorSign
 
 " Signify, git-gutter
 hi link SignifySignAdd              LineNr

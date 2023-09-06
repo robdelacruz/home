@@ -1,6 +1,6 @@
 " Vim color file
 " Maintainer:   Hans Fugal <hans@fugal.net>
-" Last Change:  $Date: 2002/08/26 18:49:08 $
+" Last Change:  5 Oct 2001
 " URL:		http://fugal.net/vim/colors/bw.vim
 
 " cool help screens

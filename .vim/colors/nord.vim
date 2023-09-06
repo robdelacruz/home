@@ -13,7 +13,7 @@ if version > 580
 endif
 
 let g:colors_name = "nord"
-let s:nord_vim_version="0.12.0"
+let s:nord_vim_version="0.13.0"
 set background=dark
 
 let s:nord0_gui = "#2E3440"
@@ -219,9 +219,9 @@ endif
 "+--- Gutter ---+
 call s:hi("CursorColumn", "", s:nord1_gui, "NONE", s:nord1_term, "", "")
 if g:nord_cursor_line_number_background == 0
-  call s:hi("CursorLineNr", s:nord4_gui, s:nord0_gui, "NONE", "", "", "")
+  call s:hi("CursorLineNr", s:nord4_gui, s:nord0_gui, "NONE", "", "NONE", "")
 else
-  call s:hi("CursorLineNr", s:nord4_gui, s:nord1_gui, "NONE", s:nord1_term, "", "")
+  call s:hi("CursorLineNr", s:nord4_gui, s:nord1_gui, "NONE", s:nord1_term, "NONE", "")
 endif
 call s:hi("Folded", s:nord3_gui, s:nord1_gui, s:nord3_term, s:nord1_term, s:bold, "")
 call s:hi("FoldColumn", s:nord3_gui, s:nord0_gui, s:nord3_term, "NONE", "", "")
@@ -608,6 +608,17 @@ call s:hi("plugDeleted", s:nord11_gui, "", "", s:nord11_term, "", "")
 " vim-signature
 " > kshenoy/vim-signature
 call s:hi("SignatureMarkText", s:nord8_gui, "", s:nord8_term, "", "", "")
+
+" vim-startify
+" > mhinz/vim-startify
+call s:hi("StartifyFile", s:nord6_gui, "", s:nord6_term, "", "", "")
+call s:hi("StartifyFooter", s:nord7_gui, "", s:nord7_term, "", "", "")
+call s:hi("StartifyHeader", s:nord8_gui, "", s:nord8_term, "", "", "")
+call s:hi("StartifyNumber", s:nord7_gui, "", s:nord7_term, "", "", "")
+call s:hi("StartifyPath", s:nord8_gui, "", s:nord8_term, "", "", "")
+hi! link StartifyBracket Delimiter
+hi! link StartifySlash Normal
+hi! link StartifySpecial Comment
 
 "+--- Languages ---+
 " Haskell

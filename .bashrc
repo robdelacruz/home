@@ -5,7 +5,7 @@
 #  export TERM=xterm-256color
 #fi
 
-export PATH=.:$PATH:/usr/local/go/bin
+export PATH=.:$PATH:~/bin:/usr/local/go/bin
 
 export GOPATH=~/go
 export GOSRC=~/go/src
@@ -15,7 +15,7 @@ export EDITOR=vim
 
 export FORTUNE2FILE=~/src/fortune2/fortune2.db
 export EXPFILE=~/files/expenses
-export STARTDIR=~/src/qttest
+export STARTDIR=~/src/phptest
 
 alias openbook='o ~/books/qt/C*'
 alias openqtbook='o ~/books/qt/"The Book of Qt 4 The Art of Building Qt Applications by Daniel Molkentin (z-lib.org).pdf"'

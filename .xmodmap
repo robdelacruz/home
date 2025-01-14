@@ -15,3 +15,6 @@ keysym e = e E End
 keysym u = u U Prior
 keysym d = d D Next
 
+! For mini-keyboards, shift-esc = tilde (~), mode-esc = backtick (`)
+keysym Escape = Escape asciitilde grave 
+

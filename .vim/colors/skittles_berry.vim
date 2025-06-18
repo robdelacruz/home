@@ -7,7 +7,7 @@ if version > 580
 endif
 let g:colors_name="skittles_berry"
 
-hi SpecialKey     ctermfg=240 guifg=#585858
+hi SpecialKey     ctermfg=235 guifg=#262626
 hi NonText        ctermfg=250 guifg=#bcbcbc
 hi Directory      ctermfg=149 gui=bold guifg=#afd75f
 hi ErrorMsg       term=standout ctermfg=117 gui=bold guifg=#87d7ff
@@ -27,10 +27,10 @@ hi WarningMsg     term=standout ctermfg=15 ctermbg=236 gui=bold guifg=#ffffff gu
 hi WildMenu       term=standout ctermfg=81 ctermbg=233 guifg=#5fd7ff guibg=#121212
 hi Folded         term=standout ctermfg=66 ctermbg=0 guifg=#465457 guibg=#000000
 hi FoldColumn     term=standout ctermfg=66 ctermbg=0 guifg=#465457 guibg=#000000
-hi DiffAdd        ctermfg=NONE ctermbg=24 guifg=#f8f8f2 guibg=#13354a
-hi DiffChange     term=bold ctermbg=238 guifg=#89807d guibg=#4c4745
+hi DiffAdd        ctermfg=230 ctermbg=24 guifg=#f8f8f2 guibg=#13354a
+hi DiffChange     ctermfg=95 ctermbg=95 guifg=#89807d guibg=#4c4745
 hi DiffDelete     ctermfg=125 ctermbg=125 guifg=#960050 guibg=#1e0010
-hi DiffText       term=reverse cterm=bold ctermfg=0 ctermbg=202 gui=bold guifg=#ad81ff guibg=#4a7800
+hi DiffText       term=reverse ctermfg=141 ctermbg=64 gui=bold guifg=#ad81ff guibg=#4a7800
 hi SignColumn     term=standout ctermfg=149 ctermbg=74 guifg=#a6e22e guibg=#232526
 hi Conceal        ctermfg=7 ctermbg=242 guifg=#e5e5e5 guibg=#080808
 hi SpellBad       term=reverse ctermfg=255 ctermbg=9 guifg=#eeeeee guisp=#ff0000
@@ -43,8 +43,8 @@ hi PmenuSbar      ctermfg=81 ctermbg=232 guifg=#5fd7ff guibg=#080808
 hi PmenuThumb     ctermfg=81 guifg=#5fd7ff
 hi TabLine        ctermfg=255 ctermbg=242 guifg=#eeeeee guibg=#080808
 hi TabLineSel     ctermfg=255 guifg=#eeeeee
-hi TabLineFill    cterm=none term=none ctermbg=235 guibg=#262626
-hi CursorColumn   cterm=none term=none ctermbg=235 guibg=#262626
+hi TabLineFill    term=reverse ctermfg=255 guifg=#eeeeee
+hi CursorColumn   term=reverse ctermfg=255 ctermbg=233 guifg=#eeeeee guibg=#121212
 hi CursorLine     cterm=none term=none ctermbg=235 guibg=#262626
 hi clear ColorColumn
 hi link ColorColumn CursorLine
@@ -87,8 +87,3 @@ hi Normal         ctermfg=230 ctermbg=233 guifg=#ffffd7 guibg=#121212
 hi Identifier     cterm=none term=none ctermfg=228 guifg=#ffff87
 hi clear Cursor
 hi Cursor         ctermbg=26 ctermfg=7 guifg=#e5e5e5 guibg=#005fd7
-
-hi GitGutterChange ctermfg=202 ctermbg=233 cterm=bold
-hi GitGutterDelete ctermfg=125 ctermbg=233 cterm=bold
-hi GitGutterAdd    ctermfg=190 ctermbg=233 cterm=bold
-hi link TagbarSignature Type

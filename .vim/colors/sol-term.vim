@@ -4,7 +4,7 @@
 " (see this url for latest release & screenshots)
 " License: MIT (see LICENSE.rst in the root of project)
 " Created: In the middle of Earth's Rotation
-" Version: 0.0.3
+" Version: 0.0.1
 "
 "
 " TODO: {{{
@@ -22,8 +22,8 @@
 " Currently,
 "
 " This colourscheme is intended for use on:
-" - Console Vim >= 7.3 for Linux, Mac and Windows.
-"   (Use sol.vim, if you use gvim rather than console vim)
+" - gVim >= 7.3 for Linux, Mac and Windows. (Since, all colours are in hex
+"   values, hence works with gvim. Terminal vim will be supported in future)
 "
 " ---------------------------------------------------------------------
 " INSTALLATION:
@@ -86,10 +86,9 @@ hi Title        ctermfg=NONE ctermbg=NONE cterm=NONE
 " ---------------------------------------------------------------------
 hi Comment      ctermfg=250  ctermbg=NONE cterm=NONE
 " ---------------------------------------------------------------------
-hi Constant     ctermfg=23   ctermbg=NONE cterm=NONE
+hi Constant     ctermfg=72   ctermbg=NONE cterm=NONE
 hi String       ctermfg=27   ctermbg=NONE cterm=NONE
 hi Character    ctermfg=54   ctermbg=NONE cterm=NONE
-hi Boolean      ctermfg=160  ctermbg=NONE cterm=NONE
 " ---------------------------------------------------------------------
 hi Identifier   ctermfg=161  ctermbg=NONE cterm=NONE
 " ---------------------------------------------------------------------
@@ -199,19 +198,6 @@ highlight StartifySlash guifg=#474747 guibg=NONE gui=NONE ctermfg=238 cterm=NONE
 highlight StartifyFile guifg=#fa8072 guibg=NONE gui=NONE ctermfg=210 cterm=NONE
 highlight StartifyHeader guifg=#f0e68c guibg=NONE gui=NONE ctermfg=186 cterm=NONE
 highlight StartifyFooter guifg=#a0522d guibg=NONE gui=NONE ctermfg=130 cterm=NONE
-"
-" ---------------------------------------------------------------------
-"
-" CtrlP (https://github.com/kien/ctrlp.vim)
-"
-hi CtrlPMatch      ctermfg=28   ctermbg=194  cterm=NONE
-hi CtrlPLinePre    ctermfg=248  ctermbg=NONE cterm=NONE
-hi CtrlPPrtBase    ctermfg=248  ctermbg=NONE cterm=NONE
-hi CtrlPPrtCursor  ctermfg=232  ctermbg=252  cterm=NONE
-hi CtrlPTabExtra   ctermfg=197  ctermbg=NONE cterm=NONE
-hi CtrlPBufName    ctermfg=196  ctermbg=231  cterm=NONE
-hi CtrlPMode1      ctermfg=33   ctermbg=NONE cterm=NONE
-hi CtrlPMode2      ctermfg=166  ctermbg=NONE cterm=NONE
 "
 " ---------------------------------------------------------------------
 " }}}

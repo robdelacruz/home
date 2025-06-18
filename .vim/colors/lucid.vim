@@ -1,385 +1,343 @@
-" Vim color scheme Lucid
-" ----------------------------------------------------------------------
+" Vim color file
+" Maintainer:   Ryan Hanson
+" Last Modified: February 09, 2011
+" Version: 1.0
 "
-" Repository: https://github.com/cseelus/vim-colors-lucid
-" Author:     Chris Seelus (@cseelus)
+" GUI / 256 color terminal
 "
-" BLACK
-" :let _rock_dark   = '#0b0a0b'
-" :let _rock        = '#121114'
-" :let _rock_medium = '#242228'
-" non saturated grays
-" :let _rock_dark   = '#131313'
-" :let _rock        = '#191919'
-" :let _rock_medium = '#363636'
-" :let _gray_dark   = '#535557'
-" :let _gray        = '#767b86'
-" :let _gray_medium = '#cec5ce'
-" :let _gray_light  = '#d2d3d3'
-" :let _cloud       = '#e6e7e7'
-" less saturated grays
-" :let _rock_dark   = '#19171c'
-" :let _rock        = '#1f1d24'
-" saturated grays
-" :let _rock_dark   = '#221b23'
-" :let _rock        = '#27242e'
-" very saturated grays
-:let _rock_dark   = '#0f0c14'
-:let _rock        = '#181320'
-" normal grays
-" --------------------------
-:let _rock_medium = '#36323d'
-:let _gray_dark   = '#534d5e'
-:let _gray        = '#847d91'
-:let _gray_medium = '#beb8cc'
-:let _gray_light  = '#d2c3ef'
-:let _cloud       = '#e4e0ed'
-" colors
-" --------------------------
-:let _turquoise   = '#3fc997'
-:let _fluoric     = '#d0ffc3'
-:let _cyan        = '#99feff'
-:let _steel       = '#83a8d1'
-:let _powder      = '#8fc7db'
-:let _purple      = '#7470ce'
-:let _sky         = '#b3e4eb'
-:let _pink        = '#db0088'
-:let _sap         = '#fde9a2'
-
-" Light/inverted colors (darkrock-cloud, rock-lightgrey switched)
-if &background == "light"
-  :let _rock_dark   = '#f3f4f4'
-  :let _rock        = '#dfe0e0'
-  :let _gray_dark   = '#a9aeb3'
-  :let _gray        = '#82868a'
-  :let _gray_medium = '#bcbfc0'
-  :let _gray_light  = '#2c2d2e'
-  :let _cloud       = '#101010'
-  " --------------------------
-  :let _turquoise   = '#34b56e'
-  :let _fluoric     = '#71984f'
-  :let _cyan        = '#34b9b9'
-  :let _steel       = '#1b009a'
-  :let _powder      = '#3b7e9a'
-  :let _sky         = '#2e8f9f'
-  :let _pink        = '#c6006a'
-  :let _sap         = '#fde9a2'
-endif
+" This color scheme started as 'lucius' and has evolved into this. 
+" I created this for PHP, HTML, JS, and CSS develpment.
+"
+" This file also tries to have descriptive comments for each higlighting group
+" so it is easy to understand what each part does.
 
 
 set background=dark
-highlight clear
-
+hi clear
 if exists("syntax_on")
-  syntax reset
+    syntax reset
 endif
+let g:colors_name="lucid"
 
-set t_Co=256
-let colors_name = "lucid"
-let colorgroup = {}
-
-
-" Interface
-" ----------------------------------------------------------------------
-let colorgroup['Normal']       = {"GUIFG": _cloud,     "GUIBG":  _rock_dark}
-" ------------------------
-let colorgroup['Darker']       = {"GUIFG": _gray,      "GUIBG":  _rock_dark}
-let colorgroup['ColorColumn']  = {"GUIFG": _rock_dark, "GUIBG":  _pink}
-let colorgroup['Conceal']      = {"GUIFG": _cloud,     "GUIBG":  _powder}
-" let colorgroup['Cursor']       = {"GUIFG": _rock_dark, "GUIBG":  _turquoise}
-let colorgroup['CursorLine']   = {"GUIFG": _cloud,     "GUIBG":  _rock}
-let colorgroup['CursorLineNr'] = {"GUIFG": _gray_dark, "GUIBG":  _rock_dark}
-let colorgroup['Directory']    = {"GUIFG": _fluoric,   "GUIBG":  _rock_dark}
-let colorgroup['Error']        = {"GUIFG": _rock_dark, "GUIBG":  _pink}
-let colorgroup['ErrorMsg']     = {"GUIFG": _rock_dark, "GUIBG":  _pink}
-let colorgroup['FoldColumn']   = {                     "GUIBG":  _rock_dark}
-let colorgroup['Folded']       = {"GUIFG": _cloud,     "GUIBG":  _rock}
-let colorgroup['LineNr']       = {"GUIFG": _gray_dark, "GUIBG":  _rock_dark}
-if &background == "light"
-  let colorgroup['LineNr']       = {"GUIFG": _gray_medium, "GUIBG":  _rock_dark}
-endif
-let colorgroup['MatchParen']   = {"GUIFG": _rock_dark, "GUIBG":  _pink}
-let colorgroup['ModeMsg']      = {"GUIFG": _rock_dark, "GUIBG":  _turquoise}
-let colorgroup['Pmenu']        = {"GUIFG": _cloud,     "GUIBG":  _rock_medium}
-let colorgroup['PmenuSel']     = {"GUIFG": _rock_dark, "GUIBG":  _turquoise}
-let colorgroup['PmenuSbar']    = {                     "GUIBG":  _rock_dark}
-let colorgroup['Search']       = {                     "GUIBG":  _gray_dark, "GUI": "underline"}
-let colorgroup['SignColumn']   = {                     "GUIBG":  _rock_dark}
-let colorgroup['StatusLine']   = {"GUIFG": _gray,      "GUIBG":  _rock}
-let colorgroup['StatusLineNC'] = {"GUIFG": _gray_dark, "GUIBG":  _rock}
-let colorgroup['Title']        = {"GUIFG": _pink,      "GUI": "bold"}
-let colorgroup['Todo']         = {"GUIFG": _rock_dark, "GUIBG":  _powder}
-let colorgroup['VertSplit']    = {"GUIFG": _rock,      "GUIBG":  _rock}
-let colorgroup['Visual']       = {"GUIFG": _rock_dark, "GUIBG":  _sap}
-if &background == "light"
-  let colorgroup['Visual']       = {"GUIFG": _cloud,     "GUIBG":  _sap}
-endif
-let colorgroup['WarningMsg']   = {"GUIFG": _rock_dark, "GUIBG":  _steel}
+" blue: 3eb8e5
+" green: 92d400
 
 
-" Syntax
-" ----------------------------------------------------------------------
-let colorgroup['Access']       = {"GUIFG": _purple,    "GUI": "bold"}
-let colorgroup['Comment']      = {"GUIFG": _gray,      "GUI": "italic"}
-let colorgroup['Class']        = {"GUIFG": _pink,      "GUI": "italic"}
-let colorgroup['Conditional']  = {"GUIFG": _cyan}
-let colorgroup['Constant']     = {"GUIFG": _turquoise, "GUI": "bold"}
-let colorgroup['Delimiter']    = {"GUIFG": _pink}
-let colorgroup['Function']     = {"GUIFG": _steel}
-let colorgroup['Identifier']   = {"GUIFG": _sky}
-let colorgroup['Module']       = {"GUIFG": _pink,      "GUI": "underline"}
-let colorgroup['NonText']      = {"GUIFG": _gray_dark}
-let colorgroup['Number']       = {"GUIFG": _turquoise}
-let colorgroup['PreProc']      = {"GUIFG": _pink}
-let colorgroup['Statement']    = {"GUIFG": _turquoise}
-let colorgroup['Special']      = {"GUIFG": _pink}
-let colorgroup['SpecialKey']   = {"GUIFG": _gray_light}
-let colorgroup['String']       = {"GUIFG": _fluoric}
-let colorgroup['StorageClass'] = {"GUIFG": _cloud,     "GUI": "bold"}
-let colorgroup['Structure']    = {"GUIFG": _gray_medium}
-let colorgroup['Symbol']       = {"GUIFG": _sky}
-let colorgroup['Type']         = {"GUIFG": _steel}
-let colorgroup['Underlined']   = {"GUIFG": _turquoise, "GUI": "underline"}
-let colorgroup['Userdef']      = {"GUIFG": _sap}
-" ------------------------
-hi link Boolean               Number
-hi link Character             Function
-hi link ErrorMsg              Error
-hi link Debug                 Special
-hi link Define                PreProc
-hi link Exception             PreProc
-hi link Float                 Number
-hi link Include               Function
-hi link Label                 Statement
-hi link Macro                 PreProc
-hi link Operator              PreProc
-hi link PreCondit             PreProc
-hi link Repeat                Statement
-hi link SpecialChar           Special
-hi link SpecialComment        Special
-hi link Typedef               Type
-hi link Tag                   Special
+" Base color
+" ----------
+hi Normal           guifg=#dddddd           guibg=#030303
+hi Normal           ctermfg=254             ctermbg=235
 
 
-" Plugins
-" ----------------------------------------------------------------------
-
-" CtrlP
-hi link CtrlPMatch            Function
-
-" Git commit
-hi link gitcommitBranch        Constant
-hi link gitcommitSelectedFile  Statement
-hi link gitcommitDiscardedFile Structure
-hi link gitcommitUntrackedFile Structure
-hi link gitcommitSummary       String
-
-" GitGutter
-hi link GitGutterAdd          Darker
-hi link GitGutterChange       Darker
-hi link GitGutterDelete       Darker
-hi link GitGutterChangeDelete Darker
-
-" NERDtree
-hi link NerdTreeCWD           Statement
-hi link NerdTreeHelpKey       Function
-hi link NerdTreeHelpTitle     Statement
-hi link NerdTreeOpenable      Statement
-hi link NerdTreeClosable      Statement
-hi link NerdTreeDir           Normal
-hi link NerdTreeDirSlash      Statement
-
-" PlainTasks (.todo)
-hi link ptCompleteTask        Number
-hi link ptContext             Type
-hi link ptSection             Title
-hi link ptTask                Normal
-
-" Startify
-hi link StartifyNumber        Statement
-hi link StartifyBracket       Statement
-hi link StartifySection       Title
-hi link StartifyPath          Comment
-hi link StartifySlash         Comment
-hi link StartifyFile          StorageClass
+" Comment Group
+" -------------
+" any comment
+hi Comment          guifg=#e476ff                                   gui=none
+hi Comment          ctermfg=243                                     cterm=none
 
 
-" Language
-" ----------------------------------------------------------------------
-
-" Apache
-hi link apacheDeclaration     PreProc
-
-" CoffeeScript
-hi link coffeeExtendedOp      Function
-hi link coffeeObject          Statement
-hi link coffeeObjAssign       Function
-hi link coffeeParen           Function
-
-" CSS
-hi link cssAttr               String
-hi link cssClass              Type
-hi link cssProp               Identifier
-hi link cssSelectorOp         Identifier
-
-" HAML
-hi link hamlTag               Function
-
-" HTML
-" hi link htmlArg               Symbol
-" hi link htmlTag               Constant
-hi link htmlTagName           Constant
-" hi link htmlEndTag            Function
-
-" JavaScript
-hi link javascriptFuncArg     Function
-hi link javascriptFuncComma   Function
-hi link javascriptFuncDef     Statement
-hi link javascriptFuncKeyword Statement
-hi link javascriptOpSymbols   Type
-hi link javascriptParens      Function
-hi link javascriptEndcolons   Function
-
-" Javascript (pangloss/vim-javascript)
-hi link jsBraces              Delimiter
-hi link jsClassDefinition     Constant
-hi link jsClassKeyword        PreProc
-hi link jsExtendsKeyword      Function
-hi link jsFuncCall            Function
-hi link jsModuleKeyword       Identifier
-hi link jsNull                Identifier
-hi link jsObjectKey           Identifier
-hi link jsStorageClass        Structure
-hi link jsTemplateBraces      PreProc
-
-" JSON
-hi link jsonKeyword           Function
-
-" LaTeX
-hi link texInputFile          PreProc
-
-" Markdown
-hi link mkdBlockquote         Symbol
-hi link mkdCode               Identifier
-hi link mkdIndentCode         Identifier
-" hi link mkdLink               Normal
-
-" MatchTagAlways
-hi link MatchTag              Identifier
-
-" PHP
-hi link phpParent             Normal
-hi link phpRegion             Comment
-hi link phpVarSelector        Identifier
-
-" Ruby
-hi link rubyAccess            Access
-hi link rubyCallback          Function
-hi link rubyClass             Class
-hi link rubyControl           Statement
-hi link rubyConstant          Constant
-hi link rubyEntity            Function
-hi link rubyFunction          StorageClass
-hi link rubyInclude           Include
-hi link rubyInterpolation     Include
-hi link rubyMacro             Function
-hi link rubyModule            Module
-" hi link RubyPseudoVariable    Type
-hi link rubySymbol            Symbol
-
-" SASS
-hi link sassClassChar         Type
-" " hi link sassExtend            Symbol
-" " hi link sassMixing            Symbol
-hi link sassIdChar            Identifier
-" hi link sassVariable          Function
-
-" Slim
-" hi link slimDocType           Function
-" hi link slimDocTypeKeyword    Statement
-hi link rubyKeyword              PreProc
-" hi link slimRubyChar          PreProc
-" hi link slimRubyOutputChar    PreProc
-" hi link slimText              Normal
-
-" VimL
-hi link vimCmdSep             Function
-
-" YAML
-hi link yamlBlockMappingKey   Function
-hi link yamlDocumentStart     Comment
-
-" XML
-hi link xmlEndTag             Function
+" Constant Group
+" --------------
+" any constant
+hi Constant         guifg=#d18af2                                   gui=none
+hi Constant         ctermfg=80                                      cterm=none
+" strings
+hi String           guifg=#8ad6f2                                 gui=none
+hi String           ctermfg=117                                     cterm=none
+" character constant
+hi Character        guifg=#d18af2                                   gui=none
+hi Character        ctermfg=117                                     cterm=none
+" numbers decimal/hex
+hi Number           guifg=#d18af2                                   gui=none
+hi Number           ctermfg=80                                      cterm=none
+" true, false
+hi Boolean          guifg=#d18af2                                   gui=none
+hi Boolean          ctermfg=80                                      cterm=none
+" float
+hi Float            guifg=#d18af2                                   gui=none
+hi Float            ctermfg=80                                      cterm=none
 
 
-" Expand colorgroups
-" ----------------------------------------------------------------------
+" Identifier Group
+" ----------------
+" any variable name
+hi Identifier       guifg=#c5d4fe                               gui=none
+hi Identifier       ctermfg=215                                     cterm=none
+" function, method, class
+hi Function         guifg=#bae682                                 	gui=none
+hi Function         ctermfg=215                                     cterm=none
 
-let s:colors = {}
-" http://choorucode.com/2011/07/29/vim-chart-of-color-names/
-let valid_cterm_colors =
-      \ [
-      \     'Black', 'DarkBlue', 'DarkGreen', 'DarkCyan',
-      \     'DarkRed', 'DarkMagenta', 'Brown', 'DarkYellow',
-      \     'LightGray', 'LightGrey', 'Gray', 'Grey',
-      \     'DarkGray', 'DarkGrey', 'Blue', 'LightBlue',
-      \     'Green', 'LightGreen', 'Cyan', 'LightCyan',
-      \     'Red', 'LightRed', 'Magenta', 'LightMagenta',
-      \     'Yellow', 'LightYellow', 'White',
-      \ ]
-for key in keys(colorgroup)
-  let s:colors = colorgroup[key]
-  if has_key(s:colors, 'TERM')
-    let term = s:colors['TERM']
-  else
-    let term = 'NONE'
-  endif
-  if has_key(s:colors, 'GUI')
-    let gui = s:colors['GUI']
-  else
-    let gui='NONE'
-  endif
-  if has_key(s:colors, 'GUIFG')
-    let guifg = s:colors['GUIFG']
-  else
-    let guifg='NONE'
-  endif
-  if has_key(s:colors, 'GUIBG')
-    let guibg = s:colors['GUIBG']
-  else
-    let guibg='NONE'
-  endif
-  if has_key(s:colors, 'CTERM')
-    let cterm = s:colors['CTERM']
-  else
-    let cterm=gui
-  endif
-  if has_key(s:colors, 'CTERMFG')
-    let ctermfg = s:colors['CTERMFG']
-  else
-    if index(valid_cterm_colors, guifg) != -1
-      let ctermfg=guifg
-    else
-      let ctermfg='Blue'
-    endif
-  endif
-  if has_key(s:colors, 'CTERMBG')
-    let ctermbg = s:colors['CTERMBG']
-  else
-    if index(valid_cterm_colors, guibg) != -1
-      let ctermbg=guibg
-    else
-      let ctermbg='NONE'
-    endif
-  endif
-  if has_key(s:colors, 'GUISP')
-    let guisp = s:colors['GUISP']
-  else
-    let guisp='NONE'
-  endif
 
-  if key =~ '^\k*$'
-    execute "hi ".key." term=".term." cterm=".cterm." gui=".gui." ctermfg=".ctermfg." guifg=".guifg." ctermbg=".ctermbg." guibg=".guibg." guisp=".guisp
-  endif
-endfor
+
+
+" Statement Group
+" ---------------
+" any statement
+hi Statement        guifg=#bae682                                   gui=none
+hi Statement        ctermfg=150                                     cterm=none
+" if, then, else
+hi Conditional      guifg=#bae682                                   gui=none
+hi Conditional      ctermfg=150                                     cterm=none
+" try, catch, throw, raise
+hi Exception        guifg=#bae682                                   gui=none
+hi Exception        ctermfg=150                                     cterm=none
+" for, while, do
+hi Repeat           guifg=#bae682                                   gui=none
+hi Repeat           ctermfg=150                                     cterm=none
+" case, default
+hi Label            guifg=#bae682                                   gui=none
+hi Label            ctermfg=150                                     cterm=none
+" sizeof, +, *
+hi Operator         guifg=#c5d4fe                                    gui=none
+hi Operator         ctermfg=150                                     cterm=none
+" any other keyword - javascript
+hi Keyword          guifg=#defbb8                                   gui=none
+hi Keyword          ctermfg=150                                     cterm=none
+
+
+" Preprocessor Group
+" ------------------
+" generic preprocessor
+hi PreProc          guifg=#efefaf                                   gui=none
+hi PreProc          ctermfg=229                                     cterm=none
+" #include
+hi Include          guifg=#efefaf                                   gui=none
+hi Include          ctermfg=229                                     cterm=none
+" #define
+hi Define           guifg=#efefaf                                   gui=none
+hi Define           ctermfg=229                                     cterm=none
+" same as define
+hi Macro            guifg=#efefaf                                   gui=none
+hi Macro            ctermfg=229                                     cterm=none
+" #if, #else, #endif
+hi PreCondit        guifg=#efefaf                                   gui=none
+hi PreCondit        ctermfg=229                                     cterm=none
+
+
+" Type Group
+" ----------
+" int, long, char
+hi Type             guifg=#bae682                                  gui=none
+hi Type             ctermfg=114                                     cterm=none
+" static, register, volative
+hi StorageClass     guifg=#bae682                                  gui=none
+hi StorageClass     ctermfg=114                                     cterm=none
+" struct, union, enum
+hi Structure        guifg=#bae682                                  gui=none
+hi Structure        ctermfg=114                                     cterm=none
+" typedef
+hi Typedef          guifg=#bae682                                  gui=none
+hi Typedef          ctermfg=114                                     cterm=none
+
+
+" Special Group
+" -------------
+" any special symbol
+hi Special          guifg=#e4e4e4                                  gui=none
+hi Special          ctermfg=182                                     cterm=none
+" special character in a constant
+hi SpecialChar      guifg=#fea3a0                                  gui=none
+hi SpecialChar      ctermfg=182                                     cterm=none
+" things you can CTRL-]
+hi Tag              guifg=#ff0000                                  gui=none
+hi Tag              ctermfg=182                                     cterm=none
+" character that needs attention
+hi Delimiter        guifg=#fea3a0                                  gui=none
+hi Delimiter        ctermfg=182                                     cterm=none
+" special things inside a comment
+hi SpecialComment   guifg=#fc003b                                   gui=none
+hi SpecialComment   ctermfg=182                                     cterm=none
+" debugging statements
+hi Debug            guifg=#fea3a0           guibg=NONE              gui=none
+hi Debug            ctermfg=182             ctermbg=NONE            cterm=none
+
+
+" Underlined Group
+" ----------------
+" text that stands out, html links
+hi Underlined       guifg=fg                                        gui=underline
+hi Underlined       ctermfg=fg                                      cterm=underline
+
+
+" Ignore Group
+" ------------
+" left blank, hidden
+hi Ignore           guifg=bg
+hi Ignore           ctermfg=bg
+
+
+" Error Group
+" -----------
+" any erroneous construct
+hi Error            guifg=#dd4040           guibg=NONE              gui=none
+hi Error            ctermfg=160             ctermbg=NONE            cterm=none
+
+
+" Todo Group
+" ----------
+" todo, fixme, note, xxx
+hi Todo             guifg=#deee33           guibg=NONE              gui=underline
+hi Todo             ctermfg=190             ctermbg=NONE            cterm=underline
+
+
+" Spelling
+" --------
+" word not recognized
+hi SpellBad         guisp=#ee0000                                   gui=undercurl
+hi SpellBad                                 ctermbg=9               cterm=undercurl
+" word not capitalized
+hi SpellCap         guisp=#eeee00                                   gui=undercurl
+hi SpellCap                                 ctermbg=12              cterm=undercurl
+" rare word
+hi SpellRare        guisp=#ffa500                                   gui=undercurl
+hi SpellRare                                ctermbg=13              cterm=undercurl
+" wrong spelling for selected region
+hi SpellLocal       guisp=#ffa500                                   gui=undercurl
+hi SpellLocal                               ctermbg=14              cterm=undercurl
+
+
+" Cursor
+" ------
+" character under the cursor
+hi Cursor           guifg=bg                guibg=#8ac6f2
+hi Cursor           ctermfg=bg              ctermbg=117
+" like cursor, but used when in IME mode
+hi CursorIM         guifg=bg                guibg=#96cdcd
+hi CursorIM         ctermfg=bg              ctermbg=116
+" cursor column
+hi CursorColumn                             guibg=#3d3d4d
+hi CursorColumn     cterm=NONE              ctermbg=236
+" cursor line/row
+hi CursorLine                               guibg=#3d3d4d
+hi CursorLine       cterm=NONE              ctermbg=236             
+
+
+" Misc
+" ----
+" directory names and other special names in listings
+hi Directory        guifg=#95e494                                   gui=none
+hi Directory        ctermfg=114                                     cterm=none
+" error messages on the command line
+hi ErrorMsg         guifg=#ee0000           guibg=NONE              gui=none
+hi ErrorMsg         ctermfg=196             ctermbg=NONE            cterm=none
+" column separating vertically split windows
+hi VertSplit        guifg=#777777           guibg=#444444           gui=none
+hi VertSplit        ctermfg=244             ctermbg=238             cterm=none
+" columns where signs are displayed (used in IDEs)
+hi SignColumn       guifg=#9fafaf           guibg=#181818           gui=none
+hi SignColumn       ctermfg=145             ctermbg=233             cterm=none
+" line numbers
+hi LineNr           guifg=#857b6f           guibg=#444444
+hi LineNr           ctermfg=101             ctermbg=238
+" match parenthesis, brackets  
+hi MatchParen       guifg=#fd544e           guibg=NONE              gui=none
+hi MatchParen       ctermfg=46              ctermbg=NONE            cterm=none
+" text showing what mode you are in
+hi MoreMsg          guifg=#2e8b57                                   gui=none
+hi MoreMsg          ctermfg=29                                      cterm=none
+" the '~' and '@' and showbreak, '>' double wide char doesn't fit on line
+hi ModeMsg          guifg=#90ee90           guibg=NONE              gui=none
+hi ModeMsg          ctermfg=120             ctermbg=NONE            cterm=none
+" the 'more' prompt when output takes more than one line
+hi NonText          guifg=#444444                                   gui=none
+hi NonText          ctermfg=238                                     cterm=none
+" the hit-enter prompt (show more output) and yes/no questions
+hi Question         guifg=fg                                        gui=none
+hi Question         ctermfg=fg                                      cterm=none
+" meta and special keys used with map, unprintable characters
+hi SpecialKey       guifg=#505050
+hi SpecialKey       ctermfg=238
+" titles for output from :set all, :autocmd, etc
+hi Title            guifg=#ffe3b2	                                gui=none
+hi Title            ctermfg=38                                      cterm=none
+"hi Title            guifg=#5ec8e5                                   gui=none
+" warning messages
+hi WarningMsg       guifg=#e5786d                                   gui=none
+hi WarningMsg       ctermfg=173                                     cterm=none
+" current match in the wildmenu completion
+hi WildMenu         guifg=#000000           guibg=#cae682
+hi WildMenu         ctermfg=16              ctermbg=186             
+
+
+" Diff
+" ----
+" added line
+hi DiffAdd          guifg=fg                guibg=#008b8b
+hi DiffAdd          ctermfg=fg              ctermbg=30
+" changed line
+hi DiffChange       guifg=fg                guibg=#008b00
+hi DiffChange       ctermfg=fg              ctermbg=28
+" deleted line
+hi DiffDelete       guifg=fg                guibg=#000000
+hi DiffDelete       ctermfg=fg              ctermbg=16
+" changed text within line
+hi DiffText         guifg=fg
+hi DiffText         ctermfg=fg
+
+
+" Folds
+" -----
+" line used for closed folds
+hi Folded           guifg=#f6f6f6           guibg=#777777           gui=none
+hi Folded           ctermfg=145             ctermbg=238             cterm=none
+" column on side used to indicated open and closed folds
+hi FoldColumn       guifg=#b0d0e0           guibg=#305060           gui=none
+hi FoldColumn       ctermfg=152             ctermbg=23              cterm=none
+
+" Search
+" ------
+" highlight incremental search text; also highlight text replaced with :s///c
+hi IncSearch        guifg=#66ffff                                   gui=reverse
+hi IncSearch        ctermfg=87                                      cterm=reverse
+" hlsearch (last search pattern), also used for quickfix
+hi Search                                    guibg=#ffaa33          gui=none
+hi Search                                    ctermbg=214            cterm=none
+
+" Popup Menu
+" ----------
+" normal item in popup
+hi Pmenu            guifg=#f6f3e8           guibg=#444444           gui=none
+hi Pmenu            ctermfg=254             ctermbg=238             cterm=none
+" selected item in popup
+hi PmenuSel         guifg=#000000           guibg=#cae682           gui=none
+hi PmenuSel         ctermfg=16              ctermbg=186             cterm=none
+" scrollbar in popup
+hi PMenuSbar                                guibg=#607b8b           gui=none
+hi PMenuSbar                                ctermbg=66              cterm=none
+" thumb of the scrollbar in the popup
+hi PMenuThumb                               guibg=#aaaaaa           gui=none
+hi PMenuThumb                               ctermbg=247             cterm=none
+
+
+" Status Line
+" -----------
+" status line for current window
+hi StatusLine       guifg=#e0e0e0           guibg=#444444           gui=none
+hi StatusLine       ctermfg=254             ctermbg=238             cterm=none
+" status line for non-current windows
+hi StatusLineNC     guifg=#777777           guibg=#444444           gui=none
+hi StatusLineNC     ctermfg=244             ctermbg=238             cterm=none
+
+
+" Tab Lines
+" ---------
+" tab pages line, not active tab page label
+hi TabLine          guifg=#b6bf98           guibg=#181818           gui=none
+hi TabLine          ctermfg=244             ctermbg=233             cterm=none
+" tab pages line, where there are no labels
+hi TabLineFill      guifg=#cfcfaf           guibg=#181818           gui=none
+hi TabLineFill      ctermfg=187             ctermbg=233             cterm=none
+" tab pages line, active tab page label
+hi TabLineSel       guifg=#efefef           guibg=#1c1c1b           gui=none
+hi TabLineSel       ctermfg=254             ctermbg=233             cterm=none
+
+
+" Visual
+" ------
+" visual mode selection
+hi Visual           guifg=NONE              guibg=#445566
+hi Visual           ctermfg=NONE            ctermbg=60
+" visual mode selection when vim is 'not owning the selection' (x11 only)
+hi VisualNOS        guifg=fg                                        gui=underline
+hi VisualNOS        ctermfg=fg                                      cterm=underline
+

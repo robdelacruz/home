@@ -27,11 +27,10 @@
 highlight clear Normal
 set background=light
 highlight clear
-
 if exists("syntax on")
   syntax reset
 endif
-
+syntax on
 let colors_name = "sweater"
 
 " general highlights

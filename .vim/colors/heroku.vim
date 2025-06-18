@@ -1,355 +1,105 @@
-let s:foreground = "8584ae"
-let s:background = "1b1b24"
-let s:selection = "ffffff"
-let s:line = "262633"
-let s:comment = "62548b"
-let s:red = "c13333"
-let s:orange = "ffa500"
-let s:yellow = "ffea00"
-let s:green = "6dba09"
-let s:aqua = "b4f5fe"
-let s:blue = "09afed"
-let s:purple = "a292ff"
-let s:window = "17171d"
+" ======================================================================
+" Heroku
+" ======================================================================
+" A Sublime Text 2 / Textmate theme.
+" Copyright (c) 2014 Dayle Rees.
+" Released under the MIT License <http://opensource.org/licenses/MIT>
+" ======================================================================
+" Find more themes at : https://github.com/daylerees/colour-schemes
+" ======================================================================
 
 set background=dark
 hi clear
-hi clear SpellBad
 syntax reset
 
-let g:colors_name = "heroku"
+" Colors for the User Interface.
 
-if has("gui_running")
-  " Returns an approximate grey index for the given grey level
-  fun <SID>grey_number(x)
-    if &t_Co == 88
-      if a:x < 23
-        return 0
-      elseif a:x < 69
-        return 1
-      elseif a:x < 103
-        return 2
-      elseif a:x < 127
-        return 3
-      elseif a:x < 150
-        return 4
-      elseif a:x < 173
-        return 5
-      elseif a:x < 196
-        return 6
-      elseif a:x < 219
-        return 7
-      elseif a:x < 243
-        return 8
-      else
-        return 9
-      endif
-    else
-      if a:x < 14
-        return 0
-      else
-        let l:n = (a:x - 8) / 10
-        let l:m = (a:x - 8) % 10
-        if l:m < 5
-          return l:n
-        else
-          return l:n + 1
-        endif
-      endif
-    endif
-  endfun
+hi Cursor      guibg=#cc4455  guifg=white     ctermbg=4 ctermfg=15
+hi link CursorIM Cursor
+hi Normal      guibg=#1b1b24  guifg=#c8c7d5    gui=none ctermbg=0 ctermfg=15
+hi NonText     guibg=bg  guifg=#c8c7d5   ctermbg=8 ctermfg=14
+hi Visual      guibg=#557799  guifg=white    gui=none ctermbg=9 ctermfg=15
 
-  " Returns the actual grey level represented by the grey index
-  fun <SID>grey_level(n)
-    if &t_Co == 88
-      if a:n == 0
-        return 0
-      elseif a:n == 1
-        return 46
-      elseif a:n == 2
-        return 92
-      elseif a:n == 3
-        return 115
-      elseif a:n == 4
-        return 139
-      elseif a:n == 5
-        return 162
-      elseif a:n == 6
-        return 185
-      elseif a:n == 7
-        return 208
-      elseif a:n == 8
-        return 231
-      else
-        return 255
-      endif
-    else
-      if a:n == 0
-        return 0
-      else
-        return 8 + (a:n * 10)
-      endif
-    endif
-  endfun
+hi Linenr      guibg=bg       guifg=#aaaaaa  gui=none ctermbg=bg ctermfg=7
 
-  " Returns the palette index for the given grey index
-  fun <SID>grey_colour(n)
-    if &t_Co == 88
-      if a:n == 0
-        return 16
-      elseif a:n == 9
-        return 79
-      else
-        return 79 + a:n
-      endif
-    else
-      if a:n == 0
-        return 16
-      elseif a:n == 25
-        return 231
-      else
-        return 231 + a:n
-      endif
-    endif
-  endfun
+hi Directory   guibg=bg       guifg=#337700  gui=none ctermbg=bg ctermfg=10
 
-  " Returns an approximate colour index for the given colour level
-  fun <SID>rgb_number(x)
-    if &t_Co == 88
-      if a:x < 69
-        return 0
-      elseif a:x < 172
-        return 1
-      elseif a:x < 230
-        return 2
-      else
-        return 3
-      endif
-    else
-      if a:x < 75
-        return 0
-      else
-        let l:n = (a:x - 55) / 40
-        let l:m = (a:x - 55) % 40
-        if l:m < 20
-          return l:n
-        else
-          return l:n + 1
-        endif
-      endif
-    endif
-  endfun
+hi IncSearch   guibg=#0066cc  guifg=white    gui=none ctermbg=1 ctermfg=15
+hi link Seach IncSearch
 
-  " Returns the actual colour level for the given colour index
-  fun <SID>rgb_level(n)
-    if &t_Co == 88
-      if a:n == 0
-        return 0
-      elseif a:n == 1
-        return 139
-      elseif a:n == 2
-        return 205
-      else
-        return 255
-      endif
-    else
-      if a:n == 0
-        return 0
-      else
-        return 55 + (a:n * 40)
-      endif
-    endif
-  endfun
+hi SpecialKey  guibg=bg guifg=fg       gui=none ctermbg=bg ctermfg=fg
+hi Titled      guibg=bg guifg=fg       gui=none ctermbg=bg ctermfg=fg
 
-  " Returns the palette index for the given R/G/B colour indices
-  fun <SID>rgb_colour(x, y, z)
-    if &t_Co == 88
-      return 16 + (a:x * 16) + (a:y * 4) + a:z
-    else
-      return 16 + (a:x * 36) + (a:y * 6) + a:z
-    endif
-  endfun
+hi ErrorMsg    guibg=bg guifg=#ff0000   ctermbg=bg ctermfg=12
+hi ModeMsg     guibg=bg guifg=#ffeecc  gui=none ctermbg=bg ctermfg=14
+hi link  MoreMsg     ModeMsg
+hi Question    guibg=bg guifg=#585480   ctermbg=bg ctermfg=10
+hi link  WarningMsg  ErrorMsg
 
-  " Returns the palette index to approximate the given R/G/B colour levels
-  fun <SID>colour(r, g, b)
-    " Get the closest grey
-    let l:gx = <SID>grey_number(a:r)
-    let l:gy = <SID>grey_number(a:g)
-    let l:gz = <SID>grey_number(a:b)
+hi StatusLine     guibg=#ffeecc  guifg=black     ctermbg=14 ctermfg=0
+hi StatusLineNC   guibg=#cc4455  guifg=white    gui=none ctermbg=4  ctermfg=11
+hi VertSplit      guibg=#cc4455  guifg=white    gui=none ctermbg=4  ctermfg=11
 
-    " Get the closest colour
-    let l:x = <SID>rgb_number(a:r)
-    let l:y = <SID>rgb_number(a:g)
-    let l:z = <SID>rgb_number(a:b)
+hi DiffAdd     guibg=#446688  guifg=fg    gui=none ctermbg=1 ctermfg=fg
+hi DiffChange  guibg=#558855  guifg=fg    gui=none ctermbg=2 ctermfg=fg
+hi DiffDelete  guibg=#884444  guifg=fg    gui=none ctermbg=4 ctermfg=fg
+hi DiffText    guibg=#884444  guifg=fg     ctermbg=4 ctermfg=fg
 
-    if l:gx == l:gy && l:gy == l:gz
-      " There are two possibilities
-      let l:dgr = <SID>grey_level(l:gx) - a:r
-      let l:dgg = <SID>grey_level(l:gy) - a:g
-      let l:dgb = <SID>grey_level(l:gz) - a:b
-      let l:dgrey = (l:dgr * l:dgr) + (l:dgg * l:dgg) + (l:dgb * l:dgb)
-      let l:dr = <SID>rgb_level(l:gx) - a:r
-      let l:dg = <SID>rgb_level(l:gy) - a:g
-      let l:db = <SID>rgb_level(l:gz) - a:b
-      let l:drgb = (l:dr * l:dr) + (l:dg * l:dg) + (l:db * l:db)
-      if l:dgrey < l:drgb
-        " Use the grey
-        return <SID>grey_colour(l:gx)
-      else
-        " Use the colour
-        return <SID>rgb_colour(l:x, l:y, l:z)
-      endif
-    else
-      " Only one possibility
-      return <SID>rgb_colour(l:x, l:y, l:z)
-    endif
-  endfun
+" Colors for Syntax Highlighting.
 
-  " Returns the palette index to approximate the 'rrggbb' hex string
-  fun <SID>rgb(rgb)
-    let l:r = ("0x" . strpart(a:rgb, 0, 2)) + 0
-    let l:g = ("0x" . strpart(a:rgb, 2, 2)) + 0
-    let l:b = ("0x" . strpart(a:rgb, 4, 2)) + 0
+hi Comment  guibg=bg  guifg=#505067  gui=none    ctermbg=8   ctermfg=7
 
-    return <SID>colour(l:r, l:g, l:b)
-  endfun
+hi Constant    guibg=bg    guifg=white        ctermbg=8   ctermfg=15
+hi String      guibg=bg    guifg=#a6fa62    ctermbg=bg  ctermfg=14
+hi Character   guibg=bg    guifg=#7873ae      ctermbg=bg  ctermfg=14
+hi Number      guibg=bg    guifg=#a6fa62      ctermbg=1   ctermfg=15
+hi Boolean     guibg=bg    guifg=#a6fa62  gui=none    ctermbg=1   ctermfg=15
+hi Float       guibg=bg    guifg=#a6fa62      ctermbg=1   ctermfg=15
 
-  " Sets the highlighting for the given group
-  fun <SID>X(group, fg, bg, attr)
-    if a:fg != ""
-      exec "hi " . a:group . " guifg=#" . a:fg . " ctermfg=" . <SID>rgb(a:fg)
-    endif
-    if a:bg != ""
-      exec "hi " . a:group . " guibg=#" . a:bg . " ctermbg=" . <SID>rgb(a:bg)
-    endif
-    if a:attr != ""
-      exec "hi " . a:group . " gui=" . a:attr . " cterm=" . a:attr
-    endif
-  endfun
+hi Identifier  guibg=bg    guifg=#c8c7d5      ctermbg=bg  ctermfg=12
+hi Function    guibg=bg    guifg=#7873ae      ctermbg=bg  ctermfg=12
+hi Statement   guibg=bg    guifg=#7873ae      ctermbg=bg  ctermfg=14
 
-  " Vim Highlighting
-  call <SID>X("Normal", s:foreground, s:background, "")
-  highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
-  call <SID>X("NonText", s:comment, "", "")
-  call <SID>X("SpecialKey", s:selection, "", "")
-  call <SID>X("Search", s:foreground, s:yellow, "")
-  call <SID>X("TabLine", s:foreground, s:background, "reverse")
-  call <SID>X("StatusLine", s:window, s:yellow, "reverse")
-  call <SID>X("StatusLineNC", s:window, s:foreground, "reverse")
-  call <SID>X("VertSplit", s:window, s:window, "none")
-  call <SID>X("Visual", "", s:selection, "")
-  call <SID>X("Directory", s:blue, "", "")
-  call <SID>X("ModeMsg", s:green, "", "")
-  call <SID>X("MoreMsg", s:green, "", "")
-  call <SID>X("Question", s:green, "", "")
-  call <SID>X("WarningMsg", s:red, "", "")
-  call <SID>X("MatchParen", "", s:selection, "")
-  call <SID>X("Folded", s:comment, s:background, "")
-  call <SID>X("FoldColumn", "", s:background, "")
-  if version >= 700
-    call <SID>X("CursorLine", "", s:line, "none")
-    call <SID>X("CursorColumn", "", s:line, "none")
-    call <SID>X("PMenu", s:foreground, s:selection, "none")
-    call <SID>X("PMenuSel", s:foreground, s:selection, "reverse")
-  end
-  if version >= 703
-    call <SID>X("ColorColumn", "", s:line, "none")
-  end
+hi Conditional guibg=bg    guifg=#7873ae      ctermbg=bg  ctermfg=12
+hi Repeat      guibg=bg    guifg=#7873ae      ctermbg=4   ctermfg=14
+hi Label       guibg=bg    guifg=#ffccff      ctermbg=bg   ctermfg=13
+hi Operator    guibg=bg    guifg=#7873ae      ctermbg=6   ctermfg=15
+hi Keyword     guibg=bg    guifg=#7873ae      ctermbg=bg  ctermfg=10
+hi Exception   guibg=bg    guifg=#7873ae      ctermbg=bg  ctermfg=10
 
-  " Standard Highlighting
-  call <SID>X("Comment", s:comment, "", "")
-  call <SID>X("Todo", s:comment, s:background, "")
-  call <SID>X("Title", s:comment, "", "")
-  call <SID>X("Identifier", s:red, "", "none")
-  call <SID>X("Statement", s:foreground, "", "")
-  call <SID>X("Conditional", s:foreground, "", "")
-  call <SID>X("Repeat", s:foreground, "", "")
-  call <SID>X("Structure", s:purple, "", "")
-  call <SID>X("Function", s:blue, "", "")
-  call <SID>X("Constant", s:orange, "", "")
-  call <SID>X("String", s:green, "", "")
-  call <SID>X("Special", s:foreground, "", "")
-  call <SID>X("PreProc", s:purple, "", "")
-  call <SID>X("Operator", s:aqua, "", "none")
-  call <SID>X("Type", s:blue, "", "none")
-  call <SID>X("Define", s:purple, "", "none")
-  call <SID>X("Include", s:blue, "", "")
-  "call <SID>X("Ignore", "666666", "", "")
+hi PreProc    guibg=bg   guifg=#ffcc99   ctermbg=4  ctermfg=14
+hi Include    guibg=bg   guifg=#585480   ctermbg=bg ctermfg=10
+hi link Define    Include
+hi link Macro     Include
+hi link PreCondit Include
 
-  " Vim Highlighting
-  call <SID>X("vimCommand", s:red, "", "none")
+hi Type       guibg=bg   guifg=#585480      ctermbg=bg  ctermfg=12
+hi StorageClass   guibg=bg   guifg=#7873ae      ctermbg=bg  ctermfg=10
+hi Structure      guibg=bg   guifg=#c8c7d5      ctermbg=bg  ctermfg=10
+hi Typedef    guibg=bg   guifg=#585480    ctermbg=bg  ctermfg=10
 
-  " C Highlighting
-  call <SID>X("cType", s:yellow, "", "")
-  call <SID>X("cStorageClass", s:purple, "", "")
-  call <SID>X("cConditional", s:purple, "", "")
-  call <SID>X("cRepeat", s:purple, "", "")
+hi Special    guibg=bg   guifg=#bbddff      ctermbg=1   ctermfg=15
+hi SpecialChar    guibg=bg   guifg=#bbddff      ctermbg=1   ctermfg=15
+hi Tag        guibg=bg   guifg=#bbddff      ctermbg=1   ctermfg=15
+hi Delimiter      guibg=bg   guifg=fg       ctermbg=1   ctermfg=fg
+hi SpecialComment guibg=#334455  guifg=#5d5d76    ctermbg=1   ctermfg=15
+hi Debug      guibg=bg   guifg=#ff9999  gui=none    ctermbg=8   ctermfg=12
 
-  " PHP Highlighting
-  call <SID>X("phpVarSelector", s:red, "", "")
-  call <SID>X("phpKeyword", s:purple, "", "")
-  call <SID>X("phpRepeat", s:purple, "", "")
-  call <SID>X("phpConditional", s:purple, "", "")
-  call <SID>X("phpStatement", s:purple, "", "")
-  call <SID>X("phpMemberSelector", s:foreground, "", "")
+hi Underlined guibg=bg guifg=#99ccff gui=underline ctermbg=bg ctermfg=9 cterm=underline
 
-  " Ruby Highlighting
-  call <SID>X("rubySymbol", s:green, "", "")
-  call <SID>X("rubyConstant", s:yellow, "", "")
-  call <SID>X("rubyAttribute", s:blue, "", "")
-  call <SID>X("rubyInclude", s:blue, "", "")
-  call <SID>X("rubyLocalVariableOrMethod", s:orange, "", "")
-  call <SID>X("rubyCurlyBlock", s:orange, "", "")
-  call <SID>X("rubyStringDelimiter", s:green, "", "")
-  call <SID>X("rubyInterpolationDelimiter", s:orange, "", "")
-  call <SID>X("rubyConditional", s:purple, "", "")
-  call <SID>X("rubyRepeat", s:purple, "", "")
+hi Title    guibg=bg  guifg=#c8c7d5        ctermbg=1   ctermfg=15
+hi Ignore   guibg=bg       guifg=#cccccc    ctermbg=bg  ctermfg=8
+hi Error    guibg=#ff0000  guifg=white        ctermbg=12  ctermfg=15
+hi Todo     guibg=#556677  guifg=#ff0000      ctermbg=1   ctermfg=12
 
-  " Python Highlighting
-  call <SID>X("pythonInclude", s:purple, "", "")
-  call <SID>X("pythonStatement", s:purple, "", "")
-  call <SID>X("pythonConditional", s:purple, "", "")
-  call <SID>X("pythonFunction", s:blue, "", "")
+hi htmlH2 guibg=bg guifg=fg  ctermbg=8 ctermfg=fg
+hi link htmlH3 htmlH2
+hi link htmlH4 htmlH3
+hi link htmlH5 htmlH4
+hi link htmlH6 htmlH5
 
-  " JavaScript Highlighting
-  call <SID>X("javaScriptBraces", s:foreground, "", "")
-  call <SID>X("javaScriptFunction", s:purple, "", "")
-  call <SID>X("javaScriptConditional", s:purple, "", "")
-  call <SID>X("javaScriptRepeat", s:purple, "", "")
-  call <SID>X("javaScriptNumber", s:orange, "", "")
-  call <SID>X("javaScriptMember", s:orange, "", "")
+" And finally.
 
-  " CoffeeScript Highlighting
-  call <SID>X("coffeeKeyword", s:orange, "", "")
-  call <SID>X("coffeeRepeat", s:orange, "", "")
-  call <SID>X("coffeeConditional", s:orange, "", "")
+let g:colors_name = "Heroku"
+let colors_name   = "Heroku"
 
-  call <SID>X("coffeeParen", s:aqua, "", "")
-  call <SID>X("coffeeParens", s:blue, "", "")
-  call <SID>X("coffeeBracket", s:aqua, "", "")
-  call <SID>X("coffeeBrackets", s:blue, "", "")
-
-  call <SID>X("coffeeDotAccess", s:aqua, "", "")
-  call <SID>X("coffeeStatement", s:red, "", "")
-
-  " HTML Highlighting
-  call <SID>X("htmlTag", s:red, "", "")
-  call <SID>X("htmlTagName", s:red, "", "")
-  call <SID>X("htmlArg", s:red, "", "")
-  call <SID>X("htmlScriptTag", s:red, "", "")
-
-  " Diff Highlighting
-  call <SID>X("diffAdded", s:green, "", "")
-  call <SID>X("diffRemoved", s:red, "", "")
-
-  " Delete Functions
-  delf <SID>X
-  delf <SID>rgb
-  delf <SID>colour
-  delf <SID>rgb_colour
-  delf <SID>rgb_level
-  delf <SID>rgb_number
-  delf <SID>grey_colour
-  delf <SID>grey_level
-  delf <SID>grey_number
-endif

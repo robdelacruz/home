@@ -1,14 +1,14 @@
 " Vim color file --- psc (peak sea color) "Lite version"
 " Maintainer:	Pan, Shi Zhu <Go to the following URL for my email>
 " URL:		http://vim.sourceforge.net/scripts/script.php?script_id=760
-" Last Change:	19 May 2011
-" Version:	3.5
+" Last Change:	11 Nov 2016
+" Version:	3.6
 "
 "	Comments and e-mails are welcomed, thanks.
 "
 "	The peaksea color is simply a colorscheme with the default settings of
 "	the original ps_color. Lite version means there's no custom settings
-"	and fancy features such as integration with reloaded.vim 
+"	and fancy features such as integration with reloaded.vim
 "
 "	The full version of ps_color.vim will be maintained until Vim 8.
 "	By then there will be only the lite version: peaksea.vim
@@ -19,10 +19,10 @@
 "	a colorscheme file.  because ":set background" improperly
 "	may cause colorscheme be sourced twice
 "
-" Color Scheme Overview: 
+" Color Scheme Overview:
 "	:ru syntax/hitest.vim
 "
-" Relevant Help: 
+" Relevant Help:
 "	:h highlight-groups
 "	:h psc-cterm-color-table
 "
@@ -38,10 +38,8 @@ endif
 
 let g:colors_name = expand("<sfile>:t:r")
 
-set fillchars+=vert:│
-
-" I don't want to abuse folding, but here folding is used to avoid confusion. 
-if &background=='light' 
+" I don't want to abuse folding, but here folding is used to avoid confusion.
+if &background=='light'
   " for background=light {{{2
   " LIGHT COLOR DEFINE START
 
@@ -84,7 +82,7 @@ if &background=='light'
 
   hi IncSearch		guifg=#f0f0f0	guibg=#806060	gui=NONE
   hi StatusLineNC	guifg=fg	guibg=#c0c0c0	gui=NONE
-  hi VertSplit		guifg=NONE	guibg=NONE	gui=NONE
+  hi VertSplit		guifg=fg	guibg=#c0c0c0	gui=NONE
   hi Underlined		guifg=#6a5acd	guibg=NONE	gui=underline
   hi Ignore		guifg=bg	guibg=NONE
   " NOTE THIS IS IN THE WARM SECTION
@@ -106,6 +104,9 @@ if &background=='light'
     hi CursorLine	guifg=NONE	guibg=NONE	gui=underline
     hi MatchParen	guifg=NONE	guibg=#c0e080
   endif
+  if v:version >= 800
+    hi CursorLineNr	guifg=#686868	guibg=NONE	gui=underline
+  endif
 
   " LIGHT COLOR DEFINE END
 
@@ -122,7 +123,7 @@ if &background=='light'
     endif
     hi TabLine		gui=underline
     hi TabLineFill	gui=underline
-    hi CursorLine	gui=NONE
+    hi CursorLine	gui=underline
   endif
 
   " For reversed stuffs, clear the reversed prop and set the bold prop again
@@ -168,23 +169,23 @@ if &background=='light'
     hi StatusLine	ctermfg=fg	ctermbg=153	cterm=NONE
     hi LineNr		ctermfg=242	ctermbg=NONE	cterm=NONE
     hi Question		ctermfg=fg	ctermbg=186	cterm=NONE
-    hi PreProc		ctermfg=29	ctermbg=NONE	cterm=NONE
+    hi PreProc		ctermfg=28	ctermbg=NONE	cterm=NONE
     hi Statement	ctermfg=25	ctermbg=NONE	cterm=NONE
     hi Type		ctermfg=25	ctermbg=NONE	cterm=NONE
     hi Todo		ctermfg=88	ctermbg=186	cterm=NONE
     " NOTE THIS IS IN THE WARM SECTION
-    hi Error		ctermfg=130	ctermbg=NONE	cterm=NONE
-    hi Identifier	ctermfg=133	ctermbg=NONE	cterm=NONE
+    hi Error		ctermfg=160	ctermbg=NONE	cterm=NONE
+    hi Identifier	ctermfg=127	ctermbg=NONE	cterm=NONE
     hi ModeMsg		ctermfg=fg	ctermbg=146	cterm=NONE
     hi VisualNOS	ctermfg=fg	ctermbg=146	cterm=NONE
     hi SpecialKey	ctermfg=25	ctermbg=NONE	cterm=NONE
     hi NonText		ctermfg=18	ctermbg=252	cterm=NONE
     " Comment/Uncomment the following line to disable/enable transparency
     "hi NonText		ctermfg=18	ctermbg=NONE	cterm=NONE
-    hi Directory	ctermfg=133	ctermbg=NONE	cterm=NONE
+    hi Directory	ctermfg=127	ctermbg=NONE	cterm=NONE
     hi ErrorMsg		ctermfg=fg	ctermbg=216	cterm=NONE
     hi MoreMsg		ctermfg=64	ctermbg=NONE	cterm=NONE
-    hi Title		ctermfg=133	ctermbg=NONE	cterm=NONE
+    hi Title		ctermfg=127	ctermbg=NONE	cterm=NONE
     hi WarningMsg	ctermfg=124	ctermbg=NONE	cterm=NONE
     hi WildMenu		ctermfg=fg	ctermbg=186	cterm=NONE
     hi Folded		ctermfg=NONE	ctermbg=151	cterm=NONE
@@ -197,7 +198,7 @@ if &background=='light'
 
     hi IncSearch	ctermfg=255	ctermbg=95	cterm=NONE
     hi StatusLineNC	ctermfg=fg	ctermbg=250	cterm=NONE
-    hi VertSplit	ctermfg=NONE	ctermbg=NONE	cterm=NONE
+    hi VertSplit	ctermfg=fg	ctermbg=250	cterm=NONE
     hi Underlined	ctermfg=62	ctermbg=NONE	cterm=underline
     hi Ignore		ctermfg=bg	ctermbg=NONE
     " NOTE THIS IS IN THE WARM SECTION
@@ -205,9 +206,9 @@ if &background=='light'
       if has('spell')
         if 0
           " ctermsp is not supported in Vim7, we ignore it.
-          hi SpellBad	cterm=undercurl	ctermbg=NONE	ctermfg=130
+          hi SpellBad	cterm=undercurl	ctermbg=NONE	ctermfg=160
           hi SpellCap	cterm=undercurl	ctermbg=NONE	ctermfg=25
-          hi SpellRare	cterm=undercurl	ctermbg=NONE	ctermfg=133
+          hi SpellRare	cterm=undercurl	ctermbg=NONE	ctermfg=127
           hi SpellLocal	cterm=undercurl	ctermbg=NONE	ctermfg=23
         else
           hi SpellBad	cterm=undercurl	ctermbg=NONE	ctermfg=NONE
@@ -226,6 +227,9 @@ if &background=='light'
       hi CursorColumn	ctermfg=NONE	ctermbg=216
       hi CursorLine	ctermfg=NONE	ctermbg=NONE	cterm=underline
       hi MatchParen	ctermfg=NONE	ctermbg=150
+    endif
+    if v:version >= 800
+      hi CursorLineNr	ctermfg=242	ctermbg=NONE	cterm=underline
     endif
 
     hi TabLine		cterm=underline
@@ -253,7 +257,7 @@ if &background=='light'
     "hi lCursor		ctermfg=bg	ctermbg=fg	cterm=NONE
   endif " t_Co==256
   " }}}2
-elseif &background=='dark' 
+elseif &background=='dark'
   " for background=dark {{{2
   " DARK COLOR DEFINE START
 
@@ -268,14 +272,13 @@ elseif &background=='dark'
   hi Special		guifg=#e0c060	guibg=NONE	gui=NONE
   hi Error		guifg=#f08060	guibg=NONE	gui=NONE
   hi Todo		guifg=#800000	guibg=#d0d090	gui=NONE
-  hi Search	        guifg=#ffff00	guibg=#000000	gui=STANDOUT
-  hi Visual		guifg=NONE	guibg=#606060	gui=NONE
-  hi Cursor		guifg=#202020	guibg=#e7e7e7	gui=NONE
+  hi Search		guifg=NONE	guibg=#800000	gui=NONE
+  hi Visual		guifg=#000000	guibg=#a6caf0	gui=NONE
+  hi Cursor		guifg=#000000	guibg=#00f000	gui=NONE
   " NOTE THIS IS IN THE COOL SECTION
   hi CursorIM		guifg=#000000	guibg=#f0c0f0	gui=NONE
-  hi StatusLine		guifg=#ffffff	guibg=#272822	gui=bold
-  hi LineNr		guifg=#b0b0b0	guibg=#333333	gui=NONE
-  hi CursorLineNr	guifg=#b0b0b0	guibg=#666666	gui=NONE
+  hi StatusLine		guifg=#000000	guibg=#a6caf0	gui=NONE
+  hi LineNr		guifg=#b0b0b0	guibg=NONE	gui=NONE
   hi Question		guifg=#000000	guibg=#d0d090	gui=NONE
   hi ModeMsg		guifg=fg	guibg=#000080	gui=NONE
   hi VisualNOS		guifg=fg	guibg=#000080	gui=NONE
@@ -287,40 +290,18 @@ elseif &background=='dark'
   hi Title		guifg=#f0c0f0	guibg=NONE	gui=NONE
   hi WarningMsg		guifg=#f08060	guibg=NONE	gui=NONE
   hi WildMenu		guifg=#000000	guibg=#d0d090	gui=NONE
-  hi Folded		guifg=NONE	guibg=#666666	gui=NONE
-  hi FoldColumn		guifg=#a6e22e	guibg=NONE	gui=NONE
-  hi DiffAdd		guifg=NONE	guibg=#193300	gui=NONE
-  hi DiffChange		guifg=NONE	guibg=#333300	gui=NONE
-  hi DiffDelete		guifg=#d70000   guibg=NONE	gui=NONE
-  hi DiffText		guifg=NONE	guibg=#666600	gui=NONE
-  hi SignColumn		guifg=#e0e0e0	guibg=NONE	gui=NONE
+  hi Folded		guifg=NONE	guibg=#004000	gui=NONE
+  hi FoldColumn		guifg=#e0e0e0	guibg=#008000	gui=NONE
+  hi DiffAdd		guifg=NONE	guibg=#000080	gui=NONE
+  hi DiffChange		guifg=NONE	guibg=#800080	gui=NONE
+  hi DiffDelete		guifg=#6080f0	guibg=#202020	gui=NONE
+  hi DiffText		guifg=#000000	guibg=#c0e080	gui=NONE
+  hi SignColumn		guifg=#e0e0e0	guibg=#008000	gui=NONE
   hi IncSearch		guifg=#000000	guibg=#d0d0d0	gui=NONE
   hi StatusLineNC	guifg=#000000	guibg=#c0c0c0	gui=NONE
-  hi VertSplit		guifg=NONE	guibg=NONE	gui=NONE
-  hi Underlined		guifg=#80a0ff	guibg=NONE	gui=NONE
+  hi VertSplit		guifg=#000000	guibg=#c0c0c0	gui=NONE
+  hi Underlined		guifg=#80a0ff	guibg=NONE	gui=underline
   hi Ignore		guifg=#000000	guibg=NONE
-
-
-  hi gitcommitComment   guifg=#75715e   guibg=NONE      gui=NONE
-
-  hi link gitcommitUntracked gitcommitComment
-  hi link gitcommitDiscarded gitcommitComment
-  hi link gitcommitSelected  gitcommitComment
-
-  hi gitcommitHeader    guifg=#cc99ff   guibg=NONE       gui=NONE
-
-  hi gitcommitSelectedType guifg=#80c0e0  guibg=NONE    gui=BOLD
-  hi link gitcommitUnmergedType  gitcommitSelectedType
-  hi link gitcommitDiscardedType gitcommitSelectedType
-
-  hi gitcommitBranch guifg=#f88b0c     guibg=NONE     gui=BOLD
-
-  hi gitcommitUntrackedFile  guifg=#fffd01   guibg=NONE	 gui=NONE
-  hi gitcommitUnmergedFile   guifg=#d70000   guibg=NONE	 gui=NONE
-  hi gitcommitDiscardedFile  guifg=#d70000   guibg=NONE	 gui=NONE
-  hi gitcommitSelectedFile   guifg=#0cff0c   guibg=NONE	 gui=NONE
-
-
   " NOTE THIS IS IN THE COOL SECTION
   if v:version >= 700
     if has('spell')
@@ -334,62 +315,63 @@ elseif &background=='dark'
     hi PmenuSel		guifg=#000000	guibg=#d0d0d0	gui=NONE
     hi PmenuSbar	guifg=fg	guibg=#000080	gui=NONE
     hi PmenuThumb	guifg=fg	guibg=#008000	gui=NONE
-    hi TabLine		guifg=fg	guibg=#707070	gui=NONE
-    hi TabLineFill      guifg=fg	guibg=#707070	gui=NONE
-    hi TabLineSel	guifg=#ffffff	guibg=#000000	gui=BOLD
+    hi TabLine		guifg=fg	guibg=#008000	gui=NONE
+    hi TabLineFill	guifg=fg	guibg=#008000	gui=NONE
+    hi TabLineSel	guifg=fg	guibg=NONE	gui=NONE
     hi CursorColumn	guifg=NONE	guibg=#800000	gui=NONE
-    hi CursorLine	guifg=NONE	guibg=#666666	gui=NONE
+    hi CursorLine	guifg=NONE	guibg=NONE	gui=underline
     hi MatchParen	guifg=NONE	guibg=#800080
+  endif
+  if v:version >= 800
+    hi CursorLineNr	guifg=#b0b0b0	guibg=NONE	gui=underline
   endif
 
   " DARK COLOR DEFINE END
 
   " Vim 7 added stuffs
   if v:version >= 700
-    hi Ignore	gui=NONE  
+    hi Ignore	gui=NONE
 
     " the gui=undercurl could only support in Vim 7
     if has('spell')
-      hi SpellBad	gui=undercurl  
-      hi SpellCap	gui=undercurl  
-      hi SpellRare	gui=undercurl  
-      hi SpellLocal	gui=undercurl 
+      hi SpellBad	gui=undercurl
+      hi SpellCap	gui=undercurl
+      hi SpellRare	gui=undercurl
+      hi SpellLocal	gui=undercurl
     endif
-    hi TabLine		gui=NONE  
-    hi TabLineFill	gui=NONE  
-    hi Underlined	gui=NONE  
-    hi CursorLine	gui=NONE 
+    hi TabLine		gui=underline
+    hi TabLineFill	gui=underline
+    hi Underlined	gui=underline
+    hi CursorLine	gui=underline
   endif
 
   " gui define for background=dark end here
 
   if &t_Co==8 || &t_Co==16
     " for 8-color and 16-color term
-    " Note: if you want transparent, change all ctermbg=NONE
-    " from hi Normal to hi DiffDelete, and hi TabLineSel, CursorLine
-    hi Normal		ctermfg=LightGrey   ctermbg=Black
-    hi Special		ctermfg=Yellow	    ctermbg=bg
-    hi Comment		ctermfg=DarkYellow  ctermbg=bg
-    hi Constant		ctermfg=Blue	    ctermbg=bg
-    hi Number		ctermfg=Yellow	    ctermbg=bg
-    hi LineNr		ctermfg=DarkGrey    ctermbg=bg
-    hi PreProc		ctermfg=Green	    ctermbg=bg
-    hi Statement	ctermfg=Cyan	    ctermbg=bg
-    hi Type		ctermfg=Cyan	    ctermbg=bg
-    hi Error		ctermfg=Red	    ctermbg=bg
-    hi Identifier	ctermfg=Magenta     ctermbg=bg
-    hi SpecialKey	ctermfg=Cyan	    ctermbg=bg
-    hi NonText		ctermfg=Blue	    ctermbg=bg
-    hi Directory	ctermfg=Blue	    ctermbg=bg
-    hi MoreMsg		ctermfg=Green	    ctermbg=bg
-    hi Title		ctermfg=Magenta     ctermbg=bg
-    hi WarningMsg	ctermfg=Red	    ctermbg=bg
-    hi DiffDelete	ctermfg=Blue	    ctermbg=bg
+    hi Normal		ctermfg=LightGrey   ctermbg=NONE
+    hi Special		ctermfg=Yellow	    ctermbg=NONE
+    hi Comment		ctermfg=DarkYellow  ctermbg=NONE
+    hi Constant		ctermfg=Blue	    ctermbg=NONE
+    hi Number		ctermfg=Yellow	    ctermbg=NONE
+    hi LineNr		ctermfg=DarkGrey    ctermbg=NONE
+    hi PreProc		ctermfg=Green	    ctermbg=NONE
+    hi Statement	ctermfg=Cyan	    ctermbg=NONE
+    hi Type		ctermfg=Cyan	    ctermbg=NONE
+    hi Error		ctermfg=Red	    ctermbg=NONE
+    hi Identifier	ctermfg=Magenta     ctermbg=NONE
+    hi SpecialKey	ctermfg=Cyan	    ctermbg=NONE
+    hi NonText		ctermfg=Blue	    ctermbg=NONE
+    hi Directory	ctermfg=Blue	    ctermbg=NONE
+    hi MoreMsg		ctermfg=Green	    ctermbg=NONE
+    hi Title		ctermfg=Magenta     ctermbg=NONE
+    hi WarningMsg	ctermfg=Red	    ctermbg=NONE
+    hi DiffDelete	ctermfg=Blue	    ctermbg=NONE
 
     hi Search		ctermfg=NONE	    ctermbg=DarkRed
     hi Visual		ctermfg=Black	    ctermbg=DarkCyan
     hi Cursor		ctermfg=Black	    ctermbg=Green
-    hi StatusLine	ctermfg=White	    ctermbg=DarkCyan
+    hi StatusLine	ctermfg=Black	    ctermbg=DarkCyan
     hi Question		ctermfg=Black	    ctermbg=DarkYellow
     hi Todo		ctermfg=DarkRed     ctermbg=DarkYellow
     hi Folded		ctermfg=White	    ctermbg=DarkGreen
@@ -416,10 +398,13 @@ elseif &background=='dark'
       hi TabLineFill	ctermfg=fg	ctermbg=DarkGreen	cterm=underline
       hi CursorColumn	ctermfg=NONE	ctermbg=DarkRed
 
-      hi TabLineSel	ctermfg=fg	ctermbg=bg
-      hi CursorLine	ctermfg=NONE	ctermbg=bg		cterm=underline
+      hi TabLineSel	ctermfg=fg	ctermbg=NONE
+      hi CursorLine	ctermfg=NONE	ctermbg=NONE		cterm=underline
 
       hi MatchParen	ctermfg=NONE	ctermbg=DarkMagenta
+    endif
+    if v:version >= 800
+      hi CursorLineNr	ctermfg=DarkGrey	ctermbg=NONE	cterm=underline
     endif
     if &t_Co==8
       " 8 colour terminal support, this assumes 16 colour is available through
@@ -516,11 +501,11 @@ elseif &background=='dark'
     " 256color dark terminal support here
     hi Normal		ctermfg=252	ctermbg=234	cterm=NONE
     " Comment/Uncomment the following line to disable/enable transparency
-    "hi Normal		ctermfg=252	ctermbg=NONE	cterm=NONE
+    hi Normal		ctermfg=252	ctermbg=NONE	cterm=NONE
     hi Comment		ctermfg=186	ctermbg=NONE	cterm=NONE
-    hi Constant		ctermfg=110	ctermbg=NONE	cterm=NONE
+    hi Constant		ctermfg=74	ctermbg=NONE	cterm=NONE
     hi Number		ctermfg=179	ctermbg=NONE	cterm=NONE
-    hi Identifier	ctermfg=219	ctermbg=NONE	cterm=NONE
+    hi Identifier	ctermfg=225	ctermbg=NONE	cterm=NONE
     hi Statement	ctermfg=153	ctermbg=NONE	cterm=NONE
     hi PreProc		ctermfg=84	ctermbg=NONE	cterm=NONE
     hi Type		ctermfg=153	ctermbg=NONE	cterm=NONE
@@ -531,20 +516,20 @@ elseif &background=='dark'
     hi Visual		ctermfg=16	ctermbg=153	cterm=NONE
     hi Cursor		ctermfg=16	ctermbg=46	cterm=NONE
     " NOTE THIS IS IN THE COOL SECTION
-    hi CursorIM		ctermfg=16	ctermbg=219	cterm=NONE
+    hi CursorIM		ctermfg=16	ctermbg=225	cterm=NONE
     hi StatusLine	ctermfg=16	ctermbg=153	cterm=NONE
-    hi LineNr		ctermfg=249	ctermbg=237	cterm=NONE
+    hi LineNr		ctermfg=145	ctermbg=NONE	cterm=NONE
     hi Question		ctermfg=16	ctermbg=186	cterm=NONE
     hi ModeMsg		ctermfg=fg	ctermbg=18	cterm=NONE
     hi VisualNOS	ctermfg=fg	ctermbg=18	cterm=NONE
     hi SpecialKey	ctermfg=153	ctermbg=NONE	cterm=NONE
     hi NonText		ctermfg=69	ctermbg=233	cterm=NONE
     " Comment/Uncomment the following line to disable/enable transparency
-    "hi NonText		ctermfg=69	ctermbg=NONE	cterm=NONE
-    hi Directory	ctermfg=110	ctermbg=NONE	cterm=NONE
+    hi NonText		ctermfg=69	ctermbg=NONE	cterm=NONE
+    hi Directory	ctermfg=74	ctermbg=NONE	cterm=NONE
     hi ErrorMsg		ctermfg=186	ctermbg=88	cterm=NONE
     hi MoreMsg		ctermfg=150	ctermbg=NONE	cterm=NONE
-    hi Title		ctermfg=219	ctermbg=NONE	cterm=NONE
+    hi Title		ctermfg=225	ctermbg=NONE	cterm=NONE
     hi WarningMsg	ctermfg=209	ctermbg=NONE	cterm=NONE
     hi WildMenu		ctermfg=16	ctermbg=186	cterm=NONE
     hi Folded		ctermfg=NONE	ctermbg=22	cterm=NONE
@@ -556,7 +541,7 @@ elseif &background=='dark'
     hi SignColumn	ctermfg=254	ctermbg=28	cterm=NONE
     hi IncSearch	ctermfg=16	ctermbg=252	cterm=NONE
     hi StatusLineNC	ctermfg=16	ctermbg=250	cterm=NONE
-    hi VertSplit	ctermfg=NONE	ctermbg=NONE	cterm=NONE
+    hi VertSplit	ctermfg=16	ctermbg=250	cterm=NONE
     hi Underlined	ctermfg=111	ctermbg=NONE	cterm=underline 
     hi Ignore		ctermfg=16	ctermbg=NONE
     " NOTE THIS IS IN THE COOL SECTION
@@ -566,7 +551,7 @@ elseif &background=='dark'
         if 0
           hi SpellBad	cterm=undercurl	ctermbg=NONE	ctermfg=209
           hi SpellCap	cterm=undercurl	ctermbg=NONE	ctermfg=69
-          hi SpellRare	cterm=undercurl	ctermbg=NONE	ctermfg=219
+          hi SpellRare	cterm=undercurl	ctermbg=NONE	ctermfg=225
           hi SpellLocal	cterm=undercurl	ctermbg=NONE	ctermfg=153
         else
           hi SpellBad	cterm=undercurl	ctermbg=NONE	ctermfg=NONE
@@ -589,6 +574,9 @@ elseif &background=='dark'
       hi TabLineFill	cterm=underline  
       hi Underlined	cterm=underline  
       hi CursorLine	cterm=underline 
+    endif
+    if v:version >= 800
+      hi CursorLine	ctermfg=145	cterm=underline 
     endif
 
   endif " t_Co

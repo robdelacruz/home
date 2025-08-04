@@ -1,7 +1,7 @@
 " Vim color file
-" Maintainer:  Thomas Schmall <ts_nowhere@yahoo.com>
-" Last Change:  2004 June 16
-" Version:1.0
+" Maintainer:  Thomas Schmall <tschmall @NOSPAM@ gmail.com>
+" Last Change:  2013 February 23
+" Version:1.1
 " URL: http://www.oxpal.com/index.php?o=dev_vim&lan=en
 "
 " Note: you can type :set number! to activate or deactivate the line numbering, wich also
@@ -19,7 +19,7 @@ hi Title   guifg=black	guibg=white   ctermfg=Black  ctermbg=white  gui=BOLD
 hi lCursor guibg=Cyan   guifg=NONE
 
 hi LineNr	 guifg=white  guibg=#8c9bfa
-
+hi CursorLineNr         guifg=white  guibg=#8c9bfa gui=NONE 
 
 
 " syntax highlighting groups

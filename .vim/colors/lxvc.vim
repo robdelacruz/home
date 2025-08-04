@@ -124,7 +124,10 @@ hi Ignore           guifg=bg
 hi Ignore           ctermfg=darkgrey    ctermbg=NONE        cterm=NONE
 
 hi Error            guifg=#e37170       guibg=#432323       gui=NONE
-hi Error            ctermfg=white       ctermbg=NONE        cterm=NONE
+hi Error            ctermfg=1           ctermbg=NONE        cterm=NONE
+
+hi Warning          guifg=#e37170       guibg=#432323       gui=NONE
+hi Warning          ctermfg=1           ctermbg=NONE        cterm=NONE
 
 hi Todo             guifg=#e0e090       guibg=NONE          gui=underline
 hi Todo             ctermfg=black       ctermbg=blue        cterm=NONE
@@ -141,13 +144,13 @@ hi CursorIM         guifg=bg            guibg=#96cdcd
 hi CursorColumn     guifg=NONE          guibg=#404448       gui=NONE
 
 hi CursorLine                           guibg=#34373b       gui=NONE
-hi CursorLine       ctermfg=NONE        ctermbg=236         cterm=NONE
+hi CursorLine       ctermfg=NONE        ctermbg=0         cterm=NONE
 
-hi CursorLineNr		            		guifg=#8895dd       gui=bold
-hi CursorLineNr		ctermfg=blue        ctermbg=NONE        cterm=bold
+hi CursorLineNr     guifg=#8895dd                           gui=bold
+hi CursorLineNr     ctermfg=blue        ctermbg=NONE        cterm=bold
 
 hi Directory        guifg=#c0e0b0                           gui=NONE
-hi Directory        ctermfg=darkgreen   ctermbg=NONE        cterm=NONE
+hi Directory        ctermfg=blue        ctermbg=NONE        cterm=NONE
 
 hi ErrorMsg         guifg=#574b4b       guibg=NONE          gui=NONE
 hi ErrorMsg         ctermfg=white       ctermbg=NONE        cterm=NONE
@@ -182,8 +185,7 @@ hi WarningMsg       ctermfg=black       ctermbg=NONE        cterm=NONE
 hi WildMenu         guifg=#cae682       guibg=#363946       gui=bold,underline
 hi WildMenu         ctermfg=black       ctermbg=darkgrey    cterm=NONE
 
-hi SignColumn       guifg=#9fafaf       guibg=#181818       gui=NONE
-
+hi clear SignColumn
 
 """"""
 " TABS
@@ -205,10 +207,10 @@ hi Title            ctermfg=darkgrey    ctermbg=NONE
 " COMPLETION
 """"""""""""""""""""""""
 hi Pmenu            guifg=#e0e0e0       guibg=#101010       gui=NONE
-hi Pmenu            ctermfg=darkgrey    ctermbg=black       cterm=reverse
+hi Pmenu            ctermfg=white       ctermbg=0           cterm=NONE
 
 hi PmenuSel         guifg=#a5a9af       guibg=#202020       gui=NONE
-hi PmenuSel         ctermfg=black       ctermbg=darkgrey    cterm=bold
+hi PmenuSel         ctermfg=black       ctermbg=white       cterm=NONE
 
 hi PMenuSbar                            guibg=#505860       gui=NONE
 
@@ -219,26 +221,26 @@ hi PMenuThumb                           guibg=#808890       gui=NONE
 " STATUS
 """"""""""""""""""""""""
 hi StatusLine       guifg=#e0e0e0       guibg=#363946       gui=bold
-hi StatusLine       ctermfg=235         ctermbg=254         cterm=bold
+hi StatusLine       ctermfg=blue        ctermbg=NONE        cterm=bold
 
 hi StatusLineNC     guifg=#767986       guibg=#363946       gui=NONE
-hi StatusLineNC     ctermfg=235         ctermbg=248         cterm=bold
+hi StatusLineNC     ctermfg=240         ctermbg=NONE        cterm=bold
 
 
 """"""
 " DIFF
 """"""""""""""""""""""""
-hi DiffAdd          guifg=#80a090       guibg=#313c36       gui=NONE
-hi DiffAdd          ctermfg=0           ctermbg=66          cterm=NONE
+hi DiffAdd          guifg=#a2b9af       guibg=#28312c       gui=NONE
+hi DiffAdd          ctermfg=66          ctermbg=NONE        cterm=NONE
 
-hi DiffChange       guifg=#9a977b       guibg=#474536       gui=NONE
-hi DiffChange       ctermfg=0           ctermbg=101         cterm=NONE
+hi DiffChange       guifg=#706f5c       guibg=#383732       gui=NONE
+hi DiffChange       ctermfg=240         ctermbg=NONE        cterm=NONE
 
-hi DiffDelete       guifg=#6c6661       guibg=#4a343a       gui=NONE
-hi DiffDelete       ctermfg=0           ctermbg=95          cterm=NONE
+hi DiffDelete       guifg=#332428       guibg=#332428       gui=NONE
+hi DiffDelete       ctermfg=95          ctermbg=NONE        cterm=NONE
 
-hi DiffText         guifg=#e0e0e0       guibg=#474536       gui=NONE
-hi DiffText         ctermfg=0           ctermbg=101         cterm=NONE
+hi DiffText         guifg=#b3b2a2       guibg=#383732       gui=NONE
+hi DiffText         ctermfg=101         ctermbg=NONE        cterm=NONE
 
 
 """"""
@@ -264,12 +266,13 @@ hi FoldColumn       ctermfg=darkgrey    ctermbg=NONE         cterm=NONE
 """"""
 " SPELLING
 """"""""""""""""""""""""
-hi SpellBad         guisp=#ee0000                            gui=undercurl
+hi SpellBad         guifg=#ee0000      guibg=NONE            gui=undercurl
+hi SpellBad         ctermfg=1          ctermbg=NONE          cterm=NONE
 
 hi SpellCap         guisp=#eeee00                            gui=undercurl
+hi SpellCap         ctermfg=1          ctermbg=NONE          cterm=NONE
 
 hi SpellRare        guisp=#ffa500                            gui=undercurl
-
 hi SpellLocal       guisp=#ffa500                            gui=undercurl
 
 
@@ -285,7 +288,27 @@ hi OverLength       guifg=#cc3333       guibg=#592929
 hi OverLength       ctermfg=196         ctermbg=0
 
 hi ColorColumn      guifg=#cc3333       guibg=#212121        gui=NONE
-hi ColorColumn      ctermfg=196         ctermbg=234          cterm=NONE
+hi ColorColumn                          ctermbg=0            cterm=NONE
+
+""""""
+" TERMINAL
+""""""""""""""""""""""""
+let g:terminal_color_0="#000000"
+let g:terminal_color_1="#d8605d"
+let g:terminal_color_2="#73c69d"
+let g:terminal_color_3="#f3dd00"
+let g:terminal_color_4="#7675ff"
+let g:terminal_color_5="#a87dae"
+let g:terminal_color_6="#69a7cd"
+let g:terminal_color_7="#f7f7f7"
+let g:terminal_color_8="#dbdadb"
+let g:terminal_color_9="#e76867"
+let g:terminal_color_10="#76cea3"
+let g:terminal_color_11="#f8e256"
+let g:terminal_color_12="#7675ff"
+let g:terminal_color_13="#c862c5"
+let g:terminal_color_14="#78bde9"
+let g:terminal_color_15="#f1f1f0"
 
 """"""
 " PLUGIN COLORS
@@ -309,10 +332,10 @@ hi TagbarVisibilityProtected ctermfg=darkgrey
 
 "IndentGuides
 hi IndentGuidesOdd                      guibg=#272727
-hi IndentGuidesOdd                      ctermbg=234
+hi IndentGuidesOdd                      ctermbg=0
 
 hi IndentGuidesEven                     guibg=#272727
-hi IndentGuidesEven                     ctermbg=234
+hi IndentGuidesEven                     ctermbg=0
 
 "Vimwiki
 hi VimwikiHeader1   ctermfg=blue
@@ -330,19 +353,23 @@ hi VimwikiHeader5   guifg=#8895dd
 hi VimwikiHeader6   guifg=#8895dd
 
 "Startify
-highlight StartifyBracket    ctermfg=240    guifg=#636970
-highlight StartifyFile       ctermfg=245    guifg=#a5a9af
-highlight StartifyFooter     ctermfg=240    guifg=#636970
-highlight StartifyHeader     ctermfg=240    guifg=#636970
-highlight StartifyNumber     ctermfg=blue   guifg=#6071d1
-highlight StartifyPath       ctermfg=240    guifg=#636970
-highlight StartifySlash      ctermfg=240    guifg=#636970
-highlight StartifySection    ctermfg=240    guifg=#636970
-highlight StartifySelection  ctermfg=240    guifg=#636970
-highlight StartifySpecial    ctermfg=240    guifg=#636970
+hi StartifyBracket    ctermfg=240    guifg=#636970
+hi StartifyFile       ctermfg=245    guifg=#a5a9af
+hi StartifyFooter     ctermfg=240    guifg=#636970
+hi StartifyHeader     ctermfg=240    guifg=#636970
+hi StartifyNumber     ctermfg=blue   guifg=#6071d1
+hi StartifyPath       ctermfg=240    guifg=#636970
+hi StartifySlash      ctermfg=240    guifg=#636970
+hi StartifySection    ctermfg=240    guifg=#636970
+hi StartifySelection  ctermfg=240    guifg=#636970
+hi StartifySpecial    ctermfg=240    guifg=#636970
 
+"EasyMotion
 hi link EasyMotionTarget Number
 hi link EasyMotionShade  Comment
-
 hi link EasyMotionTarget2First MatchParen
 hi link EasyMotionTarget2Second MatchParen
+
+"Syntastic
+hi link SyntasticErrorSign Error
+hi link SyntasticWarningSign Warning

@@ -36,7 +36,8 @@ let s:green             = { "gui": "#30B536", "cterm": "34"  }
 let s:pink              = { "gui": "#D36DD3", "cterm": "170" }
 let s:orange            = { "gui": "#FC923F", "cterm": "208" }
 let s:purple            = { "gui": "#B586E7", "cterm": "141" }
-let s:blue              = { "gui": "#255DE7", "cterm": "27"  }
+let s:light_cyan        = { "gui": "#D7FFFF", "cterm": "195" }
+let s:dark_cyan         = { "gui": "#00AF87", "cterm": "36"  }
 let s:ultramarine       = { "gui": "#229EC0", "cterm": "38"  }
 let s:skyblue           = { "gui": "#34D0F1", "cterm": "45"  }
 
@@ -44,6 +45,7 @@ let s:white_pink            = { "gui": "#FEF7FE", "cterm": "231" }
 let s:white_pink_deep       = { "gui": "#FEF0FE", "cterm": "255" }
 let s:black_green           = { "gui": "#053703", "cterm": "235" }
 let s:black_green_bright    = { "gui": "#074005", "cterm": "239" }
+let s:middle_gray           = { "gui": "#8a8a8a", "cterm": "245" }
 
 let s:light_gray        = { "gui": "#E1DCDA", "cterm": "253" }
 let s:light_green       = { "gui": "#B7EFA5", "cterm": "157" }
@@ -55,7 +57,6 @@ let s:dark_gray         = { "gui": "#4D4A48", "cterm": "241" }
 let s:dark_green        = { "gui": "#09570A", "cterm": "22"  }
 let s:dark_yellow       = { "gui": "#BC922B", "cterm": "3"   }
 let s:dark_pink         = { "gui": "#B365A2", "cterm": "133" }
-"let s:dark_brown        = { "gui": "#845D18", "cterm": "94"  }
 let s:dark_red          = { "gui": "#D9372D", "cterm": "160" }
 
 " Color Alias
@@ -63,15 +64,18 @@ if &background == "light"
     let s:norm          = s:black
     let s:bg            = s:white_pink
     let s:bg_subtle     = s:white_pink_deep
+    let s:gray_fg       = s:middle_gray
     let s:green_fg      = s:green
     let s:yellow_fg     = s:dark_yellow
     let s:pink_fg       = s:dark_pink
+    let s:cyan_fg       = s:dark_cyan
     let s:blue_fg       = s:ultramarine
     let s:red_fg        = s:dark_red
     let s:gray_bg       = s:light_gray
     let s:green_bg      = s:light_green
     let s:yellow_bg     = s:light_yellow
     let s:pink_bg       = s:light_pink
+    let s:cyan_bg       = s:light_cyan
     let s:blue_bg       = s:skyblue
     let s:red_bg        = s:light_red
 endif
@@ -80,15 +84,18 @@ if &background == "dark"
     let s:norm          = s:white
     let s:bg            = s:black_green
     let s:bg_subtle     = s:black_green_bright
+    let s:gray_fg       = s:middle_gray
     let s:green_fg      = s:light_green
     let s:yellow_fg     = s:light_yellow
     let s:pink_fg       = s:light_pink
+    let s:cyan_fg       = s:light_cyan
     let s:blue_fg       = s:skyblue
     let s:red_fg        = s:light_red
     let s:gray_bg       = s:dark_gray
     let s:green_bg      = s:green
     let s:yellow_bg     = s:dark_yellow
     let s:pink_bg       = s:pink
+    let s:cyan_bg       = s:dark_cyan
     let s:blue_bg       = s:ultramarine
     let s:red_bg        = s:dark_red
 endif
@@ -122,7 +129,7 @@ endif
 "{{{ Common Highlighting
 call s:hi("Normal",         {"fg": s:norm, "bg": s:bg})
 call s:hi("Cursor",         {})
-call s:hi("Comment",        {"fg": s:blue_fg, "gui": "italic", "cterm": "italic", "term": "italic"})
+call s:hi("Comment",        {"fg": s:gray_fg, "gui": "italic", "cterm": "italic", "term": "italic"})
 
 call s:hi("Constant",       {"fg": s:pink_fg})
 hi! link String             Constant
@@ -142,7 +149,7 @@ hi! link Operator           Statement
 hi! link Keyword            Statement
 hi! link Exception          Statement
 
-call s:hi("PreProc",        {"fg": s:pink_fg})
+call s:hi("PreProc",        {"fg": s:blue_fg})
 hi! link Include            PreProc
 hi! link Define             PreProc
 hi! link Macro              PreProc
@@ -167,8 +174,8 @@ call s:hi("Todo",            {"bg": s:yellow_bg, "gui": "bold", "cterm": "bold"}
 
 "}}}
 "{{{ Semi-Common Highlighting
-call s:hi("SpecialKey",     {"fg": s:blue, "gui": "bold", "cterm": "bold", "term": "bold"})
-call s:hi("NonText",        {"fg": s:blue, "gui": "bold", "cterm": "bold", "term": "bold"})
+call s:hi("SpecialKey",     {"fg": s:purple, "gui": "bold", "cterm": "bold", "term": "bold"})
+call s:hi("NonText",        {"fg": s:cyan_bg, "gui": "bold", "cterm": "bold", "term": "bold"})
 call s:hi("Directory",      {"fg": s:blue_fg, "gui": "bold", "cterm": "bold", "term": "bold"})
 call s:hi("ErrorMsg",       {"fg": s:red_fg, "gui": "bold", "cterm": "bold", "term": "bold"})
 call s:hi("IncSearch",      {"gui": "reverse", "cterm": "reverse", "term": "reverse"})

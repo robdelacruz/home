@@ -1,7 +1,7 @@
 " Vim colorscheme
 " Author:  Gary Willoughby 
-" Version: 1.3
-" Date:    24th September 2012
+" Version: 1.4
+" Date:    24th October 2012
 
 set background=light
 hi clear
@@ -15,6 +15,7 @@ hi Blank                           guibg=white   guifg=white   gui=none
 hi Normal                          guibg=white   guifg=black   gui=none
 hi Cursor                          guibg=#555555               gui=none
 hi CursorLine                      guibg=#E8E8E8               gui=none
+hi CursorColumn                    guibg=#E8E8E8               gui=none
 hi CursorLineNr                    guibg=#696969 guifg=white   gui=none
 hi Directory                       guibg=bg      guifg=blue    gui=none
 hi FoldColumn                      guibg=#696969 guifg=white   gui=none

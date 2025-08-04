@@ -27,6 +27,7 @@ hi Visual       guifg=white     guibg=#A00000 gui=NONE
 hi SpecialKey   guifg=#808080   guibg=#343434 gui=NONE
 hi WildMenu     guifg=green     guibg=yellow  gui=NONE
 hi PmenuSbar    guifg=black     guibg=white   gui=NONE
+"hi Ignore      guifg=gray      guibg=black   gui=NONE
 hi Error        guifg=NONE      guibg=NONE    gui=undercurl
 hi ErrorMsg     guifg=white     guibg=#FF0000 gui=BOLD
 hi WarningMsg   guifg=white     guibg=#FF0000 gui=BOLD

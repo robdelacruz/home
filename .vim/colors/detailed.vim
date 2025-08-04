@@ -71,7 +71,7 @@ au Syntax ruby call s:ruby_syntax_and_highlights()
 au Syntax c    call s:c_syntax_and_highlights()
 au Syntax diff call s:diff_syntax_and_highlights()
 au Syntax vim  call s:vim_syntax_and_highlights()
-au Syntax javascript call s:javascript_syntax_and_highlights()
+au Syntax javascript call s:javsacript_syntax_and_highlights()
 au Syntax go   call s:go_syntax_and_highlights()
 
 " Show detailed syntax stack
@@ -488,7 +488,7 @@ hi ErrorMsg       term=standout ctermfg=15 ctermbg=1 guifg=White guibg=Red
 hi IncSearch      term=reverse cterm=reverse gui=reverse
 hi MoreMsg        term=bold ctermfg=121 gui=bold guifg=SeaGreen
 hi ModeMsg        term=bold cterm=bold gui=bold
-hi LineNr gui=NONE term=NONE guifg=#005f87 ctermfg=24
+hi LineNr         term=underline ctermfg=11 guifg=Yellow
 hi CursorLineNr   term=bold ctermfg=11 gui=bold guifg=Yellow
 hi Question       term=standout ctermfg=121 gui=bold guifg=Green
 hi StatusLine     term=bold,reverse cterm=bold,reverse gui=bold,reverse
@@ -551,6 +551,11 @@ fun! s:detailed_colors()
   call s:diff_syntax_and_highlights() " For vimdiff, which uses other filetypes
 
   call s:underline_fgbg('MatchParen', 'gray255', 'gray243')
+
+  " for :set cursorline
+  call s:bg('CursorLine', 'gray233')
+
+  hi CursorLine cterm=none " Get rid of the underline
 
   " For :set colorcolumn=80
   call s:fgbg('ColorColumn', 'gray254', 'gray233')
@@ -716,7 +721,7 @@ fun! s:vim_syntax_and_highlights()
   "hi link vimFuncBody detailedDefine
 endfun
 
-fun! s:javascript_syntax_and_highlights()
+fun! s:javsacript_syntax_and_highlights()
   hi link javascriptFunction detailedDefine
   hi link javascriptIdentifier Type
   hi link javascriptRailsFunction detailedInstanceVariable
@@ -876,7 +881,7 @@ fun! s:fatpacked_rainbow_parens()
   " From Pharo Smalltalk:
   " Black, Green, Purple, Maroon, LightGreen, Orange, Red, Blue
   let ctermfgs = exists('g:rainbow_ctermfgs')? g:rainbow_ctermfgs : [
-        \ '241', '22', '56', '124', '72', '166', '126', '38', ]
+        \ '19', '238', '22', '56', '52', '72', '166', '88' ]
 
   let max = has('gui_running')? len(guifgs) : len(ctermfgs)
 

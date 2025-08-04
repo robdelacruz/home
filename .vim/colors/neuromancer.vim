@@ -9,17 +9,17 @@ endif
 let g:colors_name = "neuromancer"
 let s:colors = {
     \ "dark_blue": "#54C9FF",
-    \ "turquoise": "#6AFFB7",
-    \ "dark_purple": "#1B1C30",
-    \ "light_purple": "#858EED",
+    \ "turquoise": "#65F2F2",
+    \ "dark_purple": "#121424",
+    \ "light_purple": "#A2A0DF",
     \ "dark_gray": "#7E7E7E",
-    \ "orange": "#ED6352",
+    \ "orange": "#FDA549",
     \ "red": "#ff586b",
     \ "hot_pink": "#E9729F",
     \ "black": "#050809",
-    \ "white": "#FFFFFF",
-    \ "green": "#2CEAA3",
-    \ "yellow": "#FFF94F",
+    \ "white": "#F7F9F9",
+    \ "green": "#37CFC4",
+    \ "yellow": "#F4DE68",
 \ }
 
 function! Hi(name, guifg, guibg, gui)
@@ -43,12 +43,9 @@ call Hi("Float", s:colors["dark_purple"], "NONE", "NONE")
 call Hi("Repeat", s:colors["red"], "NONE", "NONE")
 call Hi("Operator", s:colors["red"], "NONE", "NONE")
 
-""""""""""""""""""""""""""""""
-"    SQL specific settings   "
-"                            "
-""""""""""""""""""""""""""""""
 call Hi("sqlType", s:colors["yellow"], "NONE", "NONE")
 call Hi("sqlKeyword", s:colors["light_purple"], "NONE", "NONE")
+call Hi("sqlSpecial", s:colors["orange"], "NONE", "NONE")
 
 """"""""""""""""""""""""""""""
 "   HTML specific settings   "
@@ -84,7 +81,7 @@ call Hi("pythonStrFormat", s:colors["dark_blue"], "NONE", "NONE")
 call Hi("pythonStrFormatting", s:colors["dark_blue"], "NONE", "NONE")
 call Hi("pythonConditional", s:colors["light_purple"], "NONE", "NONE")
 call Hi("pythonBoolean", s:colors["hot_pink"], "NONE", "NONE")
-call Hi("pythonBuilinObj", s:colors["green"], "NONE", "NONE")
+call Hi("pythonBuiltinObj", s:colors["green"], "NONE", "NONE")
 call Hi("pythonRun", "#575758", "NONE", "NONE")
 
 """"""""""""""""""""""""""""""
@@ -233,8 +230,8 @@ call Hi("sassPlaceholder", s:colors["yellow"], "NONE", "NONE")
 call Hi("sassVariable", s:colors["dark_blue"], "NONE", "NONE")
 call Hi("sassMixin", s:colors["light_purple"], "NONE", "NONE")
 call Hi("sassMixing", s:colors["white"], "NONE", "NONE")
-call Hi("sassClassChar", s:colors["white"], "NONE", "NONE")
-call Hi("sassIdChar", s:colors["white"], "NONE", "NONE")
+call Hi("sassClassChar", s:colors["hot_pink"], "NONE", "NONE")
+call Hi("sassIdChar", s:colors["dark_blue"], "NONE", "NONE")
 call Hi("sassId", s:colors["dark_blue"], "NONE", "NONE")
 
 """css settings"""
@@ -275,3 +272,106 @@ call Hi("cssValueLength", s:colors["dark_blue"], "NONE", "NONE")
 call Hi("cssValueNumber", s:colors["dark_blue"], "NONE", "NONE")
 
 
+""""""""""""""""""""""""""""""""
+" TypeScript specific settings "
+"                              "
+""""""""""""""""""""""""""""""""
+
+call Hi("typescriptExceptions", s:colors["red"], "NONE", "NONE")
+call Hi("typescriptIdentifier", s:colors["light_purple"], "NONE", "NONE")
+call Hi("typescriptType", s:colors["green"], "NONE", "NONE")
+call Hi("typescriptNull", s:colors["green"], "NONE", "NONE")
+call Hi("typescriptOperator", s:colors["hot_pink"], "NONE", "NONE")
+call Hi("typescriptNumber", s:colors["green"], "NONE", "NONE")
+call Hi("typescriptStatement", s:colors["light_purple"], "NONE", "NONE")
+call Hi("typescriptLabel", s:colors["hot_pink"], "NONE", "NONE")
+call Hi("typescriptDecorators", s:colors["hot_pink"], "NONE", "NONE")
+
+""""""""""""""""""""""""""""""""
+"   Golang specific settings   "
+"                              "
+""""""""""""""""""""""""""""""""
+
+call Hi("goType", s:colors["dark_blue"], "NONE", "NONE")
+call Hi("goFloats", s:colors["dark_blue"], "NONE", "NONE")
+call Hi("goComplexes", s:colors["dark_blue"], "NONE", "NONE")
+call Hi("goSignedInts", s:colors["dark_blue"], "NONE", "NONE")
+call Hi("goUnsignedInts", s:colors["dark_blue"], "NONE", "NONE")
+
+call Hi("goUnsignedInts", s:colors["dark_blue"], "NONE", "NONE")
+call Hi("goDeclaration", s:colors["hot_pink"], "NONE", "NONE")
+call Hi("goLabel", s:colors["light_purple"], "NONE", "NONE")
+call Hi("goDirective", s:colors["light_purple"], "NONE", "NONE")
+call Hi("goDeclType", s:colors["green"], "NONE", "NONE")
+call Hi("goTypeDecl", s:colors["dark_blue"], "NONE", "NONE")
+call Hi("goBuiltins", s:colors["hot_pink"], "NONE", "NONE")
+call Hi("goFloat", s:colors["light_purple"], "NONE", "NONE")
+call Hi("goTypeName", s:colors["hot_pink"], "NONE", "NONE")
+call Hi("goFunction", s:colors["light_purple"], "NONE", "NONE")
+call Hi("goReceiverType", s:colors["green"], "NONE", "NONE")
+call Hi("goPointerOperator", s:colors["hot_pink"], "NONE", "NONE")
+call Hi("goMethodCall", s:colors["light_purple"], "NONE", "NONE")
+call Hi("goOperator", s:colors["hot_pink"], "NONE", "NONE")
+call Hi("goField", s:colors["turquoise"], "NONE", "NONE")
+call Hi("goFunctionCall", s:colors["dark_blue"], "NONE", "NONE")
+
+
+""""""""""""""""""""""""""""""""
+"    JSON specific settings    "
+"                              "
+""""""""""""""""""""""""""""""""
+
+call Hi("jsonBraces", s:colors["white"], "NONE", "NONE")
+call Hi("jsonNumber", s:colors["light_purple"], "NONE", "NONE")
+call Hi("jsonBoolean", s:colors["hot_pink"], "NONE", "NONE")
+call Hi("jsonNull", s:colors["orange"], "NONE", "NONE")
+call Hi("jsonNoQuotesError", s:colors["white"], s:colors["red"], "NONE")
+
+""""""""""""""""""""""""""""""""
+"   Nginx specific settings    "
+"                              "
+""""""""""""""""""""""""""""""""
+
+call Hi("ngxDirectiveImportant", s:colors["hot_pink"], "NONE", "NONE")
+call Hi("ngxDirective", s:colors["yellow"], "NONE", "NONE")
+call Hi("ngxListenOptions", s:colors["green"], "NONE", "NONE")
+call Hi("ngxIPaddr", s:colors["yellow"], "NONE", "NONE")
+call Hi("ngxInteger", s:colors["dark_blue"], "NONE", "NONE")
+call Hi("ngxDirective", s:colors["light_purple"], "NONE", "NONE")
+
+
+""""""""""""""""""""""""""""""""
+"  Makefile specific settings  "
+"                              "
+""""""""""""""""""""""""""""""""
+
+call Hi("makeIdent", s:colors["turquoise"], "NONE", "NONE")
+call Hi("makePreCondit", s:colors["light_purple"], "NONE", "NONE")
+call Hi("makeStatement", s:colors["hot_pink"], "NONE", "NONE")
+call Hi("makeCommands", s:colors["dark_blue"], "NONE", "NONE")
+call Hi("makeSpecial", s:colors["orange"], "NONE", "NONE")
+
+""""""""""""""""""""""""""""""""
+"    YAML specific settings    "
+"                              "
+""""""""""""""""""""""""""""""""
+
+call Hi("yamlDocumentStart", s:colors["hot_pink"], "NONE", "NONE")
+call Hi("yamlDocumentEnd", s:colors["hot_pink"], "NONE", "NONE")
+call Hi("yamlNodeTag", s:colors["light_purple"], "NONE", "NONE")
+call Hi("yamlBlockMappingKey", s:colors["turquoise"], "NONE", "NONE")
+call Hi("yamlKeyValueDelimiter", s:colors["white"], "NONE", "NONE")
+call Hi("yamlInteger", s:colors["hot_pink"], "NONE", "NONE")
+call Hi("yamlFloat", s:colors["hot_pink"], "NONE", "NONE")
+call Hi("yamlAnchor", s:colors["yellow"], "NONE", "NONE")
+call Hi("yamlAlias", s:colors["light_purple"], "NONE", "NONE")
+call Hi("yamlFlowIndicator", s:colors["hot_pink"], "NONE", "NONE")
+call Hi("yamlFlowMappingKey", s:colors["dark_blue"], "NONE", "NONE")
+"
+""""""""""""""""""""""""""""""""
+"    .ini specific settings    "
+"                              "
+""""""""""""""""""""""""""""""""
+
+call Hi("dosiniHeader", s:colors["dark_blue"], "NONE", "NONE")
+call Hi("dosiniLabel", s:colors["hot_pink"], "NONE", "NONE")

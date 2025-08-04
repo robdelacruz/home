@@ -6,16 +6,86 @@
 "  "       /_ _||  || || || || || || || ||      "
 "  "      (  - \\, \\  \\/  \\/\\ \\ \\ \\      "
 
+" AUTHOR:       Alessandro Yorba
+" SCRIPT URL:   https://github.com/AlessandroYorba/Alduin
+
+" UPDATED:      July 1, 2018
+" LATEST CHANGES: Added CursorColumn 
 
 
+" MAINTAINER:            Alessandro Yorba       https://github.com/AlessandroYorba
+" Arch Linux Package:    George Angelopoulos    https://github.com/lathan
+" Design Inspiration:    Karolis Koncevičius    https://github.com/KKPMW
+" Design Inspiration:    Romain Lafourcade      https://github.com/romainl
+" UI Contributions:      jiyyti                 https://github.com/jiyyt
+"
+" SUPPORTED ENVIRONMENTS:
+" 256 color terminals, Gui versions of vim, and Termguicolors versions of vim
+"
+" INSTALL INSTRUCTIONS:
+" Unix users, place alduin.vim in ~/.vim/colors
+" Windows users, place alduin.vim in  ~\vimfiles\colors
+"
+" SETUP AND CUSTOMIZATION:
+" To enable Alduin as your default colorscheme add the following  to your .vimrc:
+"   colorscheme alduin
 
-" A Terminal and Gui colorscheme 
-" Author:       Alessandro Yorba 
-" Maintainer:   Alessandro Yorba
-" Script URL:   https://github.com/AlessandroYorba/Alduin
-" License:      MIT
+" There are several settings for Alduin that you can enable from within your .vimrc
+" Here are some descriptions and examples on how to enable them:
+"
+"   "Darker Background
+"   let g:alduin_Shout_Dragon_Aspect = 1
+"   colorscheme alduin
+"
+"   "Black Background
+"   let g:alduin_Shout_Become_Ethereal = 1
+"   colorscheme alduin
+"
+"   "Dark Red Highlighting
+"   let g:alduin_Shout_Fire_Breath = 1
+"   colorscheme alduin
+"
+"   "Remove background highlight from Strings
+"   let g:alduin_Shout_Animal_Allegiance = 1
+"   colorscheme alduin
+"
+"   "Removes block MatchParen adds underline
+"   let g:alduin_Shout_Aura_Whisper = 1
+"   colorscheme alduin
+"
+" MATCHING TERMINAL:
+" Other themes for sierra: https://github.com/AlessandroYorba/Sierra
+"
+"-------------------------------------|-----------------------------------------
+"   BASIC        HEX                  |      BASIC         HEX                 |
+"-------------------------------------|-----------------------------------------
+"   Foreground   #dfdfaf              |      Selection     #af8787             |
+"   Background   #1c1c1c              |      Selected Text #dfdfaf             |
+"   Bold         #ffffff              |                                        |
+"   Links        #af0000              |                                        |
+"-------------------------------------|-----------------------------------------
 
+"-------------------------------------|-----------------------------------------
+"   CURSOR       HEX                                                           |
+"-------------------------------------|-----------------------------------------
+"   Cursor       #dfdfaf              |                                        |
+"   Cursor Text  #000000              |                                        |
+"-------------------------------------|-----------------------------------------
 
+"-------------------------------------|-----------------------------------------
+"   NORMAL       HEX          XTERM   |      BRIGHT       HEX          XTERM   |
+"-------------------------------------|-----------------------------------------
+"   Black        #1c1c1c      0       |      brBlack      #878787      8       |
+"   Red          #af5f5f      1       |      brRed        #af5f5f      9       |
+"   Green        #87875f      2       |      brGreen      #87875f      10      |
+"   Yellow       #af875f      3       |      brYellow     #af875f      11      |
+"   Blue         #878787      4       |      brBlue       #878787      12      |
+"   Magenta      #af8787      5       |      brMagenta    #af8787      13      |
+"   Cyan         #87afaf      6       |      brCyan       #87afaf      14      |
+"   White        #dfdfaf      7       |      brWhite      #dfdfaf      15      |
+"-------------------------------------|-----------------------------------------
+"
+"ALDUIN:
 set background=dark
 
 highlight clear
@@ -23,294 +93,216 @@ if exists("syntax_on")
     syntax reset
 endif
 
-
-" Alduin Shouts:
-"----------------------------------------------------------------
-
-" Default:
 let g:colors_name="alduin"
 
-
-" Aura Whisper:
-" Change the MatchParen HL to Underlined
-if !exists( "g:alduin_Shout_Aura_Whisper") " {{{
+if !exists( "g:alduin_Shout_Aura_Whisper")
     let g:alduin_Shout_Aura_Whisper = 0
-endif " }}}
+endif
 
-
-" Fire Breath:
-" Change the Special HL foreground color to Sahloknir
-if !exists( "g:alduin_Shout_Fire_Breath" ) " {{{
+if !exists( "g:alduin_Shout_Fire_Breath" )
     let g:alduin_Shout_Fire_Breath = 0
-endif " }}}
+endif
 
+if !exists("g:alduin_Shout_Animal_Allegiance")
+    let g:alduin_Shout_Animal_Allegiance = 0
+endif
 
-" Become Ethereal:
-" Changes the Default Alduin to a Darker Version
-if !exists( "g:alduin_Shout_Become_Ethereal" ) " {{{
+if !exists("g:alduin_Shout_Dragon_Aspect" )
+    let g:alduin_Shout_Dragon_Aspect = 0
+endif
+
+if !exists( "g:alduin_Shout_Become_Ethereal" )
     let g:alduin_Shout_Become_Ethereal = 0
-endif " }}}
+endif
 
+" COMMON COLORS AND SETTINGS
+highlight PreProc          guifg=#dfaf87  guibg=NONE     gui=NONE       ctermfg=180   ctermbg=NONE  cterm=NONE
+highlight Function         guifg=#875f5f  guibg=NONE     gui=NONE       ctermfg=95    ctermbg=NONE  cterm=NONE
+highlight Identifier       guifg=#87afaf  guibg=NONE     gui=NONE       ctermfg=109   ctermbg=NONE  cterm=NONE
+highlight Statement        guifg=#878787  guibg=NONE     gui=NONE       ctermfg=102   ctermbg=NONE  cterm=NONE
+highlight Constant         guifg=#af8787  guibg=NONE     gui=NONE       ctermfg=138   ctermbg=NONE  cterm=NONE
+highlight Type             guifg=#af875f  guibg=NONE     gui=NONE       ctermfg=137   ctermbg=NONE  cterm=NONE
+highlight Label            guifg=#878787  guibg=NONE     gui=NONE       ctermfg=102   ctermbg=NONE  cterm=NONE
+highlight Special          guifg=#af5f5f  guibg=NONE     gui=NONE       ctermfg=131   ctermbg=NONE  cterm=NONE
+highlight Operator         guifg=#878787  guibg=NONE     gui=NONE       ctermfg=102   ctermbg=NONE  cterm=NONE
+highlight Title            guifg=#dfaf87  guibg=NONE     gui=NONE       ctermfg=180   ctermbg=NONE  cterm=NONE
+highlight Conditional      guifg=#878787  guibg=NONE     gui=NONE       ctermfg=102   ctermbg=NONE  cterm=NONE
+highlight StorageClass     guifg=#875f5f  guibg=NONE     gui=NONE       ctermfg=95    ctermbg=NONE  cterm=NONE
+highlight htmlStatement    guifg=#878787  guibg=NONE     gui=NONE       ctermfg=102   ctermbg=NONE  cterm=NONE
+highlight htmlItalic       guifg=#dfaf87  guibg=NONE     gui=NONE       ctermfg=180   ctermbg=NONE  cterm=NONE
+highlight htmlArg          guifg=#875f5f  guibg=NONE     gui=NONE       ctermfg=95    ctermbg=NONE  cterm=NONE
+highlight cssIdentifier    guifg=#dfaf87  guibg=NONE     gui=NONE       ctermfg=180   ctermbg=NONE  cterm=NONE
+highlight cssClassName     guifg=#dfaf87  guibg=NONE     gui=NONE       ctermfg=180   ctermbg=NONE  cterm=NONE
+highlight Structure        guifg=#875f5f  guibg=NONE     gui=NONE       ctermfg=95    ctermbg=NONE  cterm=NONE
+highlight Typedef          guifg=#875f5f  guibg=NONE     gui=NONE       ctermfg=95    ctermbg=NONE  cterm=NONE
+highlight Repeat           guifg=#878787  guibg=NONE     gui=NONE       ctermfg=102   ctermbg=NONE  cterm=NONE
+highlight Keyword          guifg=#878787  guibg=NONE     gui=NONE       ctermfg=102   ctermbg=NONE  cterm=NONE
+highlight Exception        guifg=#878787  guibg=NONE     gui=NONE       ctermfg=102   ctermbg=NONE  cterm=NONE
+highlight Number           guifg=#af5f00  guibg=NONE     gui=NONE       ctermfg=130   ctermbg=NONE  cterm=NONE
+highlight Character        guifg=#af5f00  guibg=NONE     gui=NONE       ctermfg=130   ctermbg=NONE  cterm=NONE
+highlight Boolean          guifg=#af5f00  guibg=NONE     gui=NONE       ctermfg=130   ctermbg=NONE  cterm=NONE
+highlight Float            guifg=#af5f00  guibg=NONE     gui=NONE       ctermfg=130   ctermbg=NONE  cterm=NONE
+highlight Include          guifg=#dfaf87  guibg=NONE     gui=NONE       ctermfg=180   ctermbg=NONE  cterm=NONE
+highlight Define           guifg=#dfaf87  guibg=NONE     gui=NONE       ctermfg=180   ctermbg=NONE  cterm=NONE
+highlight Comment          guifg=#87875f  guibg=NONE     gui=NONE       ctermfg=101   ctermbg=NONE  cterm=NONE
 
-" Contract Vampirism:
-" Automatically changes the Alduin to Ethereal after 5pm
-if !exists( "g:alduin_Contract_Vampirism") " {{{
-    let g:alduin_Contract_Vampirism = 0
-endif " }}}
+"WINDOW UI
+highlight MoreMsg          guifg=#dfaf87  guibg=NONE     gui=NONE       ctermfg=180   ctermbg=NONE  cterm=NONE
+highlight VimCommentTitle  guifg=#6c6c6c  guibg=NONE     gui=reverse    ctermfg=242   ctermbg=NONE  cterm=reverse
+highlight SpecialComment   guifg=#6c6c6c  guibg=NONE     gui=reverse    ctermfg=242   ctermbg=NONE  cterm=reverse
+highlight Underlined       guifg=#af5f5f  guibg=NONE     gui=NONE       ctermfg=131   ctermbg=NONE  cterm=NONE
+highlight Todo             guifg=#af5f00  guibg=NONE     gui=reverse    ctermfg=130   ctermbg=NONE  cterm=reverse
+highlight Visual           guifg=#dfdfaf  guibg=#875f5f  gui=NONE       ctermfg=187   ctermbg=95    cterm=NONE
+highlight Question         guifg=#875f5f  guibg=NONE     gui=NONE       ctermfg=95    ctermbg=NONE  cterm=NONE
+highlight Search           guifg=#af5f00  guibg=NONE     gui=reverse    ctermfg=130   ctermbg=NONE  cterm=reverse
+highlight MatchParen       guifg=#878787  guibg=NONE     gui=reverse    ctermfg=102   ctermbg=NONE  cterm=reverse
+highlight Error            guifg=#af5f5f  guibg=#121212  gui=reverse    ctermfg=131   ctermbg=233   cterm=reverse
+highlight ErrorMsg         guifg=#af5f5f  guibg=NONE     gui=NONE       ctermfg=131   ctermbg=NONE  cterm=NONE
+highlight WarningMsg       guifg=#af5f5f  guibg=NONE     gui=NONE       ctermfg=131   ctermbg=NONE  cterm=NONE
+highlight Directory        guifg=#af5f5f  guibg=NONE     gui=NONE       ctermfg=131   ctermbg=NONE  cterm=NONE
+highlight Cursor           guifg=#000000  guibg=#dfdfaf  gui=NONE       ctermfg=16    ctermbg=187   cterm=NONE
+highlight CursorLineNR     guifg=#878787  guibg=NONE     gui=reverse    ctermfg=102   ctermbg=NONE  cterm=reverse
+highlight WildMenu         guifg=#dfdfaf  guibg=#875f5f  gui=NONE       ctermfg=187   ctermbg=95    cterm=NONE
+highlight ModeMsg          guifg=#dfdfaf  guibg=NONE     gui=NONE       ctermfg=187   ctermbg=NONE  cterm=NONE
+highlight Macro            guifg=#dfaf87  guibg=NONE     gui=NONE       ctermfg=180   ctermbg=NONE  cterm=NONE
+highlight PreCondit        guifg=#dfaf87  guibg=NONE     gui=NONE       ctermfg=180   ctermbg=NONE  cterm=NONE
+highlight IncSearch        guifg=#af5f5f  guibg=NONE     gui=reverse    ctermfg=131   ctermbg=NONE  cterm=reverse
+highlight VisualNOS        guifg=NONE     guibg=NONE     gui=underline  ctermfg=NONE  ctermbg=NONE  cterm=underline
 
+"DIFF
+highlight DiffAdd          guifg=#008787  guibg=NONE     gui=reverse    ctermfg=30   ctermbg=NONE  cterm=reverse
+highlight DiffText         guifg=#008787  guibg=NONE     gui=reverse    ctermfg=30   ctermbg=NONE  cterm=reverse
+highlight DiffChange       guifg=#005f5f  guibg=NONE     gui=reverse    ctermfg=23   ctermbg=NONE  cterm=reverse
+highlight DiffDelete       guifg=#af5f5f  guibg=NONE     gui=reverse    ctermfg=131   ctermbg=NONE  cterm=reverse
 
-" Colors:
-"----------------------------------------------------------------
-let s:alduin = {}
+"SPELLING
+highlight SpellBad         guifg=#ff0000  guibg=NONE     gui=undercurl  ctermfg=196   ctermbg=NONE  cterm=undercurl
+highlight SpellLocal       guifg=#5f875f  guibg=NONE     gui=undercurl  ctermfg=65    ctermbg=NONE  cterm=undercurl
+highlight SpellCap         guifg=#87afff  guibg=NONE     gui=undercurl  ctermfg=111   ctermbg=NONE  cterm=undercurl
+highlight SpellRare        guifg=#d75f00  guibg=NONE     gui=undercurl  ctermfg=166   ctermbg=NONE  cterm=undercurl
 
-let s:alduin.Abyss       = [ '000000', 16  ]
-let s:alduin.Krosulhah   = [ '5f0000', 52  ]
-let s:alduin.Morthal     = [ '5f5f87', 60  ]
-let s:alduin.Dawnstar    = [ '5f8787', 66  ]
-let s:alduin.Durnehviir  = [ '875f5f', 95  ]
-let s:alduin.Winterhold  = [ '87875f', 101 ]
-let s:alduin.Relonikiv   = [ '878787', 102 ]
-let s:alduin.Falkreath   = [ '8787af', 103 ]
-let s:alduin.Mirmulnir   = [ '87afaf', 109 ]
-let s:alduin.Markarth    = [ '87ffaf', 121 ]
-let s:alduin.Sahloknir   = [ 'af0000', 124 ]
-let s:alduin.Odahviing   = [ 'af5f00', 130 ]
-let s:alduin.Windhelm    = [ 'af5f5f', 131 ]
-let s:alduin.Viinturuth  = [ 'af875f', 137 ]
-let s:alduin.Kruziikrel  = [ 'af8787', 138 ]
-let s:alduin.Riverwood   = [ 'afd7d7', 152 ]
-let s:alduin.Sahrotaar   = [ 'dfaf87', 180 ]
-let s:alduin.Whiterun    = [ 'dfdfaf', 187 ]
-let s:alduin.Paarthurnax = [ 'ffdf87', 222 ]
-let s:alduin.Oblivion    = [ '080808', 232 ]
-let s:alduin.Solitude    = [ '121212', 233 ]
-let s:alduin.Skyrim      = [ '1c1c1c', 234 ]
-let s:alduin.Ivarstead   = [ '262626', 235 ]
-let s:alduin.Riften      = [ '303030', 236 ]
-let s:alduin.Rorikstead  = [ '3a3a3a', 237 ]
-let s:alduin.Nightingale = [ '585858', 240 ]
-let s:alduin.Ivory       = [ 'eeeeee', 255 ]
+" ALDUIN DEFAULT UI:
+if 1
+    "COLORS
+    highlight Normal          guifg=#dfdfaf  guibg=#1c1c1c  gui=NONE    ctermfg=187   ctermbg=234  cterm=NONE
+    highlight String          guifg=#ffdf87  guibg=#262626  gui=NONE    ctermfg=222   ctermbg=235  cterm=NONE
 
+    "WINDOW UI
+    highlight StatusLine      guifg=#9e9e9e  guibg=#262626  gui=NONE    ctermfg=247   ctermbg=235  cterm=NONE
+    highlight StatusLineNC    guifg=#6c6c6c  guibg=#262626  gui=NONE    ctermfg=242   ctermbg=235  cterm=NONE
+    highlight Pmenu           guifg=#626262  guibg=#262626  gui=NONE    ctermfg=241   ctermbg=235  cterm=NONE
+    highlight PmenuSel        guifg=#dfdfaf  guibg=#875f5f  gui=NONE    ctermfg=187   ctermbg=95   cterm=NONE
+    highlight PmenuSbar       guifg=#262626  guibg=#262626  gui=NONE    ctermfg=235   ctermbg=235  cterm=NONE
+    highlight PmenuThumb      guifg=#262626  guibg=#262626  gui=NONE    ctermfg=235   ctermbg=235  cterm=NONE
+    highlight TabLine         guifg=#6c6c6c  guibg=#262626  gui=NONE    ctermfg=242   ctermbg=235  cterm=NONE
+    highlight TabLineSel      guifg=#9e9e9e  guibg=#262626  gui=NONE    ctermfg=247   ctermbg=235  cterm=NONE
+    highlight TabLineFill     guifg=#6c6c6c  guibg=#262626  gui=NONE    ctermfg=242   ctermbg=235  cterm=NONE
+    highlight CursorLine      guifg=NONE     guibg=#121212  gui=NONE    ctermfg=NONE  ctermbg=233  cterm=NONE
+    highlight CursorColumn    guifg=NONE     guibg=#121212  gui=NONE    ctermfg=NONE  ctermbg=233  cterm=NONE
+    highlight ColorColumn     guifg=NONE     guibg=#262626  gui=NONE    ctermfg=NONE  ctermbg=235  cterm=NONE
+    highlight Folded          guifg=#444444  guibg=#121212  gui=NONE    ctermfg=238   ctermbg=233  cterm=NONE
+    highlight VertSplit       guifg=#444444  guibg=#1c1c1c  gui=NONE    ctermfg=238   ctermbg=234  cterm=NONE
+    highlight LineNr          guifg=#444444  guibg=#121212  gui=NONE    ctermfg=238   ctermbg=233  cterm=NONE
+    highlight FoldColumn      guifg=#87afaf  guibg=#1c1c1c  gui=NONE    ctermfg=109   ctermbg=234  cterm=NONE
+    highlight SignColumn      guifg=#87875f  guibg=#080808  gui=NONE    ctermfg=101   ctermbg=233  cterm=NONE
+    highlight NonText         guifg=#303030  guibg=NONE     gui=NONE    ctermfg=236   ctermbg=NONE cterm=NONE
+    highlight SpecialKey      guifg=#303030  guibg=NONE     gui=NONE    ctermfg=236   ctermbg=NONE cterm=NONE
+endif
 
-function! s:HL(group, fg, ...)
-    " Arguments: group, guifg, guibg, gui, guisp
+" SHOUT_DRAGON_ASPECT UI:
+if g:alduin_Shout_Dragon_Aspect
+    "COLORS
+    highlight Normal          guifg=#dfdfaf  guibg=#121212  gui=NONE    ctermfg=187   ctermbg=233  cterm=NONE
+    highlight String          guifg=#ffdf87  guibg=#1c1c1c  gui=NONE    ctermfg=222   ctermbg=234  cterm=NONE
 
-    let highlightString = 'hi ' . a:group . ' '
+    "WINDOW UI
+    highlight StatusLine      guifg=#949494  guibg=#1c1c1c  gui=NONE    ctermfg=246   ctermbg=234  cterm=NONE
+    highlight StatusLineNC    guifg=#626262  guibg=#1c1c1c  gui=NONE    ctermfg=241   ctermbg=234  cterm=NONE
+    highlight Pmenu           guifg=#626262  guibg=#1c1c1c  gui=NONE    ctermfg=241   ctermbg=234  cterm=NONE
+    highlight PmenuSel        guifg=#dfdfaf  guibg=#875f5f  gui=NONE    ctermfg=187   ctermbg=95   cterm=NONE
+    highlight PmenuSbar       guifg=#1c1c1c  guibg=#1c1c1c  gui=NONE    ctermfg=234   ctermbg=234  cterm=NONE
+    highlight PmenuThumb      guifg=#1c1c1c  guibg=#1c1c1c  gui=NONE    ctermfg=234   ctermbg=234  cterm=NONE
+    highlight TabLine         guifg=#626262  guibg=#1c1c1c  gui=NONE    ctermfg=241   ctermbg=234  cterm=NONE
+    highlight TabLineSel      guifg=#949494  guibg=#1c1c1c  gui=NONE    ctermfg=246   ctermbg=234  cterm=NONE
+    highlight TabLineFill     guifg=#262626  guibg=#1c1c1c  gui=NONE    ctermfg=241   ctermbg=234  cterm=NONE
+    highlight CursorLine      guifg=NONE     guibg=#080808  gui=NONE    ctermfg=NONE  ctermbg=232  cterm=NONE
+    highlight CursorColumn    guifg=NONE     guibg=#080808  gui=NONE    ctermfg=NONE  ctermbg=232  cterm=NONE
+    highlight ColorColumn     guifg=NONE     guibg=#1c1c1c  gui=NONE    ctermfg=NONE  ctermbg=234  cterm=NONE
+    highlight Folded          guifg=#444444  guibg=#080808  gui=NONE    ctermfg=238   ctermbg=232  cterm=NONE
+    highlight VertSplit       guifg=#444444  guibg=#121212  gui=NONE    ctermfg=238   ctermbg=233  cterm=NONE
+    highlight LineNr          guifg=#444444  guibg=#080808  gui=NONE    ctermfg=238   ctermbg=232  cterm=NONE
+    highlight FoldColumn      guifg=#87afaf  guibg=#121212  gui=NONE    ctermfg=109   ctermbg=233  cterm=NONE
+    highlight SignColumn      guifg=#87875f  guibg=#080808  gui=NONE    ctermfg=101   ctermbg=232  cterm=NONE
+    highlight NonText         guifg=#262626  guibg=NONE     gui=NONE    ctermfg=235   ctermbg=NONE cterm=NONE
+    highlight SpecialKey      guifg=#262626  guibg=NONE     gui=NONE    ctermfg=235   ctermbg=NONE cterm=NONE
+endif
 
-    " Settings for highlight group ctermfg & guifg 
-    if strlen(a:fg)
-        if a:fg == 'fg'
-            let highlightString .= 'guifg=fg ctermfg=fg '
-        else
-            let color = get(s:alduin, a:fg)
-            let highlightString .= 'guifg=#' . color[0] . ' ctermfg=' . color[1] . ' '
-        endif
-    endif
-
-    " Settings for highlight group termbg & guibg 
-    if a:0 >= 1 && strlen(a:1)
-        if a:1 == 'bg'
-            let highlightString .= 'guibg=bg ctermbg=bg '
-        else
-            let color = get(s:alduin, a:1)
-            let highlightString .= 'guibg=#' . color[0] . ' ctermbg=' . color[1] . ' '
-        endif
-    endif
-
-    " Settings for highlight group cterm & gui 
-    if a:0 >= 2 && strlen(a:2)
-        let highlightString .= 'gui=' . a:2 . ' cterm=' . a:2 . ' '
-    endif
-
-    " Settings for highlight guisp
-    if a:0 >= 3 && strlen(a:3)
-        let color = get(s:alduin, a:3)
-        let highlightString .= 'guisp=#' . color[0] . ' '
-    endif
-
-    " echom highlightString
-
-    execute highlightString
-endfunction
-
-
-" Editor Settings:
-"--------------------------------------------------------------------------------
-call s:HL( 'Normal', 'Whiterun', 'Skyrim', '' )
-call s:HL( 'CursorLineNR', 'Nightingale', '', 'none' )
-call s:HL( 'CursorLine', '', 'Ivarstead', 'none' )
-call s:HL( 'LineNr', 'Rorikstead', 'Solitude','none' )
-"TODO
-"call s:HL( 'Cursor', '', '',          '' )
-
-
-" Number Column:
-"--------------------------------------------------------------------------------
-call s:HL( 'FoldColumn', 'Mirmulnir', 'Skyrim', '' )
-call s:HL( 'Folded', 'Rorikstead', 'Solitude', 'none' )
-call s:HL( 'SignColumn', 'Winterhold', 'Solitude','none' )
-"TODO
-"call s:HL( 'CursorColumn', '', '', '' )
-
-
-" WindowTab Delimiters:
-"--------------------------------------------------------------------------------
-call s:HL( 'VertSplit', 'Winterhold', 'Ivarstead', 'none' )
-call s:HL( 'TabLine', 'Winterhold', 'Solitude', 'none' )
-call s:HL( 'TabLineFill', 'Winterhold', 'Solitude', 'none' )
-call s:HL( 'TabLineSel', 'Solitude', 'Winterhold', 'none' )
-"TODO
-"call s:HL( 'ColorColumn', '', '', '' )
-
-
-" File Navigation: 
-"--------------------------------------------------------------------------------
-call s:HL( 'Directory', 'Windhelm', '', 'none' )
-call s:HL( 'Search', 'Whiterun', 'Krosulhah', 'none' )
-call s:HL( 'IncSearch', 'Windhelm', '', 'reverse' )
-
-
-" Prompt Status:
-"--------------------------------------------------------------------------------
-call s:HL( 'StatusLine', 'Solitude', 'Winterhold', 'none' )
-call s:HL( 'StatusLineNC', 'Winterhold', 'Riften', 'none' )
-call s:HL( 'WildMenu', 'Whiterun', 'Krosulhah', 'none' )
-call s:HL( 'Title', 'Sahrotaar', '', 'none' )
-call s:HL( 'MoreMsg', 'Sahrotaar', '', 'none' )
-call s:HL( 'ModeMsg', 'Mirmulnir', '', 'none' )
-call s:HL( 'Question', 'Durnehviir', '', '' )
-
-
-" Visual Aid: 
-"--------------------------------------------------------------------------------
-call s:HL( 'MatchParen', 'Skyrim', 'Viinturuth', 'none' )
-call s:HL( 'Visual', 'Whiterun', 'Krosulhah', 'none' )
-call s:HL( 'VisualNOS', '', '', 'underline' )
-call s:HL( 'NonText', 'Winterhold', '', 'none' )
-call s:HL( 'Todo', 'Odahviing', 'Solitude', 'italic' )
-call s:HL( 'Underlined', 'Riverwood', '', 'none' )
-call s:HL( 'Error', 'Windhelm', 'Solitude', 'reverse' )
-call s:HL( 'ErrorMsg', 'Windhelm', 'Solitude', 'reverse' )
-call s:HL( 'WarningMsg', 'Windhelm', '', 'none' )
-call s:HL( 'SpecialKey', 'Mirmulnir', '', '' )
-"TODO
-"call s:HL( 'Ignore', '', '', '' )
-
-
-" Variable Types:
-"--------------------------------------------------------------------------------
-call s:HL( 'Constant', 'Kruziikrel', '', 'none' )
-call s:HL( 'String', 'Paarthurnax', 'Ivarstead', 'none' )
-call s:HL( 'Character', 'Odahviing', '', 'none' )
-call s:HL( 'Number', 'Odahviing', '', 'none' )
-call s:HL( 'Boolean', 'Odahviing', '', 'none' )
-call s:HL( 'Float', 'Odahviing', '', 'none' )
-call s:HL( 'Identifier', 'Mirmulnir', '', 'none' )
-call s:HL( 'Function', 'Durnehviir', '', 'none' )
-"TODO
-"call s:HL( 'StringDelimiter', '', '', '' )
-
-
-" Language Constructs:
-"--------------------------------------------------------------------------------
-call s:HL( 'Statement', 'Relonikiv', '', 'none' )
-call s:HL( 'Conditional', 'Relonikiv', '', 'none' )
-call s:HL( 'Repeat', 'Relonikiv', '', 'none' )
-call s:HL( 'Label', 'Relonikiv', '', 'none' )
-call s:HL( 'Operator', 'Relonikiv', '', 'none' )
-call s:HL( 'Keyword', 'Relonikiv', '', 'none' )
-call s:HL( 'Exception', 'Relonikiv', '', 'none' )
-call s:HL( 'Comment', 'Winterhold', '', 'none' )
-call s:HL( 'SpecialComment', 'Winterhold', 'Solitude', 'reverse' )
-call s:HL( 'Special', 'Windhelm', '', 'none' )
-"TODO
-"call s:HL( 'SpecialChar', '', '', '' )
-"call s:HL( 'Tag', '', '', '' )
-"call s:HL( 'Delimiter', '', '', '' )
-"call s:HL( 'SpecialComment', '', '', '' )
-"call s:HL( 'Debug', '', '', '' )
-
-
-" C Like:
-"--------------------------------------------------------------------
-call s:HL( 'PreProc', 'Sahrotaar', '', 'none' )
-call s:HL( 'Include', 'Sahrotaar', '', 'none' )
-call s:HL( 'Define', 'Sahrotaar', '', 'none' )
-call s:HL( 'Macro', 'Sahrotaar', '', 'none' )
-call s:HL( 'PreCondit', 'Sahrotaar', '', 'none' )
-call s:HL( 'Type', 'Viinturuth', '', 'none' )
-call s:HL( 'StorageClass', 'Viinturuth', '', 'none' )
-call s:HL( 'Structure', 'Viinturuth', '', 'none' )
-call s:HL( 'Typedef', 'Viinturuth', '', 'none' )
-
-
-" HTML:
-"--------------------------------------------------------------------
-call s:HL( 'htmlArg', 'Durnehviir', '', 'none' )
-call s:HL( 'htmlItalic', 'Sahrotaar', '', 'none' )
-
-
-" Diff:
-"--------------------------------------------------------------------
-call s:HL( 'DiffAdd', 'Ivarstead', 'Dawnstar', 'none' )
-call s:HL( 'DiffChange', 'Ivarstead', 'Morthal', 'none' )
-call s:HL( 'DiffDelete', 'Ivarstead', 'Windhelm', 'none' )
-call s:HL( 'DiffText', 'Ivarstead', 'Falkreath', 'none' )
-
-
-" Completion Menu:
-"--------------------------------------------------------------------
-call s:HL( 'Pmenu', 'Winterhold', 'Solitude', 'none' )
-call s:HL( 'PmenuSel', 'Whiterun', 'Krosulhah', 'none' )
-call s:HL( 'PmenuSbar', '', 'Solitude', 'none' )
-call s:HL( 'PmenuThumb', '', 'Whiterun', '' )
-
-
-" Spelling:
-"--------------------------------------------------------------------
-call s:HL( 'SpellBad', 'Windhelm', '', 'undercurl' )
-"TODO
-"call s:HL( 'SpellCap', '', '', '' )
-"call s:HL( 'SpellLocal', '', '', '' )
-"call s:HL( 'SpellRare', '', '', '' )
-
-
-" Aura Whisper:
-"--------------------------------------------------------------------
-if g:alduin_Shout_Aura_Whisper
-    call s:HL( 'MatchParen', 'Ivory', 'Skyrim', 'underline' )
-end
-
-
-" Fire Breath:
-if g:alduin_Shout_Fire_Breath
-    call s:HL( 'Special', 'Sahloknir', '', 'none' )
-    call s:HL( 'Title', 'Windhelm', '', 'none' )
-end
-
-
-" Become Ethereal: 
-"--------------------------------------------------------------------
+" SHOUT_BECOME_ETHEREAL UI:
 if g:alduin_Shout_Become_Ethereal
-    call s:HL( 'Normal', 'Whiterun', 'Oblivion', 'none' )
-    call s:HL( 'LineNr', 'Riften', 'Abyss','none' )
-    call s:HL( 'String', 'Paarthurnax', 'Solitude', 'none' )
-    call s:HL( 'CursorLine', '', 'Solitude', 'none' )
-    call s:HL( 'TabLineFill', 'Winterhold', 'Abyss', 'none' )
-    call s:HL( 'TabLine', 'Winterhold', 'Abyss', 'none' )
-    call s:HL( 'VertSplit', 'Winterhold', 'Solitude', 'none' )
-    call s:HL( 'FoldColumn', 'Mirmulnir', 'Oblivion', '' )
-    call s:HL( 'SignColumn', 'Winterhold', 'Abyss','none' )
-end
+    "COLORS
+    highlight Normal          guifg=#dfdfaf  guibg=#080808  gui=NONE    ctermfg=187   ctermbg=232  cterm=NONE
+    highlight String          guifg=#ffdf87  guibg=#121212  gui=NONE    ctermfg=222   ctermbg=233  cterm=NONE
 
+    "WINDOW UI
+    highlight StatusLine      guifg=#8a8a8a  guibg=#121212  gui=NONE    ctermfg=245   ctermbg=233  cterm=NONE
+    highlight StatusLineNC    guifg=#585858  guibg=#121212  gui=NONE    ctermfg=240   ctermbg=233  cterm=NONE
+    highlight Pmenu           guifg=#585858  guibg=#121212  gui=NONE    ctermfg=240   ctermbg=233  cterm=NONE
+    highlight PmenuSel        guifg=#dfdfaf  guibg=#875f5f  gui=NONE    ctermfg=187   ctermbg=95   cterm=NONE
+    highlight PmenuSbar       guifg=#121212  guibg=#121212  gui=NONE    ctermfg=233   ctermbg=233  cterm=NONE
+    highlight PmenuThumb      guifg=#121212  guibg=#121212  gui=NONE    ctermfg=233   ctermbg=233  cterm=NONE
+    highlight TabLine         guifg=#585858  guibg=#121212  gui=NONE    ctermfg=240   ctermbg=233  cterm=NONE
+    highlight TabLineFill     guifg=#585858  guibg=#121212  gui=NONE    ctermfg=240   ctermbg=233  cterm=NONE
+    highlight TabLineSel      guifg=#8a8a8a  guibg=#121212  gui=NONE    ctermfg=245   ctermbg=233  cterm=NONE
+    highlight CursorLine      guifg=NONE     guibg=#000000  gui=NONE    ctermfg=NONE  ctermbg=16   cterm=NONE
+    highlight CursorColumn    guifg=NONE     guibg=#000000  gui=NONE    ctermfg=NONE  ctermbg=16   cterm=NONE
+    highlight ColorColumn     guifg=NONE     guibg=#121212  gui=NONE    ctermfg=NONE  ctermbg=233  cterm=NONE
+    highlight Folded          guifg=#444444  guibg=#000000  gui=NONE    ctermfg=238   ctermbg=16   cterm=NONE
+    highlight VertSplit       guifg=#444444  guibg=#080808  gui=NONE    ctermfg=238   ctermbg=232  cterm=NONE
+    highlight LineNr          guifg=#444444  guibg=#000000  gui=NONE    ctermfg=238   ctermbg=16   cterm=NONE
+    highlight FoldColumn      guifg=#87afaf  guibg=#080808  gui=NONE    ctermfg=109   ctermbg=232  cterm=NONE
+    highlight SignColumn      guifg=#87875f  guibg=#000000  gui=NONE    ctermfg=101   ctermbg=16   cterm=NONE
+    highlight NonText         guifg=#1c1c1c  guibg=NONE     gui=NONE    ctermfg=234   ctermbg=NONE cterm=NONE
+    highlight SpecialKey      guifg=#1c1c1c  guibg=NONE     gui=NONE    ctermfg=234   ctermbg=NONE cterm=NONE
+endif
 
-" Contract Vampirism: 
-"--------------------------------------------------------------------
-if g:alduin_Contract_Vampirism
-    let alduin_Hour = strftime("%H") 
-    if 7 <= alduin_Hour && alduin_Hour < 17
-        let g:alduin_Shout_Become_Ethereal = 0
-    else
-        let g:alduin_Shout_Become_Ethereal = 1
-    endif
-end
+" SHOUT_ANIMAL_ALLEGIANCE:
+if g:alduin_Shout_Animal_Allegiance
+    "COLORS
+    highlight String          guifg=#ffdf87  guibg=NONE  ctermfg=222  ctermbg=NONE  cterm=NONE  gui=NONE
+endif
+
+" SHOUT_AURA_WHISPER:
+if g:alduin_Shout_Aura_Whisper
+    "WINDOW UI
+    highlight MatchParen      guifg=#eeeeee  guibg=#1c1c1c gui=underline  ctermfg=255  ctermbg=234  cterm=underline
+endif
+
+" SHOUT_FIRE_BREATH:
+if g:alduin_Shout_Fire_Breath
+    "COLORS
+    highlight Title           guifg=#af5f5f  guibg=NONE     gui=NONE  ctermfg=131  ctermbg=NONE  cterm=NONE
+    highlight Special         guifg=#af0000  guibg=NONE     gui=NONE  ctermfg=124  ctermbg=NONE  cterm=NONE
+    "WINDOW UI
+    highlight Search          guifg=#dfdfaf  guibg=#5f0000  gui=NONE  ctermfg=187  ctermbg=52    cterm=NONE
+endif
+
+" LICENSE:
+" Copyright (c) 2018 Alessandro Yorba
+"
+" Permission is hereby granted, free of charge, to any person obtaining a copy
+" of this software and associated documentation files (the "Software"), to deal
+" in the Software without restriction, including without limitation the rights
+" to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+" copies of the Software, and to permit persons to whom the Software is
+" furnished to do so, subject to the following conditions:
+"
+" The above copyright notice and this permission notice shall be included in
+" all copies or substantial portions of the Software.
+"
+" THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+" IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+" FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+" AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+" LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+" OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+" THE SOFTWARE.

@@ -1,6 +1,6 @@
 " Vim color file
-" Maintainer:	Hideyuki <e27874_gmail_com>
-" Last Change:	2007 Feb 12
+" Maintainer:	Hideyuki Kobayashi <e27874_gmail_com>
+" Last Change:	2007 Nov 04
 
 " This color scheme uses a black or a white background.
 
@@ -34,9 +34,6 @@ hi TabLineSel	guibg=NONE	guifg=NONE	gui=bold
 hi TabLineFill	guibg=NONE	guifg=NONE	gui=reverse
 hi Cursor	guibg=fg	guifg=bg	gui=NONE
 hi lCursor	guibg=fg	guifg=bg	gui=NONE
-if has('multi_byte_ime')
-  hi CursorIM	guibg=fg	guifg=bg	gui=NONE
-endif
 if &background == "light"
   hi Directory	guibg=NONE	guifg=#0000ff	gui=NONE
   hi LineNr	guibg=NONE	guifg=#800000	gui=NONE
@@ -57,9 +54,9 @@ if &background == "light"
   hi FoldColumn	guibg=#808080	guifg=#000080	gui=NONE
   hi SignColumn	guibg=#808080	guifg=#000080	gui=NONE
   hi Visual	guibg=#c0c0c0	guifg=NONE	gui=NONE
-  hi DiffAdd	guibg=#00ff00	guifg=NONE	gui=NONE
+  hi DiffAdd	guibg=#00ffff	guifg=NONE	gui=NONE
   hi DiffChange	guibg=#ff00ff	guifg=NONE	gui=NONE
-  hi DiffDelete	guibg=#00ffff	guifg=#0000ff	gui=bold
+  hi DiffDelete	guibg=NONE	guifg=#0000ff	gui=bold
   hi TabLine	guibg=#c0c0c0	guifg=NONE	gui=underline
   hi CursorColumn	guibg=#c0c0c0	guifg=NONE	gui=NONE
   hi CursorLine	guibg=#c0c0c0	guifg=NONE	gui=NONE

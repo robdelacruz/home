@@ -8,7 +8,7 @@
 "  /_____/\__,_/____/\__/   /____/_____/\____/  
 "                                                               "
 " License: {{{
-" Copyright (c) 2013-2016 Kai Yuan
+" Copyright (c) 2013 Kai Yuan
 "
 " Permission is hereby granted, free of charge, to any per‐ son obtaining a
 " copy of this software and associated doc‐ umentation files (the “Software”),
@@ -78,8 +78,7 @@ let colors_name = "last256"
 " ----------------------------------------------------------------------------
 if has("gui_running")
   let s:vmode      = "gui"
-	let s:white      = "#c6c6c6"
-	let s:background = "#002b30"
+  let s:background = "#11262b"
   let s:window     = "#5f5f5f"
   let s:darkcolumn = "#1c1c1c"
   let s:addbg      = "#5f875f"
@@ -87,21 +86,21 @@ if has("gui_running")
   let s:changebg   = "#5f5f87"
   let s:changefg   = "#d7d7ff"
   let s:brown      = "#87875f"
-  let s:foreground = "#808080"
+  "let s:foreground = "#bcbcbc"
+	let s:foreground = "#839496"
   let s:selection  = "#585858"
   let s:visual     = "#5f8787"
-  let s:line       = "#204444"
-  let s:comment    = "#585858"
+  let s:line       = "#262626"
+  let s:comment    = "#586e75"
   let s:red        = "#d75f5f"
   let s:orange     = "#d78700"
   let s:yellow     = "#d7af5f"
-  let s:green      = "#5faf5f"
+  let s:green      = "#87af5f"
   let s:aqua       = "#5fafd7"
-  let s:blue       = "#5f87ff"
-  let s:purple     = "#8787ff"
+  let s:blue       = "#5f87d7"
+  let s:purple     = "#d787d7"
 else
   let s:vmode      = "cterm"
-	let s:white      = "251"
   let s:background = "16"
   let s:window     = "59"
   let s:darkcolumn = "234"
@@ -109,19 +108,19 @@ else
   let s:addfg      = "193"
   let s:changebg   = "60"
   let s:changefg   = "189"
-  let s:brown      = "101"
+  let s:brown      = "101"    
   let s:foreground = "244"
   let s:selection  = "240"
   let s:visual     = "66"
-  let s:line       = "236"
-  let s:comment    = "240"
+  let s:line       = "235"
+  let s:comment    = "239"
   let s:red        = "167"
   let s:orange     = "172"
-  let s:yellow     = "178"
-  let s:green      = "71"
-  let s:aqua       = "111"
-  let s:blue       = "69"
-  let s:purple     = "105"
+  let s:yellow     = "179"
+  let s:green      = "107"
+  let s:aqua       = "74"
+  let s:blue       = "68"
+  let s:purple     = "176"
 endif
 
 "}}}
@@ -148,7 +147,6 @@ exe "let s:bg_visual     = ' ".s:vmode."bg = ".s:visual ."'"
 exe "let s:bg_line       = ' ".s:vmode."bg = ".s:line      ."'"
 exe "let s:bg_comment    = ' ".s:vmode."bg = ".s:comment   ."'"
 exe "let s:bg_brown      = ' ".s:vmode."bg = ".s:brown   ."'"
-exe "let s:bg_white      = ' ".s:vmode."bg = ".s:white   ."'"
 exe "let s:bg_red        = ' ".s:vmode."bg = ".s:red       ."'"
 exe "let s:bg_orange     = ' ".s:vmode."bg = ".s:orange    ."'"
 exe "let s:bg_yellow     = ' ".s:vmode."bg = ".s:yellow    ."'"
@@ -171,7 +169,6 @@ exe "let s:fg_visual     = ' ".s:vmode."fg = ".s:visual ."'"
 exe "let s:fg_line       = ' ".s:vmode."fg = ".s:line      ."'"
 exe "let s:fg_comment    = ' ".s:vmode."fg = ".s:comment   ."'"
 exe "let s:fg_brown      = ' ".s:vmode."fg = ".s:brown   ."'"
-exe "let s:fg_white      = ' ".s:vmode."fg = ".s:white   ."'"
 exe "let s:fg_red        = ' ".s:vmode."fg = ".s:red       ."'"
 exe "let s:fg_orange     = ' ".s:vmode."fg = ".s:orange    ."'"
 exe "let s:fg_yellow     = ' ".s:vmode."fg = ".s:yellow    ."'"
@@ -248,7 +245,6 @@ exe "hi! ColorColumn"   .s:fg_none        .s:bg_line        .s:fmt_none
 "		Conceal"
 "		Cursor"
 "		CursorIM"
-exe "hi! Title"         .s:fg_white       .s:bg_none        .s:fmt_bold
 exe "hi! CursorColumn"  .s:fg_none        .s:bg_line        .s:fmt_none
 exe "hi! CursorLine"    .s:fg_none        .s:bg_line        .s:fmt_none
 exe "hi! Directory"     .s:fg_aqua        .s:bg_none        .s:fmt_none

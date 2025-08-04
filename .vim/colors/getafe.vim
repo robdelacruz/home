@@ -81,8 +81,8 @@ hi SpellLocal      guifg=#F8FFF9   guibg=#1B1D1E   gui=none            ctermfg=1
 hi SpellRare       guifg=#F8FFF9   guibg=#1B1D1E   gui=none            ctermfg=15      ctermbg=234
 hi StatusLine      guifg=#F8FFF9   guibg=#1B1D1E   gui=none            ctermfg=15      ctermbg=234
 hi StatusLineNC    guifg=#F8FFF9   guibg=#1B1D1E   gui=none            ctermfg=15      ctermbg=234
-hi TabLine         guifg=#5A7085   guibg=#1B1D1E   gui=none            ctermfg=15      ctermbg=234
-hi TabLineFill     guifg=#5A7085   guibg=#323638   gui=none            ctermfg=15      ctermbg=234
+hi TabLine         guifg=#F8FFF9   guibg=#1B1D1E   gui=none            ctermfg=15      ctermbg=234
+hi TabLineFill     guifg=#F8FFF9   guibg=#1B1D1E   gui=none            ctermfg=15      ctermbg=234
 hi TabLineSel      guifg=#F8FFF9   guibg=#1B1D1E   gui=none            ctermfg=15      ctermbg=234
 hi Title           guifg=#F8FFF9   guibg=#1B1D1E   gui=none            ctermfg=15      ctermbg=234
 hi VisualNOS       guifg=#F8FFF9   guibg=#1B1D1E   gui=none            ctermfg=15      ctermbg=234
@@ -187,10 +187,3 @@ hi Exception       guifg=#FF0000
 hi Include         guifg=#FF0000
 
 
-" PHP specific colors
-hi phpStructure    guifg=#69C3FF                                       ctermfg=154
-hi phpRegion       guifg=#AEEE00                                       ctermfg=204
-hi phpStorageClass guifg=#69C3FF
-hi phpRepeat       guifg=#FF6E0E
-hi phpIdentifier   guifg=#F8FFF9
-hi phpMethodsVar   guifg=#69C3FF

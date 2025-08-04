@@ -19,10 +19,10 @@ let s:gui03 = "687d68"
 let s:gui04 = "809980"
 let s:gui05 = "8ca68c"
 let s:gui06 = "cfe8cf"
-let s:gui07 = "f4fbf4"
+let s:gui07 = "f0fff0"
 let s:gui08 = "e6193c"
 let s:gui09 = "87711d"
-let s:gui0A = "98981b"
+let s:gui0A = "c3c322"
 let s:gui0B = "29a329"
 let s:gui0C = "1999b3"
 let s:gui0D = "3d62f5"
@@ -210,15 +210,6 @@ call <sid>hi("Typedef",      s:gui0A, "", s:cterm0A, "", "")
 " C highlighting
 call <sid>hi("cOperator",   s:gui0C, "", s:cterm0C, "", "")
 call <sid>hi("cPreCondit",  s:gui0E, "", s:cterm0E, "", "")
-
-" C# highlighting
-call <sid>hi("csClass",                 s:gui0A, "", s:cterm0A, "", "")
-call <sid>hi("csAttribute",             s:gui0A, "", s:cterm0A, "", "")
-call <sid>hi("csModifier",              s:gui0E, "", s:cterm0E, "", "")
-call <sid>hi("csType",                  s:gui08, "", s:cterm08, "", "")
-call <sid>hi("csUnspecifiedStatement",  s:gui0D, "", s:cterm0D, "", "")
-call <sid>hi("csContextualStatement",   s:gui0E, "", s:cterm0E, "", "")
-call <sid>hi("csNewDecleration",        s:gui08, "", s:cterm08, "", "")
 
 " CSS highlighting
 call <sid>hi("cssBraces",      s:gui05, "", s:cterm05, "", "")

@@ -1,0 +1,7 @@
+#!/bin/sh
+#caps.sh
+"/c/Program Files/AutoHotkey/v2/AutoHotkey" ~/bin/robenv.ahk &
+STARTDIR=${STARTDIR:-~/src}
+tmux -2 new-session -c $STARTDIR \; split-window -h
+#tmux -2 new-session \; split-window -h
+
